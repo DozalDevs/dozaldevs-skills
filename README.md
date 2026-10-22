@@ -26,14 +26,29 @@ Make sure $HOME/.local/bin is on your PATH. On macOS you can run `brew install r
 
 You do this part yourself, because it needs you signed in:
 
-1. Create your organization in DozalDevs.
-2. Under Settings, API keys, create a key at the level the job needs. A viewer key can only read; an admin key can hire and approve.
-3. Set `AI_EMPLOYEE_API_KEY` to that key in the shell your assistant runs in.
-4. Optionally set `AI_EMPLOYEE_TENANT_ID` if you belong to more than one organization, and `AI_EMPLOYEE_BASE_URL` if you use a different host.
+1. Sign up at https://app.dozaldevs.com and create your organization.
+2. In the left menu, under Setup, open API Keys and create a key. The screen describes each level in plain words:
+   - "See everything, change nothing" is a Viewer key. It can only read.
+   - "Run Dozals and approve their work" is a Member key. It can run employees and approve or reject what they produce.
+   - "Build and edit Dozals" is an Admin key. It can also hire and edit employees. Pick this one to try everything below.
+   - "Everything an owner can, except keys, members, deleting the org and billing" is an Owner key.
+3. Copy the key (it starts with `dze_` and is shown once) and set `AI_EMPLOYEE_API_KEY` to it in the shell your assistant runs in.
+4. Optionally set `AI_EMPLOYEE_TENANT_ID` to the organization ID shown next to the key. The skills look it up for you when it's unset. Set `AI_EMPLOYEE_BASE_URL` only if you were given a different host.
 
 ## Try it
 
 Ask your assistant: list my AI employees
+
+## Use the API without an assistant
+
+Everything the skills do is a plain HTTPS call, so you can also call it from your own code:
+
+- Base URL: `https://app.dozaldevs.com`
+- Spec: `https://app.dozaldevs.com/openapi.json` (OpenAPI, no key needed to read it)
+- Auth: send the key as `Authorization: Bearer dze_...`
+- Guide: [the customer API guide](https://github.com/DozalDevs/dozaldevs-skills/blob/main/skills/operate-ai-employees/references/customer-api.md), shipped with the operate skill, covers keys and levels, lists, errors, runs, approvals, logs, hiring and handoffs, with `curl` examples.
+
+To start an employee from your own system (a cron job, CI, another service), call `POST /admin/tenants/{tenantId}/employees/{slug}/trigger` with a Member key or higher and keep the `task_id` it returns. The guide's "Starting a run from your own system" section has the details, including what isn't there yet.
 
 ## License
 

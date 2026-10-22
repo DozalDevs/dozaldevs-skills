@@ -119,8 +119,8 @@ Never press an approval or "just send it" choice on the human's behalf.
 
 Without a `dze_` key, a person does a one-time browser setup. You can't create the organization or mint the first key. Tell them to:
 
-1. Sign up or log in to the dashboard and create the organization.
-2. Open **Settings, API keys**, create a key at the level the job needs, and copy the `dze_` key (shown once) and the organization ID.
+1. Sign up or log in at `https://app.dozaldevs.com` and create the organization.
+2. In the left menu, under **Setup**, open **API Keys** and create a key at the level the job needs ("Build and edit Dozals" is Admin, which hiring needs), and copy the `dze_` key (shown once) and the organization ID.
 3. Paste both back (`AI_EMPLOYEE_API_KEY`, `AI_EMPLOYEE_TENANT_ID`).
 
 ---

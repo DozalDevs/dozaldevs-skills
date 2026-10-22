@@ -171,6 +171,20 @@ You set it through the Hiring Dozal's edit chat, or by sending `PATCH /admin/ten
 }
 ```
 
+### Starting a run from your own system
+
+To start a Dozal from a cron job, CI or another service, call the same trigger route with a key minted for that system. Member level is enough to run Dozals and settle approvals, and naming the key after the system tells you later which runs it started.
+
+- Find the Dozal's `slug` with `GET /admin/tenants/:tenantId/archetypes` (the Dozal list). The slug is stable; the display name isn't.
+- Run it once with `?dry_run=true` first. A missing required input answers `422` with `MISSING_REQUIRED_INPUTS` and lists them in `missing`, so you learn the input keys without starting anything.
+- `inputs` takes string values keyed by the Dozal's input keys. `prompt` is an optional free-text note for this one run.
+- Keep the `task_id` from the `202`, then poll `GET .../tasks/:taskId` or open the status stream until `phase_category` is `terminal`, and read `output` from the task.
+
+What isn't there yet, so you can plan around it:
+
+- There's no idempotency key. Every accepted call starts a new run, so if your client retries after a timeout, list `GET .../tasks?archetype_id=:archetypeId&since=...` first to see whether the first call already started one.
+- There's no per-Dozal webhook URL to receive your events, and no callback when a run finishes. Your system calls the trigger route and then polls or streams. A Dozal can also start on its own from a schedule, from an event in a connected app, or from another Dozal finishing (see Handoffs below).
+
 ## The run's logs
 
 Once a run has started, the API can show you what it recorded. We call the whole set the run's logs. They're all readable at Viewer level, and these are the pieces:
@@ -281,7 +295,7 @@ GitHub has one extra case. If the installation already exists and the person who
 An agent can do almost everything, but a few steps are a human's by design:
 
 - Creating the organization. `POST /me/organizations` is person-only, so the first sign-up and the organization it makes happen in a browser.
-- The first key. A key can't create another key, so a signed-in owner makes the first one under Settings, API keys, picks its level, and copies it. The secret is shown once.
+- The first key. A key can't create another key, so a signed-in owner makes the first one under Setup, API Keys in the dashboard's left menu, picks its level, and copies it. The secret is shown once.
 - Consent clicks. Every OAuth connect ends with a person pressing Allow at the other service.
 - Remote-browser sign-in. For apps that need a password typed into a real page, `POST /admin/tenants/:tenantId/browser-sessions/start` opens a live browser, and a person signs in there. The same goes for the Airbnb sign-in routes under `/airbnb/login`. An Owner-level key can open these sessions, but it can't type the password.
 - GitHub's link-an-existing-installation picker, as above.
