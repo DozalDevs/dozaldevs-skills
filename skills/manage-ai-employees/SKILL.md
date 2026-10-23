@@ -24,7 +24,7 @@ The answer is `{ "items": [...], "page": { "next_cursor", "limit", "has_more" } 
 - `status`: `active` (live), `paused` (was live, temporarily off), `draft` (saved, never activated), `superseded` (replaced).
 - `identity`, `overview`: what it is, in plain language.
 
-Present a friendly roster, not raw JSON: "You have 2 employees: **Weekly Recap Writer** (active, runs Fridays) and **Guest Responder** (active). Want to run one or change something?"
+Present a friendly roster, not raw JSON: "You have 2 employees: **Weekly Recap Writer** (active, runs Fridays) and **Guest Responder** (active)."
 
 ## Pause, reactivate, rename, edit
 
@@ -66,6 +66,8 @@ EOF
 ```
 
 `409 VERSION_CONFLICT` on apply means it changed elsewhere: run `restart-hiring-chat` with `{}` to pick that up.
+
+See what it's told (`preview-dozal-brain`) or undo a change (`revert-dozal-edit`): `references/checking-and-undoing.md`.
 
 ## Connections
 
