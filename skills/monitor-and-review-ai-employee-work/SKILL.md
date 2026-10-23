@@ -69,7 +69,7 @@ Always pass a `reason` when rejecting, because it becomes feedback the employee 
 
 ## Why a run went wrong: read the run's logs
 
-The task already carries `failure_reason`, `failure_code`, `outcome_code`, `outcome_reason` and `status_history`. For more, the run's logs are customer-readable. Read them in this order:
+Start with the failed task itself (`get-task`). `failure_reason` is the run's own account of why it stopped, `failure_code` its short code, and `run_headline` (when not null) one plain sentence on what went wrong. Known secret values are masked out of the reason. `status_history` shows where it was when it ended. For more, the run's logs are customer-readable. Read them in this order:
 
 1. **The events first.** They list every tool call with its input, output, error flag and timing, the calls that failed and were retried, the connected-app calls, the waits for approval, the status timeline, the run's inputs, and the employee's setup as it was when the run started plus edits made since.
 

@@ -211,7 +211,7 @@ Text inside these fields is the tools' own text, and known secret values are mas
 
 ### How to read them, and what they can't promise
 
-Read `status` and `failure_code` first, then `status_timeline` to see where the run was when it ended. Look at `retried_failures` and at any phase whose calls have `is_error` set. Check `approval_waits` if the run seems stalled, since a run waiting on a person is working as designed and not stuck. Then read `output` on the task and the transcript in `executions` for what the Dozal was asked and what it sent.
+Read `status`, `failure_code` and `failure_reason` first (the reason is the run's own account of why it stopped), then `status_timeline` to see where the run was when it ended. Look at `retried_failures` and at any phase whose calls have `is_error` set. Check `approval_waits` if the run seems stalled, since a run waiting on a person is working as designed and not stuck. Then read `output` on the task and the transcript in `executions` for what the Dozal was asked and what it sent.
 
 That gives you a detailed record of what happened. It doesn't hand you a verdict. We tested it. We took eight real production runs that had gone wrong and whose causes we already knew, gave a fresh agent only what this API returns plus the customer's complaint, and graded its answers blind. It named the real cause for five of the eight. So treat the logs as evidence to reason from. They often point at the answer, and sometimes they don't. For instance, they don't record which of a run's inputs actually reached the Dozal, so a missing input can look like nothing at all. When the logs leave you unsure, say so, and don't guess a cause.
 
