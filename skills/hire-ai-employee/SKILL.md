@@ -7,9 +7,9 @@ description: "Use when a human wants to create, hire, activate, or set up a new 
 
 This sets up a new AI employee (a Dozal) by chatting with the **Hiring Dozal**, the platform's own setup assistant. It asks questions, looks things up (which apps are connected, which Slack channel you mean), shows a finished Dozal, and you hire it.
 
-> Prerequisite: load `operate-ai-employees` first. It connects Restish and sets `AI_EMPLOYEE_API_KEY` and `AI_EMPLOYEE_TENANT_ID`. The chat needs a key at **Admin** level or above; a lower key answers `403 FORBIDDEN`.
+> Prerequisite: load `operate-ai-employees` first. It installs the `dozaldevs` CLI and explains the key. The chat needs a key at **Admin** level or above; a lower key answers `403 FORBIDDEN`.
 
-Concepts and response shapes: `../operate-ai-employees/references/customer-api.md`. For one command's arguments, run `restish dozaldevs <command> --help`. This skill keeps only how the chat behaves.
+Concepts and response shapes: `../operate-ai-employees/references/customer-api.md`. For one command's arguments, run `dozaldevs <command> --help`. This skill keeps only how the chat behaves.
 
 ## How the chat works
 
@@ -18,37 +18,30 @@ The chat lives on the server. You open it once, then send one message at a time.
 1. **Open.** Keep the chat id.
 
 ```sh
-CHAT=$(restish dozaldevs start-hiring-chat "$AI_EMPLOYEE_TENANT_ID" -f body.conversation.id -o lines <<'EOF'
-{"kind":"create"}
-EOF
-)
+CHAT=$(dozaldevs start-hiring-chat --data kind=create --field conversation.id)
 ```
 
 2. **Send.** Read the current `turn_seq` first, and send it back with the message.
 
 ```sh
-SEQ=$(restish dozaldevs get-hiring-chat "$AI_EMPLOYEE_TENANT_ID" "$CHAT" -f body.turn_seq -o lines </dev/null)
-restish dozaldevs send-hiring-message "$AI_EMPLOYEE_TENANT_ID" "$CHAT" <<EOF
-{"message":"$MESSAGE","turn_seq":$SEQ}
-EOF
+SEQ=$(dozaldevs get-hiring-chat "$CHAT" --field turn_seq)
+dozaldevs send-hiring-message "$CHAT" --data message="$MESSAGE" --data turn_seq:="$SEQ"
 ```
 
-3. **Wait.** Run this, and run it again while it prints `true`. It stops on `false` twice in a row, or after 80 seconds. The turn worked when `turn_seq` went up by one. If not, the last `messages` entry with `error:true` says why.
+3. **Wait.** Run this, and run it again while it prints `true`. It stops as soon as the turn ends, or after 80 seconds. The turn worked when `turn_seq` went up by one. If not, the last `messages` entry with `error:true` says why.
 
 ```sh
-end=$(( $(date +%s) + 80 )); prev=; t=; while [ $(date +%s) -lt $end ]; do t=$(restish dozaldevs get-hiring-chat "$AI_EMPLOYEE_TENANT_ID" "$CHAT" -f body.turn_in_progress -o lines </dev/null) || { restish dozaldevs get-hiring-chat "$AI_EMPLOYEE_TENANT_ID" "$CHAT" </dev/null; break; }; [ "$t" = false ] && [ "$prev" = false ] && break; prev=$t; sleep 3; done; echo "$t"
+dozaldevs get-hiring-chat "$CHAT" --while turn_in_progress=true --every 3 --timeout 80 --field turn_in_progress
 ```
 
-4. **Read.** Run `restish dozaldevs get-hiring-chat "$AI_EMPLOYEE_TENANT_ID" "$CHAT" </dev/null`. Show the human the new assistant entries in `body.messages` and every entry in `body.open_questions`.
-5. **Answer.** Send the next message with the current `turn_seq`. Button presses go in `answers`, keyed by the question's `id`: `{"q1":{"option":"approval_on"}}`, or `{"q2":{"text":"..."}}` where typing is allowed. `message` may be empty when you only press buttons.
+4. **Read.** Run `dozaldevs get-hiring-chat "$CHAT"`. Show the human the new assistant entries in `messages` and every entry in `open_questions`.
+5. **Answer.** Send the next message with the current `turn_seq`. Button presses go in `answers`, keyed by the question's `id`: `--data answers.q1.option=approval_on`, or `--data answers.q2.text="..."` where typing is allowed. `message` may be empty when you only press buttons.
 
 ```sh
-restish dozaldevs send-hiring-message "$AI_EMPLOYEE_TENANT_ID" "$CHAT" <<EOF
-{"message":"","turn_seq":$SEQ,"answers":{"q1":{"option":"$OPTION"}}}
-EOF
+dozaldevs send-hiring-message "$CHAT" --data message="" --data turn_seq:="$SEQ" --data answers.q1.option="$OPTION"
 ```
 
-6. **Stop when ready:** `body.presented` is `true`, `body.open_questions` is empty and `body.draft` is set.
+6. **Stop when ready:** `presented` is `true`, `open_questions` is empty and `draft` is set.
 
 A long, specific first message (when it runs, what it produces, where results go, which apps) usually gets straight to a finished Dozal. "Make me a bot" always gets questions. Keep going until it's ready; stopping after the first question is the most common mistake.
 
@@ -66,29 +59,25 @@ Relay each one in plain words and send the human's own choice. **Never press "ju
 
 ## When a send is refused
 
-| Code                            | What to do                                                                                                                       |
-| ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| `409 TURN_IN_PROGRESS`          | Wait for the turn to finish, then send.                                                                                          |
+| Code                            | What to do                                                                                                                        |
+| ------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| `409 TURN_IN_PROGRESS`          | Wait for the turn to finish, then send.                                                                                           |
 | `409 DRAFT_CONTINUED_ELSEWHERE` | Someone moved the chat on. Read it back, show what changed, resend once with the new `turn_seq` if the message still makes sense. |
-| `503 HIRING_BUSY`               | No setup machine yet. Wait a minute and send again.                                                                              |
-| `409 CONTEXT_FULL`              | The chat got long. Restart it (below) for a fresh one on the same draft.                                                         |
-| `409 CONVERSATION_CLOSED`       | It already finished (`details.closed_reason`). Open a new one.                                                                   |
-| `503 HIRING_UNAVAILABLE`        | Setup by chat is off right now. Tell the human and try later.                                                                    |
+| `503 HIRING_BUSY`               | No setup machine yet. Wait a minute and send again.                                                                               |
+| `409 CONTEXT_FULL`              | The chat got long. Restart it (below) for a fresh one on the same draft.                                                          |
+| `409 CONVERSATION_CLOSED`       | It already finished (`details.closed_reason`). Open a new one.                                                                    |
+| `503 HIRING_UNAVAILABLE`        | Setup by chat is off right now. Tell the human and try later.                                                                     |
 
 ```sh
-restish dozaldevs restart-hiring-chat "$AI_EMPLOYEE_TENANT_ID" "$CHAT" <<'EOF'
-{}
-EOF
+dozaldevs restart-hiring-chat "$CHAT"
 ```
 
 ## Hiring the Dozal
 
-Show the human a plain-English summary from `body.draft` (name, what it does, when it runs, where results go, whether it asks before sending) and confirm. On "yes", send the chat's current `turn_seq` (read it as in step 2):
+Show the human a plain-English summary from `draft` (name, what it does, when it runs, where results go, whether it asks before sending) and confirm. On "yes", send the chat's current `turn_seq` (read it as in step 2):
 
 ```sh
-restish dozaldevs hire-from-hiring-chat "$AI_EMPLOYEE_TENANT_ID" "$CHAT" <<EOF
-{"turn_seq":$SEQ}
-EOF
+dozaldevs hire-from-hiring-chat "$CHAT" --data turn_seq:="$SEQ"
 ```
 
 `200` means it's live and the chat closes. A refusal comes in plain words (for example `400 MISSING_CONNECTION` when an app still has to be connected). Tell the human what to fix, then keep chatting or hire again. If the missing piece is a connection, starting it returns a link only a person can open (see `operate-ai-employees`).
@@ -96,16 +85,14 @@ EOF
 To throw the setup away:
 
 ```sh
-restish dozaldevs discard-hiring-chat "$AI_EMPLOYEE_TENANT_ID" "$CHAT" <<'EOF'
-{}
-EOF
+dozaldevs discard-hiring-chat "$CHAT"
 ```
 
-The hired Dozal's id is `body.archetype_id` on the chat. Its slug is the stable name you run it by:
+The hired Dozal's id is `archetype_id` on the chat. Its slug is the stable name you run it by:
 
 ```sh
-DOZAL=$(restish dozaldevs get-hiring-chat "$AI_EMPLOYEE_TENANT_ID" "$CHAT" -f body.archetype_id -o lines </dev/null)
-restish dozaldevs list-dozals "$AI_EMPLOYEE_TENANT_ID" -q id="$DOZAL" -f 'body.items[0].slug' -o lines </dev/null
+DOZAL=$(dozaldevs get-hiring-chat "$CHAT" --field archetype_id)
+dozaldevs list-dozals --id "$DOZAL" --field items[0].slug
 ```
 
 ## After hiring

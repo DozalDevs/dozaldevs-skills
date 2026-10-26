@@ -11,7 +11,7 @@ The spec covers the routes a customer or a key can reach, and it's built from th
 
 ## Your key
 
-An API key belongs to exactly one organization. It starts with `dze_` and you send it as a bearer credential. Agents that have the Dozal skills use the `restish dozaldevs` commands, and the `curl` examples in this guide are for callers without the CLI.
+An API key belongs to exactly one organization. It starts with `dze_` and you send it as a bearer credential. Agents that have the Dozal skills use the `dozaldevs` command line, and the `curl` examples in this guide are for callers without the CLI.
 
 ```bash
 curl -s https://app.dozaldevs.com/me/tenants \
@@ -55,7 +55,7 @@ Every operation in the spec carries an `x-auth` entry that says which of these a
 
 ## From the command line
 
-Every operation in this guide is also a command of Restish once you've connected it to your organization (the operate skill has the setup). Run `restish dozaldevs <command> --help` to see one operation's arguments, request body and responses. The paths and fields below are the same either way, so what you read here carries over to the commands.
+Every operation in this guide is also a `dozaldevs` command, and the CLI reads the live spec each time (the operate skill has the setup). Run `dozaldevs <command> --help` to see one operation's ids, options, request body and responses. The paths and fields below are the same either way, so what you read here carries over to the commands.
 
 ## Lists
 
