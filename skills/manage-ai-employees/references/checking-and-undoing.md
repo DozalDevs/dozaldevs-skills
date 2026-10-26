@@ -2,6 +2,14 @@
 
 > Reference for the `manage-ai-employees` skill. Load `operate-ai-employees` first.
 
+## What a save changed
+
+Every save (`update-dozal`, `apply-hiring-chat`, `revert-dozal-edit`) answers with `changes`: one `{field, before, after, source}` per field whose saved value actually changed. Trust it rather than re-reading the Dozal, and tell the human what it says, not what you asked for. `source: "platform"` means the platform rewrote that field while saving; its `reason` says why and `requested` holds what you sent. An empty `changes` with a `message` means nothing was saved, and `ignored_fields` names keys the platform accepts but never stores (`instructions`: send `execution_steps` instead).
+
+## Check an update before it goes live
+
+Add `-q validate_only=true` to `update-dozal`. It runs every check and platform rewrite and answers with the Dozal as it would be saved, its `changes` and `validated_only: true`, but saves nothing. Show the human those `changes`, then send the same body without the flag.
+
 ## See exactly what it's told
 
 Read its compiled instructions before and after a fix, and whenever its output isn't what its steps ask for: two instructions that contradict each other show up here side by side. A declared `output_schema` appears under "The Shape Your Deliverable Must Have", and that shape wins over anything the steps say about format.
