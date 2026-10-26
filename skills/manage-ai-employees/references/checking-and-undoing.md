@@ -10,6 +10,10 @@ Every save (`update-dozal`, `apply-hiring-chat`, `revert-dozal-edit`) answers wi
 
 Add `-q validate_only=true` to `update-dozal`. It runs every check and platform rewrite and answers with the Dozal as it would be saved, its `changes` and `validated_only: true`, but saves nothing. Show the human those `changes`, then send the same body without the flag.
 
+## What only a direct update changes
+
+The edit chat changes the steps, sends, notes, name, schedule, where results go, apps, per-run inputs, approval and the output format (`output_schema`). It can't change `department`, `concurrency_limit`, `worker_env`, `work_item_key`, `overview`, `pre_check_enabled`, `pre_check_adapter`, `pre_check_config`, `vm_size`, `appearance`, `estimated_manual_minutes_override`, `temperature`, `platform_rules_override` or `template_auto_update`, and says so when asked: use `update-dozal` for those. Sending `null` clears a field that can be empty, e.g. `{"output_schema": null, "base_version": 7}` removes a required output format.
+
 ## See exactly what it's told
 
 Read its compiled instructions before and after a fix, and whenever its output isn't what its steps ask for: two instructions that contradict each other show up here side by side. A declared `output_schema` appears under "The Shape Your Deliverable Must Have", and that shape wins over anything the steps say about format.

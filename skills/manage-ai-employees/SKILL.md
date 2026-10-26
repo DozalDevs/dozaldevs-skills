@@ -49,7 +49,7 @@ EOF
 
 If someone changed it since, `409 VERSION_CONFLICT`: read again and redo your change. Reverts and template updates need `base_version` too; a status-only update needs none. Approving or denying a suggested cleanup needs no version; `409 SUGGESTION_OUT_OF_DATE` means it was withdrawn: re-read, don't retry.
 
-Each save answers `changes`, what really changed; trust it over a re-read. Test an update first: `-q validate_only=true`. See what it's told (`preview-dozal-brain`) or undo (`revert-dozal-edit`): `references/checking-and-undoing.md`.
+Each save answers `changes`, what really changed; trust it over a re-read. Test an update first: `-q validate_only=true`. Fields only `update-dozal` changes, seeing what it's told, undoing: `references/checking-and-undoing.md`.
 
 To change what the employee actually does ("make the summary shorter", "also post to Slack"), use the Hiring Dozal's edit chat described in `hire-ai-employee`:
 
