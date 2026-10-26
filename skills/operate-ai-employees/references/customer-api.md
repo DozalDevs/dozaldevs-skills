@@ -290,6 +290,30 @@ All three need Member level. Once the person has clicked through, check `GET /ad
 
 GitHub has one extra case. If the installation already exists and the person who authorized it can't see it, the callback answers `409` with `GITHUB_LINK_NEEDS_PERSON`. The agent will see GitHub still unconnected in the list. A signed-in person has to link it from Integrations in the dashboard.
 
+## Using your connected apps directly
+
+You don't need a Dozal to use an app the organization already connected. Your key can run an action on it, and DozalDevs makes the call with the organization's connection, so you never see the app's password or token.
+
+```bash
+dozaldevs list-app-connections                        # what's connected
+dozaldevs list-app-actions googlesheets               # its actions, and whether your key may run each
+dozaldevs get-app-action googlesheets GOOGLESHEETS_BATCH_GET   # one action's inputs
+dozaldevs run-app-action googlesheets GOOGLESHEETS_BATCH_GET --data arguments.spreadsheet_id=abc --data 'arguments.ranges:=["A1:C10"]'
+```
+
+The app's inputs go under `arguments`. The answer is `{ "successful": true|false, "data": ..., "error": ..., "provider_status": 200 }`. `successful: false` means the app itself said no (a bad id, a missing sheet), so read `error` and fix the inputs.
+
+What your key may run depends on its level and on the action:
+
+- A Viewer key runs only actions that read.
+- Member and above run any action, except the ones that pay or refund money, delete data, cancel something, change an access code or password, remove a person's access, or publish something publicly. Those answer `403` with `APP_ACTION_HELD` and the kind in `hold_kind`. Ask a Dozal to do them, so a person approves first.
+- `list-app-actions` shows `allowed_for_you` for each action. `null` means the action hasn't been checked yet and is checked the first time someone runs it.
+
+Each call is charged as normal usage and shows on the Billing page as "Direct app calls". Owners and admins see every call, with the key that made it, under "Calls to your apps" on the API Keys page (`list-app-calls`). There are two limits:
+
+- An organization can make a limited number of direct calls a minute. Past it you get `429` with `RATE_LIMITED` and a `Retry-After` header.
+- When the platform's monthly app-call allowance runs short, direct calls pause for everyone with `503` and `DIRECT_APP_BUDGET_REACHED`, so Dozals keep working. Try again later.
+
 ## What still needs a person
 
 An agent can do almost everything, but a few steps are a human's by design:

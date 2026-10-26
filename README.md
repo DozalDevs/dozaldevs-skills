@@ -36,7 +36,7 @@ dozaldevs list-dozals --human
 - `dozaldevs help` lists every command. `dozaldevs help run` finds the ones about running.
 - Can't install globally? Type `npx dozaldevs` wherever this page says `dozaldevs`.
 - On a server or in CI, set `DOZALDEVS_API_KEY` to the key instead of logging in.
-- Key levels: "See everything, change nothing" can only read. "Run Dozals and approve their work" can also run employees and approve their work. "Build and edit Dozals" can also hire and edit them.
+- Key levels: "See everything and read from your connected apps, change nothing" can only read. "Run Dozals, approve their work, and use your connected apps" can also run employees, approve their work, and run actions on the organization's connected apps. "Build and edit Dozals" can also hire and edit them.
 - Calling the API from your own code? It's plain HTTPS at `https://app.dozaldevs.com`, described at `https://app.dozaldevs.com/openapi.json`. Send the key as `Authorization: Bearer dze_...`. The [customer API guide](https://github.com/DozalDevs/dozaldevs-skills/blob/main/skills/operate-ai-employees/references/customer-api.md) has examples.
 
 ## License
