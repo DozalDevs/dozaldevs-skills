@@ -2,7 +2,7 @@
 name: hire-ai-employee
 description: "Use when a human wants to create, hire, activate, or set up a new AI employee from a plain-English description, e.g. wanting something that writes a weekly recap or replies to guest messages. Drives the Hiring Dozal's multi-turn setup wizard (the hiring chat), relays its button questions (show me first or just send it) to the human, and hires the finished Dozal. Use it for any new-employee request. Load operate-ai-employees first for auth and base-URL setup."
 metadata:
-  version: "2026.10.27-253864e"
+  version: "2026.10.27-c92178c"
 ---
 
 # Hire an AI Employee
@@ -12,6 +12,10 @@ This sets up a new AI employee (a Dozal) by chatting with the **Hiring Dozal**, 
 > Prerequisite: load `operate-ai-employees` first. It installs the `dozaldevs` CLI and explains the key. The chat needs a key at **Admin** level or above; a lower key answers `403 FORBIDDEN`.
 
 Concepts and response shapes: `../operate-ai-employees/references/customer-api.md`. For one command's arguments, run `dozaldevs <command> --help`. This skill keeps only how the chat behaves.
+
+## What a Dozal can do
+
+Say what the job needs in your own words; the chat picks the matching abilities. Every ability the platform has, each with when a job needs it, is in `references/abilities.md` (generated from the platform's registry). An organization's own list, with only the apps it connected, is `dozaldevs list-dozal-abilities`.
 
 ## How the chat works
 

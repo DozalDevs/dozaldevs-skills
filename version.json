@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.10.27-253864e",
+  "skills_version": "2026.10.27-c92178c",
   "cli_version": "0.2.0",
-  "source_commit": "253864ea10ba247b8e4f9a7fdf16b324238b2f62",
-  "content_hash": "be120f18cad15ce8c4c7619f0f395e0e8ad3f1a6e70721591948ce72b7970253",
+  "source_commit": "c92178c6eedbc7a8babfe032031c0295a05135de",
+  "content_hash": "f23e5bef1550193c39bfc18fd9b544c7eade5e2ec0f59eaf472bc335f76b5b4f",
   "history": [
+    {
+      "version": "2026.10.27-c92178c",
+      "date": "2026-10-27",
+      "changes": "One list of what a Dozal can do: every tool says when a job needs it"
+    },
     {
       "version": "2026.10.27-253864e",
       "date": "2026-10-27",

@@ -1,0 +1,76 @@
+# What a Dozal can do
+
+Generated from the platform registry. Do not edit by hand.
+Each line says when a job needs the ability.
+
+- Review before sending: When the job sends something to other people or changes something that matters, and the owner should see it first.
+- Running on its own once trusted: When a job has proven reliable and the owner wants it to act without asking each time.
+- Schedules and time zones: When the job should run at set times, such as every morning, in a specific time zone.
+- Start the moment something happens: When the job should start as soon as something happens in a connected app, not at a set time.
+- A value that changes every run: When part of the job changes each time it runs, such as a date, a name or an address to work on.
+- Hand-offs between Dozals: When the result of one job should start another job, so each does one thing well.
+- Voice notes turned into text: When people send voice notes over WhatsApp and the job needs to read what was said.
+- Saved scripts the Dozal builds for itself: When the job repeats the same multi-step work and is better off keeping it as a saved script.
+- Reading the open web: When the job needs to search the web or read a public page to find or check something.
+- Process recordings: When the person has recorded themselves doing the task on screen and the job should follow it.
+- Browse: When the job needs to open a web page in a browser and interact with it by searching, reading, clicking, filling in and pressing keys.
+- Execute: When the job needs to run an action in a connected third-party app such as Notion, Linear or Gmail, which can read or change data there.
+- Jira search: When the job needs to search the issues of the connected Jira account and read their full details.
+- List actions: When the job needs to discover which actions a connected Composio app offers and read the inputs one action takes.
+- Search shopping: When the job needs to look up which merchants sell a product and compare their prices, conditions and delivery terms, cheapest first.
+- Call: When the job needs to call a customer-defined web endpoint by name, filling in its placeholders and optionally sending a body.
+- Get token: When the job needs a short-lived GitHub access token so it can read or change code in a connected GitHub repository.
+- Generate: When the job needs to create a new picture from a written description, including any exact words the picture must carry.
+- List cities: When the job needs to look up which United States cities have public Inside Airbnb listing data.
+- List hosts: When the job needs to look up the hosts with many listings in one city from public Inside Airbnb data, biggest first.
+- Nearby count: When the job needs to count the under-booked single-listing homes near the listings of one property manager, using public Inside Airbnb data.
+- Nearby homes: When the job needs to build a list of nearby under-booked homes owned by a single owner, from public Inside Airbnb data.
+- Search: When the job needs to read the organization's stored knowledge, shared or about one entity.
+- Approved text: When the job needs to save the approved text of a run, with an optional closing line, so a later step can send it unchanged.
+- Assemble output: When the job needs to join written commentary onto a finished report and prepare the final message and its record for submission.
+- Build report: When the job needs to build a report from counted figures and keep a record of it for later runs.
+- Calculate: When the job needs an exact arithmetic result instead of working a calculation out in its head.
+- Categorize: When the job needs to sort many items into a fixed set of options and flag the ones it is not sure about.
+- Claim work item: When the job finds work while running and must make sure the same item is never acted on twice.
+- Count run output items: When the job needs to count the items with a given field in what a named job delivered on its finished runs.
+- Count runs: When the job needs to count how many runs of named jobs started in a time window, by status and outcome, with their cost.
+- Diagnose: When the job needs to fetch the investigation record of its own task so it can look into what went wrong.
+- Evaluate: When the job needs to compute a result from structured data with a written expression and save the result for a later step.
+- Fit message: When the job needs to fit a long list of items into one text message within a size limit, saying how many were left out.
+- Join records: When the job needs to attach the earliest matching time from one set of records onto another set of records.
+- Match names to runs: When the job needs to count how many records have a name that appears in the earlier finished runs of a named job.
+- Page evidence: When the job needs to prove that given text really appears on a web page and cite that proof beside the claim it backs.
+- Past results: When the job repeats and should not send something it already sent, or should build on what it found last time.
+- Previous record: When the job needs to look up its own stored record for the latest period before a given date.
+- Record recipient: When the job needs to record who its finished work is for, so the delivery step sends it to the right place.
+- Report issue: When something a job relies on fails in a way worth reporting, and the failure must be recorded for the people who maintain the platform.
+- Resolve time window: When the job needs to turn a start date, a length and a time zone into exact window start and end times saved for later steps.
+- Submit output: When the job is finished and needs to declare its outcome and hand in its result, once.
+- Summarize records: When the job needs to count, group or compute statistics over saved records under conditions.
+- Prepare site: When the job needs to get the website working directory ready, including pulling in already published pages to build on top of them.
+- Publish site: When the job needs to check a composed customer website and publish it, getting back the live address.
+- Post guest approval: When the job needs to post a guest message approval card to Slack so a person can review it.
+- Post message: When the job needs to post a message to a Slack channel, optionally with formatted blocks.
+- Post message from file: When the job needs to post a long or multi-line message to Slack whose text is stored in a file.
+- Post message inline: When the job needs to post a short message to Slack whose text is given directly.
+- Read channels: When the job needs to read recent messages from one or more Slack channels.
+- Send message: When the job needs to send a WhatsApp text message to a recipient.
+- Send message from file: When the job needs to send a WhatsApp text message whose body is stored in a file.
+- Send message inline: When the job needs to send a WhatsApp text message whose body is given directly.
+- Airbnb: When the job needs to read or change something in Airbnb.
+- DoorLoop: When the job needs to read or change something in DoorLoop.
+- GoHighLevel: When the job needs to read or change something in GoHighLevel.
+- Hostfully: When the job needs to read or change something in Hostfully.
+- MongoDB: When the job needs to read or change something in MongoDB.
+- MySQL: When the job needs to read or change something in MySQL.
+- OlaClick: When the job needs to read or change something in OlaClick.
+- PostgreSQL: When the job needs to read or change something in PostgreSQL.
+- PriceLabs: When the job needs to read or change something in PriceLabs.
+- Prospecting: When the job needs to read or change something in Prospecting.
+- Quickbooks: When the job needs to read or change something in Quickbooks.
+- Quickbooks_web: When the job needs to read or change something in Quickbooks_web.
+- Sifely: When the job needs to read or change something in Sifely.
+- Smartlead: When the job needs to read or change something in Smartlead.
+- Turno: When the job needs to read or change something in Turno.
+- Web: When the job needs to read or change something in Web.
+- Workspace: When the job needs to read or change something in Workspace.
