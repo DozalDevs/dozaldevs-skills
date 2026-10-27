@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.10.27-f509d5d",
+  "skills_version": "2026.10.27-fc66f8e",
   "cli_version": "0.3.0",
-  "source_commit": "f509d5df691ba494d3ae199f3ccfb27e7c8f477a",
-  "content_hash": "91b3e8de963e18abc8f5579a84763e248c19e87254c7e18cabb2d71cd10ccf6d",
+  "source_commit": "fc66f8e3b554fa3aeb1df386185ebd5b314c45cb",
+  "content_hash": "96a3e7e09ff224dd3b5bd4f482b1f3a66688725c5ce6639a00105f6167bc3965",
   "history": [
+    {
+      "version": "2026.10.27-fc66f8e",
+      "date": "2026-10-27",
+      "changes": "Record every outside-agent app call the way a Dozal's is recorded"
+    },
     {
       "version": "2026.10.27-f509d5d",
       "date": "2026-10-27",
