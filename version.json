@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.10.27-c92178c",
-  "cli_version": "0.2.0",
-  "source_commit": "c92178c6eedbc7a8babfe032031c0295a05135de",
-  "content_hash": "f23e5bef1550193c39bfc18fd9b544c7eade5e2ec0f59eaf472bc335f76b5b4f",
+  "skills_version": "2026.10.27-f509d5d",
+  "cli_version": "0.3.0",
+  "source_commit": "f509d5df691ba494d3ae199f3ccfb27e7c8f477a",
+  "content_hash": "91b3e8de963e18abc8f5579a84763e248c19e87254c7e18cabb2d71cd10ccf6d",
   "history": [
+    {
+      "version": "2026.10.27-f509d5d",
+      "date": "2026-10-27",
+      "changes": "CLI: one saved profile per organization, switch with dozaldevs use"
+    },
     {
       "version": "2026.10.27-c92178c",
       "date": "2026-10-27",

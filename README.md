@@ -21,6 +21,17 @@ dozaldevs login
 
 Paste the key when it asks. It's saved on this computer.
 
+In more than one organization? Run `dozaldevs login` again with the other organization's key. Each key is saved as its own profile, named after its organization, and the newest login is the one in use.
+
+```
+dozaldevs profiles            # what's saved, and which one is in use
+dozaldevs use acme            # switch to acme for every command from now on
+dozaldevs whoami              # which organization a command would use right now
+dozaldevs list-dozals --profile acme   # one command in acme, without switching
+```
+
+Your assistant checks `dozaldevs whoami` before it starts, and uses `--profile` when you name an organization.
+
 ## 3. Try it
 
 Ask your assistant: **list my AI employees**

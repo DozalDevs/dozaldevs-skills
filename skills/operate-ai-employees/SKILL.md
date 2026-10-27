@@ -2,7 +2,7 @@
 name: operate-ai-employees
 description: "Use when a human asks you to operate their AI Employee platform account: hiring an employee, running one, checking on a task, approving or rejecting work, listing or pausing employees, or managing connections, schedules, handoffs, members, usage, bills, activity and run logs. Load this first to route between the four job skills. The umbrella skill: dze_ API key auth and its level, the production base URL, tenant resolution, the async model, and person-only steps."
 metadata:
-  version: "2026.10.27-c92178c"
+  version: "2026.10.27-f509d5d"
 ---
 
 # Operate AI Employees
@@ -16,7 +16,7 @@ You never run the AI employee yourself, the platform does that in the cloud. You
 Check the CLI and tell it which skills version you have:
 
 ```sh
-dozaldevs version --skills 2026.10.27-c92178c
+dozaldevs version --skills 2026.10.27-f509d5d
 ```
 
 If `dozaldevs` isn't found, run `npm install -g dozaldevs` first. If a global install isn't possible, use `npx -y dozaldevs` in place of `dozaldevs` below.
@@ -29,7 +29,7 @@ The key comes from `DOZALDEVS_API_KEY`, or from one a person saved once with `do
 
 The human gave you a key that starts with `dze_`, kept as `DOZALDEVS_API_KEY` (or saved by `dozaldevs login`). The CLI sends it on every call.
 
-- It belongs to **one organization**. You never ask "which org?", and you never pass an organization id: the CLI fills it in.
+- It belongs to **one organization**, and you never pass an organization id: the CLI fills it in. Run `dozaldevs whoami` first. Several? Read `references/2026-10-27-1325-organizations.md`.
 - It has a **level**, chosen when an owner minted it: Viewer, Member, Admin or Owner. It acts exactly like a person at that level. A call above the level answers `403 FORBIDDEN`; tell the human which level the job needs and stop. Older keys are Admin. Creating or hiring a Dozal needs Admin.
 - Another organization's id always answers `404`. Use the key's own.
 
