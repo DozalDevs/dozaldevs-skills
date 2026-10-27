@@ -1,0 +1,13 @@
+{
+  "skills_version": "2026.10.27-253864e",
+  "cli_version": "0.2.0",
+  "source_commit": "253864ea10ba247b8e4f9a7fdf16b324238b2f62",
+  "content_hash": "be120f18cad15ce8c4c7619f0f395e0e8ad3f1a6e70721591948ce72b7970253",
+  "history": [
+    {
+      "version": "2026.10.27-253864e",
+      "date": "2026-10-27",
+      "changes": "Tell old CLIs and skills to update: version stamps, client header and update notices"
+    }
+  ]
+}

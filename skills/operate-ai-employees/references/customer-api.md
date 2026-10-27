@@ -57,6 +57,12 @@ Every operation in the spec carries an `x-auth` entry that says which of these a
 
 Every operation in this guide is also a `dozaldevs` command, and the CLI reads the live spec each time (the operate skill has the setup). Run `dozaldevs <command> --help` to see one operation's ids, options, request body and responses. The paths and fields below are the same either way, so what you read here carries over to the commands.
 
+## Staying up to date
+
+The CLI names itself on every call with `X-DozalDevs-Client: cli/<version> skills/<version>`. Every call made with a key answers with `X-DozalDevs-Skills-Latest` (the newest published skills) and `X-DozalDevs-CLI-Minimum` (the CLI those skills need). When the client is behind, the answer also carries `X-DozalDevs-Notice` and a `notices` list in the JSON body, one plain line each, like `DozalDevs skills update available (2026.10.27-abc1234): run npx skills update`. A call that sends a key but no `X-DozalDevs-Client` is treated as an old CLI and told to update both. An old version never makes a call fail.
+
+`GET /client-versions` needs no key. It returns the latest skills version with a one-line note per version, the CLI minimum, and the notices for the `X-DozalDevs-Client` you send. `dozaldevs version` prints the same in plain words.
+
 ## Lists
 
 Every list route returns the same envelope:

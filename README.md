@@ -34,6 +34,7 @@ dozaldevs list-dozals --human
 ## Good to know
 
 - `dozaldevs help` lists every command. `dozaldevs help run` finds the ones about running.
+- `dozaldevs version` says whether the CLI or these skills need an update, and what's new. Update with `npm i -g dozaldevs@latest` and `npx skills update`. Your assistant also tells you when a command says an update is out.
 - Can't install globally? Type `npx dozaldevs` wherever this page says `dozaldevs`.
 - On a server or in CI, set `DOZALDEVS_API_KEY` to the key instead of logging in.
 - Key levels: "See everything and read from your connected apps, change nothing" can only read. "Run Dozals, approve their work, and use your connected apps" can also run employees, approve their work, and run actions on the organization's connected apps. "Build and edit Dozals" can also hire and edit them.
