@@ -25,6 +25,7 @@ Each line says when a job needs the ability.
 - List hosts: When the job needs to look up the hosts with many listings in one city from public Inside Airbnb data, biggest first.
 - Nearby count: When the job needs to count the under-booked single-listing homes near the listings of one property manager, using public Inside Airbnb data.
 - Nearby homes: When the job needs to build a list of nearby under-booked homes owned by a single owner, from public Inside Airbnb data.
+- List postings: When the job needs to find open roles posted on companies' own careers pages.
 - Search: When the job needs to read the organization's stored knowledge, shared or about one entity.
 - Approved text: When the job needs to save the approved text of a run, with an optional closing line, so a later step can send it unchanged.
 - Assemble output: When the job needs to join written commentary onto a finished report and prepare the final message and its record for submission.

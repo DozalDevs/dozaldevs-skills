@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.10.28-0f5c899",
+  "skills_version": "2026.10.28-2359d58",
   "cli_version": "0.3.0",
-  "source_commit": "0f5c899e4f0f0dd5b574ae0b58ae4a702a1f52e6",
-  "content_hash": "49b202db9277078f2da28b64504c413345ab804f48c56168828f171630aa5eec",
+  "source_commit": "2359d588169742eef53770cf1c47b7f71c1b2574",
+  "content_hash": "09213f2950fa9eabad6a8a61980c88f226d81fde52fdad5f51aae4f9e0419dd9",
   "history": [
+    {
+      "version": "2026.10.28-2359d58",
+      "date": "2026-10-28",
+      "changes": "Add a tool that lists open roles from companies' public job boards"
+    },
     {
       "version": "2026.10.28-0f5c899",
       "date": "2026-10-28",
