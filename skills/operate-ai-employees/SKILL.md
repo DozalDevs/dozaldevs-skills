@@ -2,7 +2,7 @@
 name: operate-ai-employees
 description: "Use when a human asks you to operate their AI Employee platform account: hiring an employee, running one, checking on a task, approving or rejecting work, listing or pausing employees, or managing connections, schedules, handoffs, members, usage, bills, activity and run logs. Load this first to route between the four job skills. The umbrella skill: dze_ API key auth and its level, the production base URL, tenant resolution, the async model, and person-only steps."
 metadata:
-  version: "2026.10.27-fc66f8e"
+  version: "2026.10.28-0f5c899"
 ---
 
 # Operate AI Employees
@@ -16,7 +16,7 @@ You never run the AI employee yourself, the platform does that in the cloud. You
 Check the CLI and tell it which skills version you have:
 
 ```sh
-dozaldevs version --skills 2026.10.27-fc66f8e
+dozaldevs version --skills 2026.10.28-0f5c899
 ```
 
 If `dozaldevs` isn't found, run `npm install -g dozaldevs` first. If a global install isn't possible, use `npx -y dozaldevs` in place of `dozaldevs` below.

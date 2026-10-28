@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.10.27-fc66f8e",
+  "skills_version": "2026.10.28-0f5c899",
   "cli_version": "0.3.0",
-  "source_commit": "fc66f8e3b554fa3aeb1df386185ebd5b314c45cb",
-  "content_hash": "96a3e7e09ff224dd3b5bd4f482b1f3a66688725c5ce6639a00105f6167bc3965",
+  "source_commit": "0f5c899e4f0f0dd5b574ae0b58ae4a702a1f52e6",
+  "content_hash": "49b202db9277078f2da28b64504c413345ab804f48c56168828f171630aa5eec",
   "history": [
+    {
+      "version": "2026.10.28-0f5c899",
+      "date": "2026-10-28",
+      "changes": "Instant replies: keep a Dozal ready during set hours; Say in the skills how job_description is written, and fix two plan paths"
+    },
     {
       "version": "2026.10.27-fc66f8e",
       "date": "2026-10-27",
