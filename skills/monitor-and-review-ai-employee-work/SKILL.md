@@ -2,7 +2,7 @@
 name: monitor-and-review-ai-employee-work
 description: "Use when a human asks whether an AI employee task is done, wants to see its output, or wants to approve or reject its work: is the recap ready, show me what it wrote, approve it, reject and shorten it, why did that run go wrong, show its logs, watch it live. Reads task status via phase_category, drives the approve/reject decision, and reads run logs, activity and live status. Load operate-ai-employees first for auth setup."
 metadata:
-  version: "2026.10.28-2359d58"
+  version: "2026.10.29-e20d2a7"
 ---
 
 # Monitor & Review AI Employee Work

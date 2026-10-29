@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.10.28-2359d58",
+  "skills_version": "2026.10.29-e20d2a7",
   "cli_version": "0.3.0",
-  "source_commit": "2359d588169742eef53770cf1c47b7f71c1b2574",
-  "content_hash": "09213f2950fa9eabad6a8a61980c88f226d81fde52fdad5f51aae4f9e0419dd9",
+  "source_commit": "e20d2a77ea0e1d11d6c27e3ce710330c31bd66e7",
+  "content_hash": "3a0938b7a1c7966d36e28bed91466245f26aea687c0d0adb36c6e9e19db90bf0",
   "history": [
+    {
+      "version": "2026.10.29-e20d2a7",
+      "date": "2026-10-29",
+      "changes": "Add a tool that lists the fields a job application asks for"
+    },
     {
       "version": "2026.10.28-2359d58",
       "date": "2026-10-28",
