@@ -2,7 +2,7 @@
 name: manage-ai-employees
 description: "Use when a human wants to see, list, pause, reactivate, rename or inspect their existing AI employees (config, status active/paused/draft), or manage connected apps, schedules, handoffs, members and invitations, usage and bills, e.g. what employees do I have, pause the recap bot, how did last Friday go. Not for running one now (run-ai-employee), a task's output, approval or logs (monitor-and-review-ai-employee-work), or creating one (hire-ai-employee). Load operate-ai-employees first."
 metadata:
-  version: "2026.10.29-14f2286"
+  version: "2026.10.29-05b8d58"
 ---
 
 # Manage AI Employees
@@ -147,3 +147,16 @@ It returns the same `items` and `page` envelope. For one run's output or logs, u
 ```sh
 dozaldevs delete-dozal "$DOZAL"
 ```
+
+## Saved setups
+
+`save-org-snapshot` stores the organization's employees, departments, handoffs, rules and knowledge under a `label` as the next version. Sites, connections, secrets, channels, members, keys, templates and billing are not saved and never touched. Needs **Admin**.
+
+```sh
+dozaldevs save-org-snapshot --data label="$LABEL"
+dozaldevs list-org-snapshots
+dozaldevs apply-latest-org-snapshot --data label="$LABEL"
+dozaldevs get-org-snapshot-apply "$APPLY"
+```
+
+Also `get-org-snapshot`, `delete-org-snapshot` and `apply-org-snapshot` (one version by id). Applying cancels every open run and deletes employees that aren't in the saved setup, so confirm with the human first. It answers `202` with an `apply_id` and runs in the background: poll `get-org-snapshot-apply` until `status` isn't `running`. `partial` means some employees weren't put back (`dozal_outcomes`). `409 APPLY_IN_PROGRESS`: one is already running. `404`: unknown label or id. Warm-up runs, preserved employees and the rest: `references/org-snapshots.md`.
