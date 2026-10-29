@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.10.29-e20d2a7",
+  "skills_version": "2026.10.29-14f2286",
   "cli_version": "0.3.0",
-  "source_commit": "e20d2a77ea0e1d11d6c27e3ce710330c31bd66e7",
-  "content_hash": "3a0938b7a1c7966d36e28bed91466245f26aea687c0d0adb36c6e9e19db90bf0",
+  "source_commit": "14f2286c666f02682965808a9ccc79c3898243e0",
+  "content_hash": "82fdd2aac4154bf84a3fe3d2112acbcff5f4606fed7f7a543c72e33851f0b090",
   "history": [
+    {
+      "version": "2026.10.29-14f2286",
+      "date": "2026-10-29",
+      "changes": "Let outside agents drive DozalDevs through an MCP server"
+    },
     {
       "version": "2026.10.29-e20d2a7",
       "date": "2026-10-29",

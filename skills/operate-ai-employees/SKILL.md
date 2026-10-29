@@ -2,21 +2,21 @@
 name: operate-ai-employees
 description: "Use when a human asks you to operate their AI Employee platform account: hiring an employee, running one, checking on a task, approving or rejecting work, listing or pausing employees, or managing connections, schedules, handoffs, members, usage, bills, activity and run logs. Load this first to route between the four job skills. The umbrella skill: dze_ API key auth and its level, the production base URL, tenant resolution, the async model, and person-only steps."
 metadata:
-  version: "2026.10.29-e20d2a7"
+  version: "2026.10.29-14f2286"
 ---
 
 # Operate AI Employees
 
 You are the **operator** of a customer's AI Employee platform account. The human talks in plain language ("hire someone to write our Friday recap", "is it done yet?", "approve it"). You turn that into `dozaldevs` commands against the production gateway and turn the JSON back into plain language.
 
-You never run the AI employee yourself, the platform does that in the cloud. You **drive** it: create employees, trigger them, check status, approve or reject, and manage the account around them.
+The platform runs the AI employee in the cloud. You **drive** it: create employees, trigger them, check status, approve or reject, and manage the account around them.
 
 ## 1. Setup, at the start of a session
 
 Check the CLI and tell it which skills version you have:
 
 ```sh
-dozaldevs version --skills 2026.10.29-e20d2a7
+dozaldevs version --skills 2026.10.29-14f2286
 ```
 
 If `dozaldevs` isn't found, run `npm install -g dozaldevs` first. If a global install isn't possible, use `npx -y dozaldevs` in place of `dozaldevs` below.
@@ -43,12 +43,12 @@ dozaldevs get-task "$TASK"
 ```
 
 - A body is `--data key=value` for a text field, `--data key:=<json>` for a number, true/false or JSON (`--data turn_seq:=3`), and dots nest (`--data inputs.topic="$TOPIC"`). A command that takes a body and gets none sends `{}`. For a whole JSON body, use `--body '<json>'`, `--body @file.json` or `--body -`.
-- Query parameters are `--name value`, using the spec's name (`--limit 10`, `--dry_run true`).
+- Query parameters are `--name value`, as the spec names them (`--limit 10`).
 - `--field <path>` prints one value, without a `body.` prefix: `--field conversation.id`. `items[].slug` prints one per line.
 - A list answers one page at a time. `--all` follows every page and prints all items. Only lists whose `--help` shows a `cursor` option page.
 - `--while <path>=<value> --every <seconds> --timeout <seconds>` repeats a read while the value stays the same, then prints the last answer. See the job skills.
 - `dozaldevs help` lists every command, and `dozaldevs help <words>` searches them, for example `dozaldevs help hire`. To see one command's ids, options and body, run `dozaldevs <command> --help`.
-- Never use a `stream-*` command. It stays open until the server closes it. The job skills use `--while` to wait instead.
+- Never use a `stream-*` command, it stays open until the server closes it. The job skills use `--while` to wait.
 - Never use `curl`.
 
 ## 4. Errors
@@ -56,19 +56,19 @@ dozaldevs get-task "$TASK"
 A failed call exits with code 1, prints `error`, `message` and `next_step` as JSON on stdout, and says the same in plain words on stderr. Do what `next_step` says. Exit code 2 means the command itself was wrong: read the message and fix it.
 
 - `401` means the key is missing, wrong, expired or revoked: ask the human to check or re-mint it.
-- An unknown command is a typo, because the CLI reads the live spec every time. Run `dozaldevs help <words>` to find the right name.
+- An unknown command is a typo: the CLI reads the live spec. Run `dozaldevs help <words>` to find the name.
 
 ## 5. The async model (IMPORTANT)
 
 AI employees take **minutes**. Never block in a tight loop:
 
 1. Kick it off and keep the handle (`task_id`).
-2. Tell the human it's running and they can ask any time.
+2. Tell the human it's running; they can ask any time.
 3. When they ask, make ONE status call and report it. If they say to wait, use the bounded `--while` wait in `monitor-and-review-ai-employee-work`.
 
 ## 6. What only a person can do
 
-A key never does these. Say so plainly, name the dashboard step, and don't hunt for a workaround or retry:
+A key never does these. Say so plainly, name the dashboard step, and don't retry or look for a workaround:
 
 - Create the organization, mint or revoke keys, invite people, change or remove members, suspend or delete the organization (`403 API_KEY_NOT_ALLOWED`).
 - A person's own things: their inbox and notification settings, push devices, progress and missions, billing accounts, the starter employee's email run, GitHub's "link an existing installation" picker (`403 PERSON_ONLY`).
@@ -92,7 +92,9 @@ Never press an approval or "just send it" choice on the human's behalf.
 
 ## Concepts
 
-`references/customer-api.md` is the plain-language guide: pagination, errors, the run's logs, live status, handoffs and connects. Read it before you guess how something works. It describes the HTTP API, and every operation in it is a `dozaldevs` command.
+`references/customer-api.md` is the plain-language guide: pagination, errors, the run's logs, live status, handoffs and connects. Read it before you guess how something works. Every operation in it is a `dozaldevs` command.
+
+No shell, or the human runs an MCP client (Hermes, Claude Code, Cursor)? Read `references/2026-10-28-1703-mcp.md`.
 
 ## First-time setup (no key yet)
 
