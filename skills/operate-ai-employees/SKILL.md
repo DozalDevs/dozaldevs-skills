@@ -2,21 +2,21 @@
 name: operate-ai-employees
 description: "Use when a human asks you to operate their AI Employee platform account: hiring an employee, running one, checking on a task, approving or rejecting work, listing or pausing employees, or managing connections, schedules, handoffs, members, usage, bills, activity and run logs. Load this first to route between the four job skills. The umbrella skill: dze_ API key auth and its level, the production base URL, tenant resolution, the async model, and person-only steps."
 metadata:
-  version: "2026.10.29-05b8d58"
+  version: "2026.10.30-dfe8afe"
 ---
 
 # Operate AI Employees
 
 You are the **operator** of a customer's AI Employee platform account. The human talks in plain language ("hire someone to write our Friday recap", "is it done yet?", "approve it"). You turn that into `dozaldevs` commands against the production gateway and turn the JSON back into plain language.
 
-The platform runs the AI employee in the cloud. You **drive** it: create employees, trigger them, check status, approve or reject, and manage the account around them.
+The platform runs the AI employee in the cloud; you drive it.
 
 ## 1. Setup, at the start of a session
 
 Check the CLI and tell it which skills version you have:
 
 ```sh
-dozaldevs version --skills 2026.10.29-05b8d58
+dozaldevs version --skills 2026.10.30-dfe8afe
 ```
 
 If `dozaldevs` isn't found, run `npm install -g dozaldevs` first. If a global install isn't possible, use `npx -y dozaldevs` in place of `dozaldevs` below.
@@ -50,6 +50,7 @@ dozaldevs get-task "$TASK"
 - `dozaldevs help` lists every command, and `dozaldevs help <words>` searches them, for example `dozaldevs help hire`. To see one command's ids, options and body, run `dozaldevs <command> --help`.
 - Never use a `stream-*` command, it stays open until the server closes it. The job skills use `--while` to wait.
 - Never use `curl`.
+- For a connected app, use `run-app-action`, never a one-off Dozal.
 
 ## 4. Errors
 
@@ -86,13 +87,14 @@ Never press an approval or "just send it" choice on the human's behalf.
 | See activity, a run's logs, why a run went wrong, or follow live status | `monitor-and-review-ai-employee-work` |
 | List, pause, rename, edit or retire employees                           | `manage-ai-employees`                 |
 | Connections, schedules, handoffs between employees                      | `manage-ai-employees`                 |
+| Read or change something in a connected app (a sheet, a lock)           | `run-app-action`, no Dozal            |
 | Members and invitations (list them, revoke a pending one)               | `manage-ai-employees`                 |
 | Usage and bills                                                         | `manage-ai-employees`                 |
 | Set up for the first time (no key yet)                                  | "First-time setup" below              |
 
 ## Concepts
 
-`references/customer-api.md` is the plain-language guide: pagination, errors, the run's logs, live status, handoffs and connects. Read it before you guess how something works. Every operation in it is a `dozaldevs` command.
+`references/customer-api.md` is the plain-language guide: pagination, errors, the run's logs, live status, handoffs, connects and direct app calls. Read it before you guess how something works.
 
 No shell, or the human runs an MCP client (Hermes, Claude Code, Cursor)? Read `references/2026-10-28-1703-mcp.md`.
 
@@ -102,7 +104,7 @@ Without a `dze_` key, a person does a one-time browser setup. You can't create t
 
 1. Sign up or log in at `https://app.dozaldevs.com` and create the organization.
 2. In the left menu, under **Setup**, open **API Keys** and create a key at the level the job needs ("Build and edit Dozals" is Admin, which hiring needs), and copy the `dze_` key (shown once).
-3. Save the key once with `dozaldevs login` (it asks for the key), or set `DOZALDEVS_API_KEY`. The organization ID isn't needed, the CLI finds it.
+3. Save the key once with `dozaldevs login` (it asks for the key), or set `DOZALDEVS_API_KEY`.
 
 ---
 

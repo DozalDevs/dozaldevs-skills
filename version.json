@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.10.29-05b8d58",
+  "skills_version": "2026.10.30-dfe8afe",
   "cli_version": "0.3.0",
-  "source_commit": "05b8d58c0d12b0366617a2a58c6bc5ca28069687",
-  "content_hash": "d14665b7bfcc3de5c1da01bfff48b6c2d9b24db7a5062392de3ec9a145c35032",
+  "source_commit": "dfe8afe32c2233548d84e8d24e179c6fb6b04771",
+  "content_hash": "c7aaba22ba371ae201f631e8c2662d290d05870260147d4829ecbc352419195f",
   "history": [
+    {
+      "version": "2026.10.30-dfe8afe",
+      "date": "2026-10-30",
+      "changes": "Outside agents can run our built-in connectors through the direct app-call door"
+    },
     {
       "version": "2026.10.29-05b8d58",
       "date": "2026-10-29",
