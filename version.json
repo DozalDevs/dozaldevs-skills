@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.10.30-dfe8afe",
+  "skills_version": "2026.10.30-e23838d",
   "cli_version": "0.3.0",
-  "source_commit": "dfe8afe32c2233548d84e8d24e179c6fb6b04771",
-  "content_hash": "c7aaba22ba371ae201f631e8c2662d290d05870260147d4829ecbc352419195f",
+  "source_commit": "e23838d93263012595435dcbd73322ee4e85261a",
+  "content_hash": "dee027c2aaf5df1fb4a6605b040bd8eaa9537e17e15421a8d688bbb0b2f33bd4",
   "history": [
+    {
+      "version": "2026.10.30-e23838d",
+      "date": "2026-10-30",
+      "changes": "Several accounts of one app: platform (data, account rule, calls, triggers, API)"
+    },
     {
       "version": "2026.10.30-dfe8afe",
       "date": "2026-10-30",

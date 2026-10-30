@@ -14,7 +14,7 @@ Add `--validate_only true` to `update-dozal`. It runs every check and platform r
 
 ## What only a direct update changes
 
-The edit chat changes the steps, sends, notes, name, schedule, where results go, apps, per-run inputs, approval and the output format (`output_schema`). It can't change `department`, `concurrency_limit`, `worker_env`, `work_item_key`, `overview`, `pre_check_enabled`, `pre_check_adapter`, `pre_check_config`, `vm_size`, `appearance`, `estimated_manual_minutes_override`, `temperature`, `platform_rules_override`, `template_auto_update` or `on_hours`, and says so when asked: use `update-dozal` for those. Sending `null` clears a field that can be empty, e.g. `{"output_schema": null, "base_version": 7}` removes a required output format.
+The edit chat changes the steps, sends, notes, name, schedule, where results go, apps, per-run inputs, approval and the output format (`output_schema`). It can't change `department`, `concurrency_limit`, `worker_env`, `work_item_key`, `overview`, `pre_check_enabled`, `pre_check_adapter`, `pre_check_config`, `vm_size`, `appearance`, `estimated_manual_minutes_override`, `temperature`, `platform_rules_override`, `template_auto_update`, `on_hours` or `app_connections` (which account it uses for each app), and says so when asked: use `update-dozal` for those. Sending `null` clears a field that can be empty, e.g. `{"output_schema": null, "base_version": 7}` removes a required output format.
 
 ## See exactly what it's told
 
