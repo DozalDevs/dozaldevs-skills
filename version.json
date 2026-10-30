@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.10.30-85da705",
-  "cli_version": "0.3.0",
-  "source_commit": "85da7059400dcfa959d8195ca8d81c9d454e5773",
-  "content_hash": "1ac7aadf066f800852cb86aa921e6ea62d271de6c5fd407576c69d3085a1d781",
+  "skills_version": "2026.10.30-5033ef1",
+  "cli_version": "0.4.0",
+  "source_commit": "5033ef1da56706dcaa5dbf4bf11a47c548b350e0",
+  "content_hash": "a70331a032bd65de74768f4e4ba84f2bca22f3bdba75b833a47aa910ecaef8a8",
   "history": [
+    {
+      "version": "2026.10.30-5033ef1",
+      "date": "2026-10-30",
+      "changes": "fix: make outdated skills copies tell the agent to offer the update"
+    },
     {
       "version": "2026.10.30-85da705",
       "date": "2026-10-30",

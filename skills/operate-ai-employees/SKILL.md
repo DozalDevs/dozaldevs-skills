@@ -2,7 +2,7 @@
 name: operate-ai-employees
 description: "Use when a human asks you to operate their AI Employee platform account: hiring an employee, running one, checking on a task, approving or rejecting work, listing or pausing employees, or managing connections, schedules, handoffs, members, usage, bills, activity and run logs. Load this first to route between the four job skills. The umbrella skill: dze_ API key auth and its level, the production base URL, tenant resolution, the async model, and person-only steps."
 metadata:
-  version: "2026.10.30-85da705"
+  version: "2026.10.30-5033ef1"
 ---
 
 # Operate AI Employees
@@ -16,14 +16,14 @@ The platform runs the AI employee in the cloud; you drive it.
 Check the CLI and tell it which skills version you have:
 
 ```sh
-dozaldevs version --skills 2026.10.30-85da705
+dozaldevs version --skills 2026.10.30-5033ef1
 ```
 
 If `dozaldevs` isn't found, run `npm install -g dozaldevs` first. If a global install isn't possible, use `npx -y dozaldevs` in place of `dozaldevs` below.
 
-**Update notices:** when any command prints a line starting `DozalDevs skills update available` or `DozalDevs CLI update available`, or this one prints only a version number (an old CLI), tell your human in one line with the command to run, then carry on. Don't update unless they ask.
+**Update notices:** when a command prints a line starting `DozalDevs skills update available` or `DozalDevs CLI update available`, or this one prints only a version number (an old CLI), tell your human in plain words that a newer version is out and offer to install it. If they say yes, run the command it names yourself.
 
-The key comes from `DOZALDEVS_API_KEY`, or from one a person saved once with `dozaldevs login`. You never run `login` yourself, a person does. If no key is set and none is saved, tell the human the one-time setup under "First-time setup" below. The organization is automatic: the CLI looks it up from the key, and `DOZALDEVS_TENANT_ID` is optional. `DOZALDEVS_BASE_URL` is only for another host. The older names `AI_EMPLOYEE_API_KEY`, `AI_EMPLOYEE_TENANT_ID` and `AI_EMPLOYEE_BASE_URL` still work.
+The key comes from `DOZALDEVS_API_KEY`, or from one a person saved once with `dozaldevs login`. You never run `login` yourself, a person does. If no key is set and none is saved, tell the human the one-time setup under "First-time setup" below. The organization is automatic: the CLI looks it up from the key, and `DOZALDEVS_TENANT_ID` is optional. `DOZALDEVS_BASE_URL` is only for another host. The older `AI_EMPLOYEE_*` names still work.
 
 ## 2. Credential and level
 
