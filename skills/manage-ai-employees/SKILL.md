@@ -2,7 +2,7 @@
 name: manage-ai-employees
 description: "Use when a human wants to see, list, pause, reactivate, rename or inspect their existing AI employees (config, status active/paused/draft), or manage connected apps, schedules, handoffs, members and invitations, usage and bills, e.g. what employees do I have, pause the recap bot, how did last Friday go. Not for running one now (run-ai-employee), a task's output, approval or logs (monitor-and-review-ai-employee-work), or creating one (hire-ai-employee). Load operate-ai-employees first."
 metadata:
-  version: "2026.10.30-e23838d"
+  version: "2026.10.30-85da705"
 ---
 
 # Manage AI Employees
@@ -66,14 +66,14 @@ dozaldevs apply-hiring-chat "$CHAT" --data turn_seq:="$TURN_SEQ"
 ## Connections
 
 ```sh
+dozaldevs list-app-connections
 dozaldevs list-integrations
 dozaldevs list-integrations-needing-attention
-dozaldevs list-app-connections
 ```
 
-In order: what's connected, what needs fixing, and apps with their health.
+In order: the connected apps (Gmail, Jira, Google Sheets and the rest, each account with its id and health), the connections made through DozalDevs' own integrations (Slack, GitHub, website sign-ins), and what needs fixing. To answer "is Gmail connected?", read `list-app-connections`: an app missing from `list-integrations` can still be connected.
 
-Connecting is two steps and the second is a person's. Start it, which returns a `url`. Give it to the human, who opens it and approves. Then run `list-integrations` to see it connected. Don't claim it worked before you've seen that.
+Connecting is two steps and the second is a person's. Start it, which returns a `url`. Give it to the human, who opens it and approves. Then run `list-app-connections` (or `list-integrations` for Slack and GitHub) to see it connected. Don't claim it worked before you've seen that.
 
 ```sh
 dozaldevs start-app-connection --toolkit "$APP" --field url

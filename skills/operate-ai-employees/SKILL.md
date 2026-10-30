@@ -2,7 +2,7 @@
 name: operate-ai-employees
 description: "Use when a human asks you to operate their AI Employee platform account: hiring an employee, running one, checking on a task, approving or rejecting work, listing or pausing employees, or managing connections, schedules, handoffs, members, usage, bills, activity and run logs. Load this first to route between the four job skills. The umbrella skill: dze_ API key auth and its level, the production base URL, tenant resolution, the async model, and person-only steps."
 metadata:
-  version: "2026.10.30-e23838d"
+  version: "2026.10.30-85da705"
 ---
 
 # Operate AI Employees
@@ -16,7 +16,7 @@ The platform runs the AI employee in the cloud; you drive it.
 Check the CLI and tell it which skills version you have:
 
 ```sh
-dozaldevs version --skills 2026.10.30-e23838d
+dozaldevs version --skills 2026.10.30-85da705
 ```
 
 If `dozaldevs` isn't found, run `npm install -g dozaldevs` first. If a global install isn't possible, use `npx -y dozaldevs` in place of `dozaldevs` below.
@@ -73,7 +73,7 @@ A key never does these. Say so plainly, name the dashboard step, and don't retry
 
 - Create the organization, mint or revoke keys, invite people, change or remove members, suspend or delete the organization (`403 API_KEY_NOT_ALLOWED`).
 - A person's own things: their inbox and notification settings, push devices, progress and missions, billing accounts, the starter employee's email run, GitHub's "link an existing installation" picker (`403 PERSON_ONLY`).
-- The consent click. Starting a Slack, GitHub or app connect returns a link: give it to the human to open and approve, then check `list-integrations` to see it connected. Signing in to a website through a remote browser is a person's job too.
+- The consent click. Starting a Slack, GitHub or app connect returns a link: give it to the human to open and approve, then check `list-app-connections` to see it connected. Signing in to a website through a remote browser is a person's job too.
 
 Never press an approval or "just send it" choice on the human's behalf.
 

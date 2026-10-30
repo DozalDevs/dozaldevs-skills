@@ -292,7 +292,7 @@ Connecting Slack, GitHub or another app is an OAuth flow, and the last step is a
 - GitHub: `POST /admin/tenants/:tenantId/github/install/start` returns `{ "url": "..." }`.
 - Other apps: the connect route under connections in the spec takes the app's `toolkit` name as a query parameter and returns `{ "url": "..." }`. The `url` is `null` when the app can't be connected that way.
 
-All three need Member level. Once the person has clicked through, check `GET /admin/tenants/:tenantId/integrations` to see the connection show up, and `GET .../integrations/attention` for connections that have stopped working.
+All three need Member level. Once the person has clicked through, check `list-app-connections` (`GET /admin/tenants/:tenantId/composio/connections`) to see an app show up, or `GET /admin/tenants/:tenantId/integrations` for Slack and GitHub, and `GET .../integrations/attention` for connections that have stopped working. Apps like Gmail or Jira are never in `/integrations`, so don't read their absence there as "not connected".
 
 GitHub has one extra case. If the installation already exists and the person who authorized it can't see it, the callback answers `409` with `GITHUB_LINK_NEEDS_PERSON`. The agent will see GitHub still unconnected in the list. A signed-in person has to link it from Integrations in the dashboard.
 
