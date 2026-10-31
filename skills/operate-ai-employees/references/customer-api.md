@@ -189,7 +189,30 @@ To start a Dozal from a cron job, CI or another service, call the same trigger r
 What isn't there yet, so you can plan around it:
 
 - There's no idempotency key. Every accepted call starts a new run, so if your client retries after a timeout, list `GET .../tasks?archetype_id=:archetypeId&since=...` first to see whether the first call already started one.
-- There's no per-Dozal webhook URL to receive your events, and no callback when a run finishes. Your system calls the trigger route and then polls or streams. A Dozal can also start on its own from a schedule, from an event in a connected app, or from another Dozal finishing (see Handoffs below).
+- There's no per-Dozal webhook URL to receive your events, and no callback when a run finishes. Your system calls the trigger route and then polls or streams. A Dozal can also start on its own from a schedule, from an event in a connected app, from a tag in Slack, or from another Dozal finishing (see Handoffs below).
+
+### Starting a run from a Slack tag
+
+If the job is "answer when someone asks", don't build a client that polls the trigger route. Let people tag the organization's Slack app in a channel instead. The Dozal starts on its own, and the answer comes back in the same Slack thread.
+
+Turn it on by saving the channel in `trigger_sources` with an Admin key. The channel id starts with `C` (public) or `G` (private), and `base_version` is the Dozal's current version, as with any edit:
+
+```sh
+dozaldevs update-dozal "$DOZAL" --data base_version:="$VERSION" \
+  --data trigger_sources.type=manual --data trigger_sources.slack_mention.channel_id="$CHANNEL"
+```
+
+A Dozal that also runs on a schedule keeps `type: 'scheduled'` and its schedule next to `slack_mention`. To turn the tag start off, save `trigger_sources` again without the `slack_mention` key.
+
+- **The app has to be in the channel.** The save still works when it isn't, but `warnings` says so and the Dozal can't be switched on until that's fixed. For a public channel, `POST /admin/tenants/:tenantId/slack/channels/:channelId/join` adds the app. For a private one, a person has to open the channel and type `/invite @<the app>`, and the join route answers `409` with `PRIVATE_CHANNEL_NEEDS_INVITE`. `GET /admin/tenants/:tenantId/slack/bot-status?channel_id=...` tells you the app's name and whether it's in that channel.
+- **Only a real @mention starts a run.** The plain word doesn't, and neither does a reply in a thread that wasn't tagged. A tag in a channel where no Dozal listens gets a short reply saying how to turn it on.
+- **Anyone who can post in the channel can start it**, guests and people from other companies in Slack Connect included. Who sits in that channel is the customer's call.
+- **The answer lands in the thread.** Anything the run would send or change anywhere else waits for the Dozal's owner in the dashboard, whatever its approval setting says, and only the owner decides it there.
+- **Two Dozals in one channel both save, with a warning.** Whoever tags the app is asked which one they mean.
+- **A Dozal that listens also needs a report channel.** If it has none, the listen channel becomes its report channel and the answer says so. Clearing it while the tag start is on answers `422` with `REPORT_CHANNEL_REQUIRED`.
+- **Some Dozals can't take it.** One that declares a tool with a real-world effect, or, on organizations still on the old engine, one that uses credentials or writes the platform can't hold for the owner, is refused with `422` `SLACK_START_NOT_ALLOWED`. The message names the tools.
+
+`GET .../archetypes/:archetypeId/schedule` and the create and edit responses carry a `schedule_estimate`: runs per day and the price per day. A schedule that runs more than 24 times a day needs a yes before it saves. Send `confirm_frequent_schedule: true` with the same request once a person has seen the estimate. Without it the answer is `422` `FREQUENT_SCHEDULE_NEEDS_CONFIRM` carrying the `schedule_estimate`. An edit that doesn't touch `trigger_sources` is never refused for this.
 
 ## The run's logs
 

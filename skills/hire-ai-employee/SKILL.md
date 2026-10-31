@@ -2,7 +2,7 @@
 name: hire-ai-employee
 description: "Use when a human wants to create, hire, activate, or set up a new AI employee from a plain-English description, e.g. wanting something that writes a weekly recap or replies to guest messages. Drives the Hiring Dozal's multi-turn setup wizard (the hiring chat), relays its button questions (show me first or just send it) to the human, and hires the finished Dozal. Use it for any new-employee request. Load operate-ai-employees first for auth and base-URL setup."
 metadata:
-  version: "2026.10.31-2e868be"
+  version: "2026.10.31-21cb481"
 ---
 
 # Hire an AI Employee
@@ -51,7 +51,7 @@ dozaldevs send-hiring-message "$CHAT" --data message="" --data turn_seq:="$SEQ" 
 
 A long, specific first message (when it runs, what it produces, where results go, which apps) usually gets straight to a finished Dozal. "Make me a bot" always gets questions. Keep going until it's ready; stopping after the first question is the most common mistake.
 
-## The three questions the platform asks itself
+## The questions the platform asks itself
 
 These carry a `protocol` field and must be answered with a **button**. Typed text never changes them.
 
@@ -62,6 +62,11 @@ These carry a `protocol` field and must be answered with a **button**. Typed tex
 | `changes_each_run` | Will the human give this value each time, or should it always be the same?         | `each_time`, `always_same`                                   |
 
 Relay each one in plain words and send the human's own choice. **Never press "just send it" for them**, even to finish faster.
+
+Two more are about Slack (`protocol` `listen_channel` and `frequent_schedule`), and both need the human's own answer:
+
+- **`listen_channel`** appears when the Dozal should start from a tag in Slack ("answer when someone asks"). The buttons are channels, plus `decline` for "don't start it from Slack". Anyone who can post in that channel can start the Dozal, so let the human pick it. If the question says the app isn't in the channel, a public one can be joined with `POST /admin/tenants/:tenantId/slack/channels/:channelId/join`, and for a private one the human types `/invite @<the app>` in Slack. When the Dozal can't start from Slack at all, only `decline` is offered.
+- **`frequent_schedule`** appears when a schedule would run more than once an hour (over 24 times a day), with the runs and cost a day. Press `keep` only if the human wants that cadence, and `change` to pick a slower one. `tag_start` shows up when the job reads as answering questions, and moves on to `listen_channel`.
 
 ## When a send is refused
 

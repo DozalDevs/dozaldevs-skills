@@ -2,7 +2,7 @@
 name: manage-ai-employees
 description: "Use when a human wants to see, list, pause, reactivate, rename or inspect their existing AI employees (config, status active/paused/draft), or manage connected apps, schedules, handoffs, members and invitations, usage and bills, e.g. what employees do I have, pause the recap bot, how did last Friday go. Not for running one now (run-ai-employee), a task's output, approval or logs (monitor-and-review-ai-employee-work), or creating one (hire-ai-employee). Load operate-ai-employees first."
 metadata:
-  version: "2026.10.31-2e868be"
+  version: "2026.10.31-21cb481"
 ---
 
 # Manage AI Employees
@@ -26,7 +26,7 @@ The answer is `{ "items": [...], "page": { "next_cursor", "limit", "has_more" } 
 - `status`: `active` (live), `paused` (was live, temporarily off), `draft` (saved, never activated), `superseded` (replaced).
 - `identity`, `overview`: what it is, in plain language.
 
-Present a friendly roster, not raw JSON: "You have 2 employees: **Weekly Recap Writer** (active, runs Fridays) and **Guest Responder** (active)."
+Present a friendly roster, not raw JSON.
 
 ## Pause, reactivate, rename, edit
 
@@ -90,12 +90,14 @@ dozaldevs list-schedules
 dozaldevs get-dozal-schedule "$DOZAL"
 ```
 
-In order: scheduled employees with their next run, and one employee's next and last run. To change the timing, edit the employee as above. `run-schedule-now` (it takes the employee's `$SLUG`) makes the next scheduled run start now, and `resume-dozal-schedule` switches a scheduled employee back on after repeated failures paused it. Find out why it failed first (`monitor-and-review-ai-employee-work`).
+Scheduled employees with their next run, and one employee's next and last run. To change the timing, edit the employee as above. `run-schedule-now` (it takes the employee's `$SLUG`) makes the next scheduled run start now, and `resume-dozal-schedule` switches a scheduled employee back on after repeated failures paused it. Find out why it failed first (`monitor-and-review-ai-employee-work`).
 
 ```sh
 dozaldevs run-schedule-now "$SLUG"
 dozaldevs resume-dozal-schedule "$DOZAL"
 ```
+
+`get-dozal-schedule` also answers `schedule_estimate`. Over 24 runs a day needs the human's yes; an employee can start from a Slack tag. See `references/schedule-estimate-and-slack-start.md`.
 
 ## Handoffs
 
@@ -142,7 +144,7 @@ It returns the same `items` and `page` envelope. For one run's output or logs, u
 
 ## Removing an employee
 
-`delete-dozal` is a recoverable soft-delete. Confirm with the human first. Pausing is usually the better first step.
+`delete-dozal` is a recoverable soft-delete. Confirm with the human first; pausing is usually better.
 
 ```sh
 dozaldevs delete-dozal "$DOZAL"

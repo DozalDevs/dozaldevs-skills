@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.10.31-2e868be",
+  "skills_version": "2026.10.31-21cb481",
   "cli_version": "0.4.0",
-  "source_commit": "2e868be87a993cefc8b9d5a4cc81614e57df30ca",
-  "content_hash": "ebe37a1df93f287d095cce1708621bb3d3ca7acc8c786c9ddd2def10533ed64b",
+  "source_commit": "21cb481ecde23703d7caad90318e8e3d4dc6c34c",
+  "content_hash": "10b3983d96a73f689c312cabaac90ceba1aca7e48c0d1e55463c8b2d321ec557",
   "history": [
+    {
+      "version": "2026.10.31-21cb481",
+      "date": "2026-10-31",
+      "changes": "Start a Dozal when someone tags it in Slack"
+    },
     {
       "version": "2026.10.31-2e868be",
       "date": "2026-10-31",
