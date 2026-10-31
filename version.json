@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.10.30-5033ef1",
+  "skills_version": "2026.10.31-2e868be",
   "cli_version": "0.4.0",
-  "source_commit": "5033ef1da56706dcaa5dbf4bf11a47c548b350e0",
-  "content_hash": "a70331a032bd65de74768f4e4ba84f2bca22f3bdba75b833a47aa910ecaef8a8",
+  "source_commit": "2e868be87a993cefc8b9d5a4cc81614e57df30ca",
+  "content_hash": "ebe37a1df93f287d095cce1708621bb3d3ca7acc8c786c9ddd2def10533ed64b",
   "history": [
+    {
+      "version": "2026.10.31-2e868be",
+      "date": "2026-10-31",
+      "changes": "Manage several accounts of one app on the Integrations and Dozal pages"
+    },
     {
       "version": "2026.10.30-5033ef1",
       "date": "2026-10-30",

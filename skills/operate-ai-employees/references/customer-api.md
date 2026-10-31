@@ -290,9 +290,28 @@ Connecting Slack, GitHub or another app is an OAuth flow, and the last step is a
 
 - Slack: `POST /admin/tenants/:tenantId/slack/install/start` returns `{ "url": "..." }`.
 - GitHub: `POST /admin/tenants/:tenantId/github/install/start` returns `{ "url": "..." }`.
-- Other apps: the connect route under connections in the spec takes the app's `toolkit` name as a query parameter and returns `{ "url": "..." }`. The `url` is `null` when the app can't be connected that way.
+- Other apps: the connect route under connections in the spec takes the app's `toolkit` name as a query parameter and returns `{ "url": "..." }`. The `url` is `null` when the app can't be connected that way. It also takes `label` or `connection_id`, explained below.
 
 All three need Member level. Once the person has clicked through, check `list-app-connections` (`GET /admin/tenants/:tenantId/composio/connections`) to see an app show up, or `GET /admin/tenants/:tenantId/integrations` for Slack and GitHub, and `GET .../integrations/attention` for connections that have stopped working. Apps like Gmail or Jira are never in `/integrations`, so don't read their absence there as "not connected".
+
+### Several accounts of one app
+
+An organization can hold several named accounts of one app, like a work Gmail and a job search Gmail. Every account has its own id, and that id is how you point at one. The app's name never is.
+
+- `list-app-connections` returns one item per account. Read `id`, `label`, `toolkit`, `health_status` and `used_by_count` (how many Dozals use that account). Health belongs to the account, so one can fail while another of the same app works.
+- The connect route takes `label` to add an account, or `connection_id` to reconnect that exact one. With neither, it reconnects the organization's only account of the app, or adds the first. If the organization has several, it answers `409` with `CONNECTION_CHOICE_REQUIRED`.
+- A name is unique within its app and compared without regard to capitals. A taken one answers `409` with `CONNECTION_LABEL_TAKEN`, on connect and on rename alike.
+- An existing account that was never fully signed in has to be reconnected before you add another. Adding one first answers `409` with `CONNECTION_NEEDS_RECONNECT`, and the fix is to reconnect that account with its `connection_id`.
+- Rename with `PATCH /admin/tenants/:tenantId/composio/connections/:connectionId` and `{ "label": "..." }`.
+- Disconnect with `DELETE /admin/tenants/:tenantId/composio/connections/:connectionId`. It removes that account only, and the app's other accounts stay. There's no disconnect by app name.
+
+All three routes need Member level.
+
+A Dozal uses one account per app, and `app_connections` on the Dozal says which. It's an object of `{ "<toolkit>": "<connection id>" }`, sent on create and on PATCH (Admin level, like any Dozal edit). A PATCH merges it key by key, so send only the apps you're changing, and set an app to `null` to remove its choice. An id that isn't an account of that app in this organization is refused with `422` and `INVALID_APP_CONNECTION`. Dozals that already existed when a second account was connected keep using the first, so connecting a second account doesn't change what they do.
+
+With one account there's nothing to choose. With several and no choice made, the Dozal doesn't guess. It waits for a person or a key to pick one, so set `app_connections` for every app a new Dozal uses before you expect it to run.
+
+Ask a Dozal, the organization's built-in assistant, can't be edited like other Dozals. Choose its account with `PATCH /admin/tenants/:tenantId/assistant/app-connections` and `{ "app_connections": { "<toolkit>": "<connection id>" } }`, with the same rules and the same `422`. `GET` on that route reads its choices. Both need Member level.
 
 GitHub has one extra case. If the installation already exists and the person who authorized it can't see it, the callback answers `409` with `GITHUB_LINK_NEEDS_PERSON`. The agent will see GitHub still unconnected in the list. A signed-in person has to link it from Integrations in the dashboard.
 
@@ -310,6 +329,8 @@ dozaldevs run-app-action googlesheets GOOGLESHEETS_BATCH_GET --data arguments.sp
 Send one `session_id` of your own with every call that belongs to the same job, such as your conversation id: `--data session_id=<your id>` (saved HTTP endpoints take it too). The organization then sees that job's calls together as one session. Without it, your key's calls group by day (UTC).
 
 The app's inputs go under `arguments`. The answer is `{ "successful": true|false, "data": ..., "error": ..., "provider_status": 200 }`. `successful: false` means the app itself said no (a bad id, a missing sheet), so read `error` and fix the inputs.
+
+Which account the call runs on is `connection_id`, an optional field in the call's body (`--data connection_id=<id>` in the CLI). Leave it out when the organization has one account of the app. With several and none named, the call answers `409` with `CONNECTION_CHOICE_REQUIRED` and runs nothing, so take the id from `list-app-connections` and send it.
 
 What your key may run depends on its level and on the action:
 
