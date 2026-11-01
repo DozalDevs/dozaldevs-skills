@@ -2,7 +2,7 @@
 name: operate-ai-employees
 description: "Use when a human asks you to operate their AI Employee platform account: hiring an employee, running one, checking on a task, approving or rejecting work, listing or pausing employees, or managing connections, schedules, handoffs, members, usage, bills, activity and run logs. Load this first to route between the four job skills. The umbrella skill: dze_ API key auth and its level, the production base URL, tenant resolution, the async model, and person-only steps."
 metadata:
-  version: "2026.10.31-21cb481"
+  version: "2026.11.01-f6978ba"
 ---
 
 # Operate AI Employees
@@ -16,7 +16,7 @@ The platform runs the AI employee in the cloud; you drive it.
 Check the CLI and tell it which skills version you have:
 
 ```sh
-dozaldevs version --skills 2026.10.31-21cb481
+dozaldevs version --skills 2026.11.01-f6978ba
 ```
 
 If `dozaldevs` isn't found, run `npm install -g dozaldevs` first. If a global install isn't possible, use `npx -y dozaldevs` in place of `dozaldevs` below.
@@ -47,14 +47,14 @@ dozaldevs get-task "$TASK"
 - `--field <path>` prints one value, without a `body.` prefix: `--field conversation.id`. `items[].slug` prints one per line.
 - A list answers one page at a time. `--all` follows every page and prints all items. Only lists whose `--help` shows a `cursor` option page.
 - `--while <path>=<value> --every <seconds> --timeout <seconds>` repeats a read while the value stays the same, then prints the last answer. See the job skills.
-- `dozaldevs help` lists every command, and `dozaldevs help <words>` searches them, for example `dozaldevs help hire`. To see one command's ids, options and body, run `dozaldevs <command> --help`.
+- `dozaldevs help` lists every command, and `dozaldevs help <words>` searches them. To see one command's ids, options and body, run `dozaldevs <command> --help`.
 - Never use a `stream-*` command, it stays open until the server closes it. The job skills use `--while` to wait.
 - Never use `curl`.
 - For a connected app, use `run-app-action`, never a one-off Dozal.
 
 ## 4. Errors
 
-A failed call exits with code 1, prints `error`, `message` and `next_step` as JSON on stdout, and says the same in plain words on stderr. Do what `next_step` says. Exit code 2 means the command itself was wrong: read the message and fix it.
+A failed call exits with code 1, prints `error`, `message` and `next_step` as JSON on stdout. Do what `next_step` says. Exit code 2 means the command was wrong: fix it from the message.
 
 - `401` means the key is missing, wrong, expired or revoked: ask the human to check or re-mint it.
 - An unknown command is a typo: the CLI reads the live spec. Run `dozaldevs help <words>` to find the name.
@@ -94,9 +94,11 @@ Never press an approval or "just send it" choice on the human's behalf.
 
 ## Concepts
 
-`references/customer-api.md` is the plain-language guide: pagination, errors, the run's logs, live status, handoffs, connects and direct app calls. Read it before you guess how something works.
+`references/customer-api.md` is the plain guide: pagination, errors, the run's logs, live status, handoffs, connects and direct app calls.
 
-No shell, or the human runs an MCP client (Hermes, Claude Code, Cursor)? Read `references/2026-10-28-1703-mcp.md`.
+A call failed with a `request_id`, or the person calls it broken? Offer to send DozalDevs feedback, never unasked or without their yes: read `references/2026-10-31-2230-feedback.md`.
+
+No shell, or the human runs an MCP client? Read `references/2026-10-28-1703-mcp.md`.
 
 ## First-time setup (no key yet)
 

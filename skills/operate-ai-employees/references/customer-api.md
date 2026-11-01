@@ -93,11 +93,12 @@ A failed request returns JSON with the same fields every time:
 {
   "error": "NOT_FOUND",
   "message": "optional detail",
+  "request_id": "req_0123456789abcdef0123456789abcdef",
   "next_step": "List the collection to find a current id that belongs to this organization, then retry with that id."
 }
 ```
 
-`error` is a code you can branch on. `message` is extra detail and isn't always there. `next_step` is one plain sentence about what to do next, and it's always there. A `400` can also carry `issues`, which names the fields that were wrong, and a `500` may carry a `reference_id` worth quoting to support. The spec lists every code in the `ErrorCode` schema.
+`error` is a code you can branch on. `message` is extra detail and isn't always there. `request_id` names this one request; the same id is in the `X-Request-Id` header of every response, successes too. Quote it when you report a problem, and cite it in feedback. `next_step` is one plain sentence about what to do next, and it's always there. A `400` can also carry `issues`, which names the fields that were wrong, and a `500` may carry a `reference_id` worth quoting to support. The spec lists every code in the `ErrorCode` schema.
 
 The codes you'll meet most:
 
@@ -107,7 +108,9 @@ The codes you'll meet most:
 - `404` with `NOT_FOUND`: the id doesn't exist in your organization, or it belongs to a different one.
 - `400` with `INVALID_REQUEST` or `INVALID_ID`: the request didn't match the schema. Ids must be UUIDs.
 
-A path no route claims gets a plainer answer. It's a `404` with just `{ "error": "Not Found" }` and no `next_step`. If you see that body, check the path against the spec before you check anything else.
+A path no route claims gets a plainer answer. It's a `404` with just `error` and `request_id` (`{ "error": "Not Found", "request_id": "req_..." }`) and no `next_step`. If you see that body, check the path against the spec before you check anything else.
+
+A body the server can't read (broken JSON, too large, a bad charset) gets the usual JSON error, `400` or `413` with `INVALID_REQUEST`, never an HTML page.
 
 ## Runs take time
 
