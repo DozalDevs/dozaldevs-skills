@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.11.02-ebb6753",
+  "skills_version": "2026.11.02-3259d5d",
   "cli_version": "0.5.0",
-  "source_commit": "ebb67536895bf6c9a4fe612035c4ae4f8e09f1ff",
-  "content_hash": "8a1aff94bc39c9251afbafca9eb0cf01456bae9c67898ae690a4130ff835e54c",
+  "source_commit": "3259d5dcbc1df586bf2b919976e7f89c36394e8b",
+  "content_hash": "76881098be2e729ed0d933126286649d053c6be48448f0c07832bd9ed4ca9478",
   "history": [
+    {
+      "version": "2026.11.02-3259d5d",
+      "date": "2026-11-02",
+      "changes": "Add the app pipeline: tables, build service, routes, work items and tools"
+    },
     {
       "version": "2026.11.02-ebb6753",
       "date": "2026-11-02",

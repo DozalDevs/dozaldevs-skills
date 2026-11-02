@@ -13,6 +13,8 @@ Each line says when a job needs the ability.
 - Saved scripts the Dozal builds for itself: When the job repeats the same multi-step work and is better off keeping it as a saved script.
 - Reading the open web: When the job needs to search the web or read a public page to find or check something.
 - Process recordings: When the person has recorded themselves doing the task on screen and the job should follow it.
+- Prepare app: When the job needs to get an app working directory ready, starting from the app as it is now.
+- Publish app: When the job needs to check an app it changed and publish it, getting back the preview address.
 - Browse: When the job needs to open a web page in a browser and interact with it by searching, reading, clicking, filling in and pressing keys.
 - Execute: When the job needs to run an action in a connected third-party app such as Notion, Linear or Gmail, which can read or change data there.
 - Jira search: When the job needs to search the issues of the connected Jira account and read their full details.
