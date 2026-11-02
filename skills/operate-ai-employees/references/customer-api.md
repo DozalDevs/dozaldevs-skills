@@ -57,6 +57,8 @@ Every operation in the spec carries an `x-auth` entry that says which of these a
 
 Every operation in this guide is also a `dozaldevs` command, and the CLI reads the live spec each time (the operate skill has the setup). Run `dozaldevs <command> --help` to see one operation's ids, options, request body and responses. The paths and fields below are the same either way, so what you read here carries over to the commands.
 
+The CLI prints a short form of each answer, and so does MCP unless you ask for `response_format: "detailed"`. A list keeps each item's main fields, cuts text over 1,000 characters (the cut says "run again with --detailed") and drops empty lists. A single read, such as one Dozal or one draft, is never cut, and `null` stays. `--detailed` gives every field. `--field` always reads the full answer, so it prints a field the short form leaves out. `--all` prints the short form of every page unless you add `--detailed` or `--field`.
+
 ## Staying up to date
 
 The CLI names itself on every call with `X-DozalDevs-Client: cli/<version> skills/<version>`. Every call made with a key answers with `X-DozalDevs-Skills-Latest` (the newest published skills) and `X-DozalDevs-CLI-Minimum` (the CLI those skills need). When the client is behind, the answer also carries `X-DozalDevs-Notice` and a `notices` list in the JSON body, one plain line each, like `DozalDevs skills update available (2026.10.27-abc1234): run npx skills update`. A call that sends a key but no `X-DozalDevs-Client` is treated as an old CLI and told to update both. The CLI reads the skills version from the installed skills itself (the nearest `.agents/skills`, then `~/.agents/skills`). MCP calls get no notices: the MCP server's instructions are always current. An old version never makes a call fail.
@@ -223,7 +225,7 @@ Once a run has started, the API can show you what it recorded. We call the whole
 
 - `GET /admin/tenants/:tenantId/tasks/:taskId/events` is the structured one, and the place to start.
 - `GET .../tasks/:taskId/conversation` returns ad-hoc conversations only: the messages a sender wrote and the replies that went back to them. For a Dozal run it's empty (`items` is `[]`), so don't read an empty answer as "nothing happened". What a Dozal was asked and what it sent live in the task's `output`, in its `events` and in its `executions`.
-- `GET /admin/tenants/:tenantId/executions?task_id=:taskId` lists each attempt at the run. Add `?id=` for one attempt in full, including its transcript.
+- `GET /admin/tenants/:tenantId/executions?task_id=:taskId` lists each attempt at the run. Add `?id=` for one attempt in full, including its transcript. With the CLI, `list-executions --id "$EXECUTION" --detailed`: the short form leaves the transcript out.
 - `GET .../tasks/:taskId/status-log` is every status change the task went through, oldest first by default.
 - The progress stream above, if you're watching while it happens.
 
@@ -347,8 +349,8 @@ You don't need a Dozal to use an app the organization already connected. To read
 
 ```bash
 dozaldevs list-app-connections                        # what's connected
-dozaldevs list-app-actions googlesheets               # its actions, and whether your key may run each
-dozaldevs get-app-action googlesheets GOOGLESHEETS_BATCH_GET   # one action's inputs
+dozaldevs list-app-actions googlesheets               # its actions (slug, name, kind), and whether your key may run each
+dozaldevs get-app-action googlesheets GOOGLESHEETS_BATCH_GET   # one action's description and inputs
 dozaldevs run-app-action googlesheets GOOGLESHEETS_BATCH_GET --data arguments.spreadsheet_id=abc --data 'arguments.ranges:=["A1:C10"]'
 ```
 
@@ -362,7 +364,7 @@ What your key may run depends on its level and on the action:
 
 - A Viewer key runs only actions that read.
 - Member and above run any action, including the ones that pay or refund money, delete data, cancel something, change an access code or password, remove a person's access, or publish something publicly, and actions DozalDevs hasn't classified yet. Nothing waits for approval and nothing is held, so the human gives a key that level only when they trust it with those actions. The action's kind stays on the call in Activity as `hold_kind`.
-- `list-app-actions` shows `allowed_for_you` for each action. For a Viewer key, `null` means the action hasn't been checked yet and is checked the first time someone runs it.
+- `list-app-actions` shows `allowed_for_you` for each action. For a Viewer key, `null` means the action hasn't been checked yet and is checked the first time someone runs it. The short form of the list has no `description`: to pick an action by what it does, read `get-app-action` for the likely ones, or add `--detailed` to the list for every field. `--detailed` needs dozaldevs 0.5.0 or newer (an older CLI reads the flag as needing a value).
 
 Each call is charged as normal usage and shows on the Billing page as "Direct app calls". Owners and admins see every call, with the key that made it, under "Calls to your apps" on the API Keys page (`list-app-calls`). A call DozalDevs refused (not allowed for your key's level, or the app not connected) is listed too, with `result: "not_run"` and the reason, and is not charged. There are two limits:
 

@@ -2,7 +2,7 @@
 name: monitor-and-review-ai-employee-work
 description: "Use when a human asks whether an AI employee task is done, wants to see its output, or wants to approve or reject its work: is the recap ready, show me what it wrote, approve it, reject and shorten it, why did that run go wrong, show its logs, watch it live. Reads task status via phase_category, drives the approve/reject decision, and reads run logs, activity and live status. Load operate-ai-employees first for auth setup."
 metadata:
-  version: "2026.11.01-f6978ba"
+  version: "2026.11.02-4057f34"
 ---
 
 # Monitor & Review AI Employee Work
@@ -11,7 +11,7 @@ This checks on a task, lets the human approve or reject what the employee produc
 
 > Prerequisite: load `operate-ai-employees` first. It sets up the `dozaldevs` CLI and the key, and how to read errors. You also need the `task_id` (from when you ran the employee). Reading works at any key level; approving or rejecting needs **Member** or above.
 
-Arguments and fields for any command: `dozaldevs <command> --help` and `../operate-ai-employees/references/customer-api.md`. Below is only the behavior you can't read off the spec.
+Arguments and fields for any command: `dozaldevs <command> --help` and `../operate-ai-employees/references/customer-api.md`. Below is only the behavior you can't read off the spec. Answers are short; `--detailed` gives every field. `--detailed` needs dozaldevs 0.5.0 or newer (an older CLI reads the flag as needing a value).
 
 ## Check status: ONE call, read `phase_category`
 
@@ -69,11 +69,11 @@ Start with the failed task itself (`get-task`). `failure_reason` is the run's ow
    dozaldevs get-task-events "$TASK"
    ```
 
-2. **Then the transcript,** one entry per attempt. To read one attempt in full, pass its id with `--id`:
+2. **Then the transcript,** one entry per attempt. The list leaves each attempt's transcript out. To read one attempt in full, pass its id with `--id` and add `--detailed`:
 
    ```sh
    dozaldevs list-executions --task_id "$TASK"
-   dozaldevs list-executions --id "$EXECUTION"
+   dozaldevs list-executions --id "$EXECUTION" --detailed
    ```
 
 3. **Then the status log,** for the order things happened in:
@@ -96,6 +96,8 @@ Say what the logs show, in plain words. They don't always explain a failure. If 
   dozaldevs list-recent-decisions
   dozaldevs list-silent-dozals
   ```
+
+  `list-deliverables` cuts each `content` at 1,000 characters; add `--detailed` for the full text before you show it to the human.
 
 - **Waiting on a person:** what a task is waiting for approval on.
 

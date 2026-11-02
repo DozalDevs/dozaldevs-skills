@@ -2,7 +2,7 @@
 name: manage-ai-employees
 description: "Use when a human wants to see, list, pause, reactivate, rename or inspect their existing AI employees (config, status active/paused/draft), or manage connected apps, schedules, handoffs, members and invitations, usage and bills, e.g. what employees do I have, pause the recap bot, how did last Friday go. Not for running one now (run-ai-employee), a task's output, approval or logs (monitor-and-review-ai-employee-work), or creating one (hire-ai-employee). Load operate-ai-employees first."
 metadata:
-  version: "2026.11.01-f6978ba"
+  version: "2026.11.02-4057f34"
 ---
 
 # Manage AI Employees
@@ -11,7 +11,7 @@ This lists and manages the human's existing AI employees and the account around 
 
 > Prerequisite: load `operate-ai-employees` first. It sets up the `dozaldevs` CLI and the key, and explains levels, paging and errors.
 
-The CLI fills in the organization for every call. For a command's arguments and body, run `dozaldevs <command> --help`. Error codes and concepts: `../operate-ai-employees/references/customer-api.md`. This file is only the behavior you can't read off the spec.
+The CLI fills in the organization. For a command's arguments and body, run `dozaldevs <command> --help`. Error codes and concepts: `../operate-ai-employees/references/customer-api.md`. This file is only the behavior you can't read off the spec. Answers are short; `--detailed` gives every field (a Dozal's `execution_steps`, for one). `--detailed` needs dozaldevs 0.5.0 or newer (an older CLI reads the flag as needing a value).
 
 ## List employees
 
@@ -26,7 +26,7 @@ The answer is `{ "items": [...], "page": { "next_cursor", "limit", "has_more" } 
 - `status`: `active` (live), `paused` (was live, temporarily off), `draft` (saved, never activated), `superseded` (replaced).
 - `identity`, `overview`: what it is, in plain language.
 
-Present a friendly roster, not raw JSON.
+Present a friendly roster, not JSON.
 
 ## Pause, reactivate, rename, edit
 
@@ -36,7 +36,7 @@ Present a friendly roster, not raw JSON.
 dozaldevs update-dozal "$DOZAL" --data status=paused
 ```
 
-Use `--data status=active` to reactivate; it re-checks connections.
+`--data status=active` reactivates and re-checks connections.
 
 Each content edit bumps the Dozal's `version` and must send the current one as `base_version` (else `400 BASE_VERSION_REQUIRED`):
 
@@ -47,7 +47,7 @@ dozaldevs update-dozal "$DOZAL" --data role_name="$NEW_NAME" --data base_version
 
 If someone changed it since, `409 VERSION_CONFLICT`: read again and redo your change. Reverts and template updates need `base_version` too; a status-only update needs none. Approving or denying a suggested cleanup needs no version; `409 SUGGESTION_OUT_OF_DATE` means it was withdrawn: re-read, don't retry.
 
-Each save answers `changes`, what really changed; trust it over a re-read. Test an update first: `--validate_only true`. Fields only `update-dozal` changes, seeing what it's told, undoing: `references/checking-and-undoing.md`.
+Each save answers `changes`, what really changed; trust it. Test an update first: `--validate_only true`. Fields only `update-dozal` changes, seeing what it's told, undoing: `references/checking-and-undoing.md`.
 
 To change what the employee actually does ("make the summary shorter", "also post to Slack"), use the Hiring Dozal's edit chat described in `hire-ai-employee`:
 
@@ -71,7 +71,7 @@ dozaldevs list-integrations
 dozaldevs list-integrations-needing-attention
 ```
 
-In order: the connected apps (Gmail, Jira, Google Sheets and the rest, each account with its id and health), the connections made through DozalDevs' own integrations (Slack, GitHub, website sign-ins), and what needs fixing. To answer "is Gmail connected?", read `list-app-connections`: an app missing from `list-integrations` can still be connected.
+In order: the connected apps (Gmail, Jira, Google Sheets and the rest, each account with its id and health), the connections made through DozalDevs' own integrations (Slack, GitHub, website sign-ins), and what needs fixing. For "is Gmail connected?", read `list-app-connections`: an app missing from `list-integrations` can still be connected.
 
 Connecting is two steps and the second is a person's. Start it, which returns a `url`. Give it to the human, who opens it and approves. Then run `list-app-connections` (or `list-integrations` for Slack and GitHub) to see it connected. Don't claim it worked before you've seen that.
 
@@ -81,7 +81,7 @@ dozaldevs start-slack-install
 dozaldevs start-github-install
 ```
 
-GitHub's "link an installation that already exists" is a person's job (`403 PERSON_ONLY`). Confirm before disconnecting anything, because employees that use it stop working.
+GitHub's "link an installation that already exists" is a person's job (`403 PERSON_ONLY`). Confirm before disconnecting anything: employees that use it stop working.
 
 ## Schedules
 
@@ -90,7 +90,7 @@ dozaldevs list-schedules
 dozaldevs get-dozal-schedule "$DOZAL"
 ```
 
-Scheduled employees with their next run, and one employee's next and last run. To change the timing, edit the employee as above. `run-schedule-now` (it takes the employee's `$SLUG`) makes the next scheduled run start now, and `resume-dozal-schedule` switches a scheduled employee back on after repeated failures paused it. Find out why it failed first (`monitor-and-review-ai-employee-work`).
+Scheduled employees with their next run, and one employee's next and last run. To change the timing, edit it as above. `run-schedule-now` (it takes the employee's `$SLUG`) makes the next scheduled run start now, and `resume-dozal-schedule` switches a scheduled employee back on after repeated failures paused it. Find out why it failed first (`monitor-and-review-ai-employee-work`).
 
 ```sh
 dozaldevs run-schedule-now "$SLUG"
@@ -121,7 +121,7 @@ dozaldevs list-invitations
 dozaldevs revoke-invitation "$INVITATION"
 ```
 
-`revoke-invitation` cancels a pending one. A key can't invite anyone or change or remove a member (`403 API_KEY_NOT_ALLOWED`): tell the human to do that in the dashboard.
+`revoke-invitation` cancels a pending one; a key can't invite anyone or change or remove a member (`403 API_KEY_NOT_ALLOWED`): tell the human to do that in the dashboard.
 
 ## Usage and bills
 
@@ -140,7 +140,7 @@ dozaldevs get-billing
 dozaldevs list-tasks --limit 10
 ```
 
-It returns the same `items` and `page` envelope. For one run's output or logs, use `monitor-and-review-ai-employee-work` with its `id`.
+Same `items` and `page` envelope. For a run's output or logs, use `monitor-and-review-ai-employee-work` with its `id`.
 
 ## Removing an employee
 
@@ -161,4 +161,4 @@ dozaldevs apply-latest-org-snapshot --data label="$LABEL"
 dozaldevs get-org-snapshot-apply "$APPLY"
 ```
 
-Also `get-org-snapshot`, `delete-org-snapshot` and `apply-org-snapshot` (one version by id). Applying cancels every open run and deletes employees that aren't in the saved setup, so confirm with the human first. It answers `202` with an `apply_id` and runs in the background: poll `get-org-snapshot-apply` until `status` isn't `running`. `partial` means some employees weren't put back (`dozal_outcomes`). `409 APPLY_IN_PROGRESS`: one is already running. `404`: unknown label or id. Warm-up runs, preserved employees and the rest: `references/org-snapshots.md`.
+Also `get-org-snapshot`, `delete-org-snapshot` and `apply-org-snapshot` (one version by id). Applying cancels every open run and deletes employees that aren't in the saved setup, so confirm with the human first. It answers `202` with an `apply_id` and runs in the background: poll `get-org-snapshot-apply` until `status` isn't `running`. Outcomes (`partial`), errors, warm-up runs and preserved employees: `references/org-snapshots.md`.

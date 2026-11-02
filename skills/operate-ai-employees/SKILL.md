@@ -2,28 +2,26 @@
 name: operate-ai-employees
 description: "Use when a human asks you to operate their AI Employee platform account: hiring an employee, running one, checking on a task, approving or rejecting work, listing or pausing employees, or managing connections, schedules, handoffs, members, usage, bills, activity and run logs. Load this first to route between the four job skills. The umbrella skill: dze_ API key auth and its level, the production base URL, tenant resolution, the async model, and person-only steps."
 metadata:
-  version: "2026.11.01-f6978ba"
+  version: "2026.11.02-4057f34"
 ---
 
 # Operate AI Employees
 
 You are the **operator** of a customer's AI Employee platform account. The human talks in plain language ("hire someone to write our Friday recap", "is it done yet?", "approve it"). You turn that into `dozaldevs` commands against the production gateway and turn the JSON back into plain language.
 
-The platform runs the AI employee in the cloud; you drive it.
-
 ## 1. Setup, at the start of a session
 
 Check the CLI and tell it which skills version you have:
 
 ```sh
-dozaldevs version --skills 2026.11.01-f6978ba
+dozaldevs version --skills 2026.11.02-4057f34
 ```
 
 If `dozaldevs` isn't found, run `npm install -g dozaldevs` first. If a global install isn't possible, use `npx -y dozaldevs` in place of `dozaldevs` below.
 
-**Update notices:** when a command prints a line starting `DozalDevs skills update available` or `DozalDevs CLI update available`, or this one prints only a version number (an old CLI), tell your human in plain words that a newer version is out and offer to install it. If they say yes, run the command it names yourself.
+**Update notices:** when a command prints a line starting `DozalDevs skills update available` or `DozalDevs CLI update available`, or this one prints only a version number (an old CLI), tell your human a newer version is out and offer to install it. If they say yes, run the command it names.
 
-The key comes from `DOZALDEVS_API_KEY`, or from one a person saved once with `dozaldevs login`. You never run `login` yourself, a person does. If no key is set and none is saved, tell the human the one-time setup under "First-time setup" below. The organization is automatic: the CLI looks it up from the key, and `DOZALDEVS_TENANT_ID` is optional. `DOZALDEVS_BASE_URL` is only for another host. The older `AI_EMPLOYEE_*` names still work.
+The key comes from `DOZALDEVS_API_KEY`, or from one a person saved once with `dozaldevs login`. You never run `login` yourself, a person does. If no key is set and none is saved, tell the human the one-time setup under "First-time setup" below. The CLI looks the organization up from the key, so `DOZALDEVS_TENANT_ID` is optional. `DOZALDEVS_BASE_URL` is only for another host. The older `AI_EMPLOYEE_*` names still work.
 
 ## 2. Credential and level
 
@@ -45,9 +43,10 @@ dozaldevs get-task "$TASK"
 - A body is `--data key=value` for a text field, `--data key:=<json>` for a number, true/false or JSON (`--data turn_seq:=3`), and dots nest (`--data inputs.topic="$TOPIC"`). A command that takes a body and gets none sends `{}`. For a whole JSON body, use `--body '<json>'`, `--body @file.json` or `--body -`.
 - Query parameters are `--name value`, as the spec names them (`--limit 10`).
 - `--field <path>` prints one value, without a `body.` prefix: `--field conversation.id`. `items[].slug` prints one per line.
+- Answers are short; `--detailed` gives every field. `--detailed` needs dozaldevs 0.5.0 or newer (an older CLI reads the flag as needing a value). What the short form drops: `references/customer-api.md`.
 - A list answers one page at a time. `--all` follows every page and prints all items. Only lists whose `--help` shows a `cursor` option page.
-- `--while <path>=<value> --every <seconds> --timeout <seconds>` repeats a read while the value stays the same, then prints the last answer. See the job skills.
-- `dozaldevs help` lists every command, and `dozaldevs help <words>` searches them. To see one command's ids, options and body, run `dozaldevs <command> --help`.
+- `--while <path>=<value> --every <seconds> --timeout <seconds>` repeats a read while the value stays, then prints the last answer. See the job skills.
+- `dozaldevs help` lists every command, `dozaldevs help <words>` searches them, and `dozaldevs <command> --help` shows one command's ids, options and body.
 - Never use a `stream-*` command, it stays open until the server closes it. The job skills use `--while` to wait.
 - Never use `curl`.
 - For a connected app, use `run-app-action`, never a one-off Dozal.
@@ -69,7 +68,7 @@ AI employees take **minutes**. Never block in a tight loop:
 
 ## 6. What only a person can do
 
-A key never does these. Say so plainly, name the dashboard step, and don't retry or look for a workaround:
+A key never does these. Say so, name the dashboard step, and don't retry or look for a workaround:
 
 - Create the organization, mint or revoke keys, invite people, change or remove members, suspend or delete the organization (`403 API_KEY_NOT_ALLOWED`).
 - A person's own things: their inbox and notification settings, push devices, progress and missions, billing accounts, the starter employee's email run, GitHub's "link an existing installation" picker (`403 PERSON_ONLY`).
@@ -88,8 +87,7 @@ Never press an approval or "just send it" choice on the human's behalf.
 | List, pause, rename, edit or retire employees                           | `manage-ai-employees`                 |
 | Connections, schedules, handoffs between employees                      | `manage-ai-employees`                 |
 | Read or change something in a connected app (a sheet, a lock)           | `run-app-action`, no Dozal            |
-| Members and invitations (list them, revoke a pending one)               | `manage-ai-employees`                 |
-| Usage and bills                                                         | `manage-ai-employees`                 |
+| Members and invitations, usage and bills                                | `manage-ai-employees`                 |
 | Set up for the first time (no key yet)                                  | "First-time setup" below              |
 
 ## Concepts

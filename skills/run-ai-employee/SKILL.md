@@ -2,7 +2,7 @@
 name: run-ai-employee
 description: "Use when a human wants to run, trigger, start, or test-run an existing AI employee, e.g. run the recap bot now, kick off the guest responder, or run it once per topic from a list of inputs. Triggers the employee, can dry-run to list required inputs, and hands back task handles without blocking. Load operate-ai-employees first for auth; use monitor-and-review-ai-employee-work to check the result."
 metadata:
-  version: "2026.11.01-f6978ba"
+  version: "2026.11.02-4057f34"
 ---
 
 # Run an AI Employee
@@ -11,7 +11,7 @@ This starts an existing AI employee working. The work runs in the cloud and take
 
 > Prerequisite: load `operate-ai-employees` first. It sets up the `dozaldevs` CLI and the key. You also need the employee's `slug` (its stable identifier, distinct from `role_name`, which is only the display name). If you don't know the slug, find the employee first (`manage-ai-employees`). A key needs **Member** level or above to run one.
 
-Exact bodies and answers: `dozaldevs run-dozal --help` and `../operate-ai-employees/references/customer-api.md`.
+Exact bodies and answers: `dozaldevs run-dozal --help` and `../operate-ai-employees/references/customer-api.md`. Answers are short; `--detailed` gives every field. `--detailed` needs dozaldevs 0.5.0 or newer (an older CLI reads the flag as needing a value).
 
 ## Trigger
 

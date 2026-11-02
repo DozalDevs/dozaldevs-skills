@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.11.01-f6978ba",
-  "cli_version": "0.4.1",
-  "source_commit": "f6978ba4f90e110263f829311b3b5bb074262384",
-  "content_hash": "54ac72f85c4238f9bf72ecc8313d7403532eb45ce3dce8a97e25862298a2267c",
+  "skills_version": "2026.11.02-4057f34",
+  "cli_version": "0.5.0",
+  "source_commit": "4057f34e0e5b7ca24f5f6722ffaa4fb4643c8de9",
+  "content_hash": "46b43cbb003b50bb65a51c7f5180e2ed60d33acaa221946c5a537ef463ed1e3a",
   "history": [
+    {
+      "version": "2026.11.02-4057f34",
+      "date": "2026-11-02",
+      "changes": "Answers are short by default, add --detailed for every field"
+    },
     {
       "version": "2026.11.01-f6978ba",
       "date": "2026-11-01",
