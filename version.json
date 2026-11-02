@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.11.02-4057f34",
+  "skills_version": "2026.11.02-ebb6753",
   "cli_version": "0.5.0",
-  "source_commit": "4057f34e0e5b7ca24f5f6722ffaa4fb4643c8de9",
-  "content_hash": "46b43cbb003b50bb65a51c7f5180e2ed60d33acaa221946c5a537ef463ed1e3a",
+  "source_commit": "ebb67536895bf6c9a4fe612035c4ae4f8e09f1ff",
+  "content_hash": "8a1aff94bc39c9251afbafca9eb0cf01456bae9c67898ae690a4130ff835e54c",
   "history": [
+    {
+      "version": "2026.11.02-ebb6753",
+      "date": "2026-11-02",
+      "changes": "fix(slack): say why a Slack tag can't start a Dozal in plain words"
+    },
     {
       "version": "2026.11.02-4057f34",
       "date": "2026-11-02",

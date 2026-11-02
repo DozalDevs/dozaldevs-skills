@@ -215,7 +215,7 @@ A Dozal that also runs on a schedule keeps `type: 'scheduled'` and its schedule 
 - **The answer lands in the thread.** Anything the run would send or change anywhere else waits for the Dozal's owner in the dashboard, whatever its approval setting says, and only the owner decides it there.
 - **Two Dozals in one channel both save, with a warning.** Whoever tags the app is asked which one they mean.
 - **A Dozal that listens also needs a report channel.** If it has none, the listen channel becomes its report channel and the answer says so. Clearing it while the tag start is on answers `422` with `REPORT_CHANNEL_REQUIRED`.
-- **Some Dozals can't take it.** One that declares a tool with a real-world effect, or, on organizations still on the old engine, one that uses credentials or writes the platform can't hold for the owner, is refused with `422` `SLACK_START_NOT_ALLOWED`. The message names the tools.
+- **Some Dozals can't take it.** One that declares a tool with a real-world effect, or, on organizations still on the old engine, one that uses credentials or writes the platform can't hold for the owner, is refused with `422` `SLACK_START_NOT_ALLOWED`. The message says why in plain words and names the apps; `blocker.code` says which rule refused it.
 
 `GET .../archetypes/:archetypeId/schedule` and the create and edit responses carry a `schedule_estimate`: runs per day and the price per day. A schedule that runs more than 24 times a day needs a yes before it saves. Send `confirm_frequent_schedule: true` with the same request once a person has seen the estimate. Without it the answer is `422` `FREQUENT_SCHEDULE_NEEDS_CONFIRM` carrying the `schedule_estimate`. An edit that doesn't touch `trigger_sources` is never refused for this.
 
