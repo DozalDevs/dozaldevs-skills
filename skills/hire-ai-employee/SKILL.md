@@ -2,7 +2,7 @@
 name: hire-ai-employee
 description: "Use when a human wants to create, hire, activate, or set up a new AI employee from a plain-English description, e.g. wanting something that writes a weekly recap or replies to guest messages. Drives the Hiring Dozal's multi-turn setup wizard (the hiring chat), relays its button questions (show me first or just send it) to the human, and hires the finished Dozal. Use it for any new-employee request. Load operate-ai-employees first for auth and base-URL setup."
 metadata:
-  version: "2026.11.03-d4f7441"
+  version: "2026.11.03-0151338"
 ---
 
 # Hire an AI Employee
@@ -53,7 +53,9 @@ A long, specific first message (when it runs, what it produces, where results go
 
 ## The questions the platform asks itself
 
-None on the work engine yet: the assistant asks in words, and every setting it proposes (approval, schedule, inputs given each run, Slack channel, account) shows on the change card, where the human keeps or leaves out each part. **Never keep "just send it" for them**, even to finish faster. The Slack-tag, frequent-schedule and which-account buttons return in a follow-up.
+The assistant asks in words, and every setting it proposes shows on the change card, where the human keeps or leaves out each part. **Never keep "just send it" for them**, even to finish faster.
+
+Three settings come as button questions about the held change (`protocol` `app_account`, `listen_channel`, `frequent_schedule`): which account of an app the Dozal uses, which Slack channel it listens in for a tag (or `decline`), and whether to keep a schedule that runs more than 24 times a day. Only the human's press counts; the change can't be saved until each is answered. Send the press with no words: words, or "change how often", go to the assistant and turn the change down.
 
 ## When a send is refused
 
