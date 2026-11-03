@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.11.02-3259d5d",
+  "skills_version": "2026.11.03-d4f7441",
   "cli_version": "0.5.0",
-  "source_commit": "3259d5dcbc1df586bf2b919976e7f89c36394e8b",
-  "content_hash": "76881098be2e729ed0d933126286649d053c6be48448f0c07832bd9ed4ca9478",
+  "source_commit": "d4f7441eede4b7b2b7d9f0e4bd86ea63773a8797",
+  "content_hash": "1fec65baccca4748b2a352ea10147fbc1d47945a6504c4b445478b5968e16ef6",
   "history": [
+    {
+      "version": "2026.11.03-d4f7441",
+      "date": "2026-11-03",
+      "changes": "Run the hiring and change chats on the work engine"
+    },
     {
       "version": "2026.11.02-3259d5d",
       "date": "2026-11-02",

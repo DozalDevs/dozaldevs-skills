@@ -2,7 +2,7 @@
 name: manage-ai-employees
 description: "Use when a human wants to see, list, pause, reactivate, rename or inspect their existing AI employees (config, status active/paused/draft), or manage connected apps, schedules, handoffs, members and invitations, usage and bills, e.g. what employees do I have, pause the recap bot, how did last Friday go. Not for running one now (run-ai-employee), a task's output, approval or logs (monitor-and-review-ai-employee-work), or creating one (hire-ai-employee). Load operate-ai-employees first."
 metadata:
-  version: "2026.11.02-3259d5d"
+  version: "2026.11.03-d4f7441"
 ---
 
 # Manage AI Employees
@@ -55,13 +55,7 @@ To change what the employee actually does ("make the summary shorter", "also pos
 dozaldevs start-hiring-chat --data kind=edit --data archetype_id="$DOZAL"
 ```
 
-When the chat shows the finished change (`presented` true, `open_questions` empty), show the human what will change and, on "yes", save it with the chat's current `turn_seq`. Nothing changes on the live employee until then.
-
-```sh
-dozaldevs apply-hiring-chat "$CHAT" --data turn_seq:="$TURN_SEQ"
-```
-
-`409 VERSION_CONFLICT` on apply means it changed elsewhere: run `restart-hiring-chat` to pick that up.
+The assistant holds each change for a check (the chat's `held_change`): read it, show the human each part's before and after, and decide it as `hire-ai-employee` describes under "Hiring the Dozal". Nothing changes on the live employee until then; if it changed elsewhere, the save fails `409 VERSION_CONFLICT` and the assistant proposes it again.
 
 ## Connections
 

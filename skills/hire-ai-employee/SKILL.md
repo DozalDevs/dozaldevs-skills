@@ -2,7 +2,7 @@
 name: hire-ai-employee
 description: "Use when a human wants to create, hire, activate, or set up a new AI employee from a plain-English description, e.g. wanting something that writes a weekly recap or replies to guest messages. Drives the Hiring Dozal's multi-turn setup wizard (the hiring chat), relays its button questions (show me first or just send it) to the human, and hires the finished Dozal. Use it for any new-employee request. Load operate-ai-employees first for auth and base-URL setup."
 metadata:
-  version: "2026.11.02-3259d5d"
+  version: "2026.11.03-d4f7441"
 ---
 
 # Hire an AI Employee
@@ -41,7 +41,7 @@ dozaldevs get-hiring-chat "$CHAT" --while turn_in_progress=true --every 3 --time
 ```
 
 4. **Read.** Run `dozaldevs get-hiring-chat "$CHAT"`. Show the human the new assistant entries in `messages` and every entry in `open_questions`.
-5. **Answer.** Send the next message with the current `turn_seq`. Button presses go in `answers`, keyed by the question's `id`: `--data answers.q1.option=approval_on`, or `--data answers.q2.text="..."` where typing is allowed. `message` may be empty when you only press buttons.
+5. **Answer.** Send the next message with the current `turn_seq`. Button presses go in `answers`, keyed by the question's `id`: `--data answers.q1.option=<value>`, or `--data answers.q2.text="..."` where typing is allowed. `message` may be empty when you only press buttons.
 
 ```sh
 dozaldevs send-hiring-message "$CHAT" --data message="" --data turn_seq:="$SEQ" --data answers.q1.option="$OPTION"
@@ -53,20 +53,7 @@ A long, specific first message (when it runs, what it produces, where results go
 
 ## The questions the platform asks itself
 
-These carry a `protocol` field and must be answered with a **button**. Typed text never changes them.
-
-| `protocol`         | What it's asking                                                                   | Option values                                                |
-| ------------------ | ---------------------------------------------------------------------------------- | ------------------------------------------------------------ |
-| `approval`         | "Show you each result before it goes out, or just send it?"                        | `approval_on` (show me first), `approval_off` (just send it) |
-| `schedule`         | An app can't announce new items at once, so the Dozal will check every 15 minutes. | `schedule_ok`, `schedule_talk`                               |
-| `changes_each_run` | Will the human give this value each time, or should it always be the same?         | `each_time`, `always_same`                                   |
-
-Relay each one in plain words and send the human's own choice. **Never press "just send it" for them**, even to finish faster.
-
-Two more are about Slack (`protocol` `listen_channel` and `frequent_schedule`), and both need the human's own answer:
-
-- **`listen_channel`** appears when the Dozal should start from a tag in Slack ("answer when someone asks"). The buttons are channels, plus `decline` for "don't start it from Slack". Anyone who can post in that channel can start the Dozal, so let the human pick it. If the question says the app isn't in the channel, a public one can be joined with `POST /admin/tenants/:tenantId/slack/channels/:channelId/join`, and for a private one the human types `/invite @<the app>` in Slack. When the Dozal can't start from Slack at all, only `decline` is offered.
-- **`frequent_schedule`** appears when a schedule would run more than once an hour (over 24 times a day), with the runs and cost a day. Press `keep` only if the human wants that cadence, and `change` to pick a slower one. `tag_start` shows up when the job reads as answering questions, and moves on to `listen_channel`.
+None on the work engine yet: the assistant asks in words, and every setting it proposes (approval, schedule, inputs given each run, Slack channel, account) shows on the change card, where the human keeps or leaves out each part. **Never keep "just send it" for them**, even to finish faster. The Slack-tag, frequent-schedule and which-account buttons return in a follow-up.
 
 ## When a send is refused
 
@@ -85,13 +72,21 @@ dozaldevs restart-hiring-chat "$CHAT"
 
 ## Hiring the Dozal
 
-Show the human a plain-English summary from `draft` (name, what it does, when it runs, where results go, whether it asks before sending) and confirm. On "yes", send the chat's current `turn_seq` (read it as in step 2):
+Nothing saves on its own: the assistant holds a **change to check**, named by the chat's `held_change` (`task_id`, `wait_id`, `action_id`). Read it part by part:
 
 ```sh
-dozaldevs hire-from-hiring-chat "$CHAT" --data turn_seq:="$SEQ"
+dozaldevs get-wait-dozal-change "$TASK" "$WAIT" "$ACTION"
 ```
 
-`200` means it's live and the chat closes. A refusal comes in plain words (for example `400 MISSING_CONNECTION` when an app still has to be connected). Tell the human what to fix, then keep chatting or hire again. If the missing piece is a connection, starting it returns a link only a person can open (see `operate-ai-employees`).
+Show each part's before and after, and the platform's own adjustments (`platform`, with `reason`). Approve all of it, or edit with the part ids to keep (`steps`, `name_and_notes`, `apps_and_tools`, `tool:<path>`, ...), then submit:
+
+```sh
+dozaldevs decide-wait-action "$TASK" "$WAIT" --data actionId="$ACTION" --data decision=approve
+dozaldevs decide-wait-action "$TASK" "$WAIT" --data actionId="$ACTION" --data decision=edit --data 'keep_sections:=["steps"]'
+dozaldevs submit-wait-decisions "$TASK" "$WAIT" --data mode=submit
+```
+
+The assistant saves it and reports in the chat, refusals included (a connection still to make). A chat message while a change waits turns it down; the assistant proposes it again if still wanted. `hire-from-hiring-chat` answers `409 USE_THE_CHECK_CARD` with the `held_change`.
 
 To throw the setup away:
 
