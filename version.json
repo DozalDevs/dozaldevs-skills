@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.11.03-0151338",
+  "skills_version": "2026.11.05-dc86450",
   "cli_version": "0.5.0",
-  "source_commit": "015133823910c76f748c304720fdbff9ac2fb4a6",
-  "content_hash": "d31864e749b18eed664c2ab3d59ede57e60360d96d06a47b40ed80393e72f964",
+  "source_commit": "dc864503325b2499b51979b609aeb239384d5678",
+  "content_hash": "ad75d1f50fd277976fd27847feaf364a58b25863a2ce4538ae257c452710ec2e",
   "history": [
+    {
+      "version": "2026.11.05-dc86450",
+      "date": "2026-11-05",
+      "changes": "Add a read-only tool that reads a Dozal's live instruction version and step hash"
+    },
     {
       "version": "2026.11.03-0151338",
       "date": "2026-11-03",

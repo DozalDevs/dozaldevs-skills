@@ -41,6 +41,7 @@ Each line says when a job needs the ability.
 - Diagnose: When the job needs to fetch the investigation record of its own task so it can look into what went wrong.
 - Evaluate: When the job needs to compute a result from structured data with a written expression and save the result for a later step.
 - Fit message: When the job needs to fit a long list of items into one text message within a size limit, saying how many were left out.
+- Get dozal instructions: When the job needs to know whether a Dozal's instructions have changed since a script was built against them: its live version and the md5 of its steps.
 - Join records: When the job needs to attach the earliest matching time from one set of records onto another set of records.
 - Match names to runs: When the job needs to count how many records have a name that appears in the earlier finished runs of a named job.
 - Page evidence: When the job needs to prove that given text really appears on a web page and cite that proof beside the claim it backs.
