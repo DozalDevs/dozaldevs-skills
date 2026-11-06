@@ -2,7 +2,7 @@
 name: monitor-and-review-ai-employee-work
 description: "Use when a human asks whether an AI employee task is done, wants to see its output, or wants to approve or reject its work: is the recap ready, show me what it wrote, approve it, reject and shorten it, why did that run go wrong, show its logs, watch it live. Reads task status via phase_category, drives the approve/reject decision, and reads run logs, activity and live status. Load operate-ai-employees first for auth setup."
 metadata:
-  version: "2026.11.06-f81595c"
+  version: "2026.11.06-c573426"
 ---
 
 # Monitor & Review AI Employee Work
@@ -52,6 +52,8 @@ Reject, with the human's reason in `$REASON`:
 ```sh
 dozaldevs decide-task "$TASK" --data action=reject --data reason="$REASON"
 ```
+
+`decide-task` works for every run that is `awaiting_human`, whatever it is doing. If the run holds several actions, approve approves all of them and reject rejects all of them with the reason; to decide one action of such a run, use `decide-wait-action`.
 
 - `202`: recorded. On approve it delivers (for example posts to Slack): "Approved, sending it now."
 - `409 TASK_NOT_AWAITING_REVIEW`: check the status again, it may still be working or already finished.

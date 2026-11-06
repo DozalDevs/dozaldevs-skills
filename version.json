@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.11.06-f81595c",
+  "skills_version": "2026.11.06-c573426",
   "cli_version": "0.5.0",
-  "source_commit": "f81595c4aa1204aaf28654f5d82702c3be9a0ac7",
-  "content_hash": "19129975ef654fe26b37c921f02ab292f0aa82382cc2610bf6d2dc07d8d6a792",
+  "source_commit": "c5734266eaf1c56e3b5fd85c004a2b7877fd3e4c",
+  "content_hash": "d550138e4ced269430a81f3018fc2fb150cae4e7c5d581a6d10f359ea01902d5",
   "history": [
+    {
+      "version": "2026.11.06-c573426",
+      "date": "2026-11-06",
+      "changes": "Let decide-task approve or reject a new-engine run through its open wait"
+    },
     {
       "version": "2026.11.06-f81595c",
       "date": "2026-11-06",

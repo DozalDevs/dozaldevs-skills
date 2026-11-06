@@ -146,6 +146,8 @@ curl -s -X POST \
 
 `action` is `approve` or `reject`, and `reason` is optional. It's the same decision the buttons in Slack record, and the dashboard shows it as made by your key's name.
 
+This works for every run that is waiting on a person, however it runs. For a run that holds several actions, `approve` approves all of them and `reject` rejects all of them with your `reason`. To decide one action of such a run, use `decide-wait-action`.
+
 To see what's waiting, `GET /admin/tenants/:tenantId/tasks?needs_decision=true` filters the list, and `GET .../tasks/:taskId/pending-approval` lists the requests still open on one run.
 
 ### Watching live
