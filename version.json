@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.11.06-2093051",
+  "skills_version": "2026.11.06-f81595c",
   "cli_version": "0.5.0",
-  "source_commit": "2093051eb38ff75e425542a583c202c95f3f9c37",
-  "content_hash": "13d61428ab346739bb8086653f1466614ff97abc5847af4b792b66ab025b173e",
+  "source_commit": "f81595c4aa1204aaf28654f5d82702c3be9a0ac7",
+  "content_hash": "19129975ef654fe26b37c921f02ab292f0aa82382cc2610bf6d2dc07d8d6a792",
   "history": [
+    {
+      "version": "2026.11.06-f81595c",
+      "date": "2026-11-06",
+      "changes": "Let any member connect their assistant, and let OpenCode sign in"
+    },
     {
       "version": "2026.11.06-2093051",
       "date": "2026-11-06",
