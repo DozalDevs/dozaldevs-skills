@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.11.06-c573426",
+  "skills_version": "2026.11.07-beaf5a7",
   "cli_version": "0.5.0",
-  "source_commit": "c5734266eaf1c56e3b5fd85c004a2b7877fd3e4c",
-  "content_hash": "d550138e4ced269430a81f3018fc2fb150cae4e7c5d581a6d10f359ea01902d5",
+  "source_commit": "beaf5a79efe578646e293b299483f94ece5947e2",
+  "content_hash": "5583855f27c44fb9e631b8e316f3d69f3b23f6ace7e61734da0623f341043f08",
   "history": [
+    {
+      "version": "2026.11.07-beaf5a7",
+      "date": "2026-11-07",
+      "changes": "Connect Ninety: card, live token check and every read action"
+    },
     {
       "version": "2026.11.06-c573426",
       "date": "2026-11-06",

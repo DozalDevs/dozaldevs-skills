@@ -68,6 +68,7 @@ Each line says when a job needs the ability.
 - Hostfully: When the job needs to read or change something in Hostfully.
 - MongoDB: When the job needs to read or change something in MongoDB.
 - MySQL: When the job needs to read or change something in MySQL.
+- Ninety: When the job needs to read or change something in Ninety.
 - OlaClick: When the job needs to read or change something in OlaClick.
 - PostgreSQL: When the job needs to read or change something in PostgreSQL.
 - PriceLabs: When the job needs to read or change something in PriceLabs.
