@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.11.07-e82bea2",
+  "skills_version": "2026.11.07-5101da7",
   "cli_version": "0.5.0",
-  "source_commit": "e82bea28db30d3680b6cdbea0565c58588f3dca7",
-  "content_hash": "81e42902c16c3e54bc9291eab67f2b42804fab2dd96d78e65d9369af529c9f6a",
+  "source_commit": "5101da7c3f70df2f9bd1cdfddd0fb59628aa0c1f",
+  "content_hash": "abdf4f5209b870a38437eadc0aaaf90d762a814cf4127c453b01fe6324733206",
   "history": [
+    {
+      "version": "2026.11.07-5101da7",
+      "date": "2026-11-07",
+      "changes": "Advanced chat stage 3 of 6: the platform's AI and machine time, billed as usage and streamed"
+    },
     {
       "version": "2026.11.07-e82bea2",
       "date": "2026-11-07",
