@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.11.07-23e378e",
+  "skills_version": "2026.11.07-e82bea2",
   "cli_version": "0.5.0",
-  "source_commit": "23e378e40455bd6625dc5a5a15b7a86d67978bf7",
-  "content_hash": "6c9b08068433d9aeac89629fb9774aaec4c919e11b3019ee73057f24396c4aeb",
+  "source_commit": "e82bea28db30d3680b6cdbea0565c58588f3dca7",
+  "content_hash": "81e42902c16c3e54bc9291eab67f2b42804fab2dd96d78e65d9369af529c9f6a",
   "history": [
+    {
+      "version": "2026.11.07-e82bea2",
+      "date": "2026-11-07",
+      "changes": "Advanced chat stage 2 of 6: a one-time sign-in link and a gatekeeper for agent boxes"
+    },
     {
       "version": "2026.11.07-23e378e",
       "date": "2026-11-07",
