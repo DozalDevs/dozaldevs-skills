@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.11.07-9091c8a",
+  "skills_version": "2026.11.07-23e378e",
   "cli_version": "0.5.0",
-  "source_commit": "9091c8a13dd5d7bfd42473cc5af6574af800bad2",
-  "content_hash": "ebaa264bd993877f20f679dcbf3db6dba6d30b8a1d89f25f4b184d0a98289d66",
+  "source_commit": "23e378e40455bd6625dc5a5a15b7a86d67978bf7",
+  "content_hash": "6c9b08068433d9aeac89629fb9774aaec4c919e11b3019ee73057f24396c4aeb",
   "history": [
+    {
+      "version": "2026.11.07-23e378e",
+      "date": "2026-11-07",
+      "changes": "Advanced chat stage 1 of 6: one agent box per person, at their own level, with reopen"
+    },
     {
       "version": "2026.11.07-9091c8a",
       "date": "2026-11-07",
