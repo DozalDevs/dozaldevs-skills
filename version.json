@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.11.07-5101da7",
+  "skills_version": "2026.11.08-b89445c",
   "cli_version": "0.5.0",
-  "source_commit": "5101da7c3f70df2f9bd1cdfddd0fb59628aa0c1f",
-  "content_hash": "abdf4f5209b870a38437eadc0aaaf90d762a814cf4127c453b01fe6324733206",
+  "source_commit": "b89445c2a4f0d143b42a3cb5e83024c60b69768c",
+  "content_hash": "51f1b753f041b9b37d9f4a4a37ec81f31f7de152bba455a7c11d8e073af962ba",
   "history": [
+    {
+      "version": "2026.11.08-b89445c",
+      "date": "2026-11-08",
+      "changes": "Advanced chat stage 4 of 6: the dashboard button, a baked image, the idle close, and no password"
+    },
     {
       "version": "2026.11.07-5101da7",
       "date": "2026-11-07",
