@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.11.09-a8f8acf",
+  "skills_version": "2026.11.09-db4f001",
   "cli_version": "0.5.0",
-  "source_commit": "a8f8acf6856839b6938243dabd2bcc62fa939112",
-  "content_hash": "6131047f2e985009a492a28e46d7be9641e17eae15c3b13cde328af4c5e4b7d2",
+  "source_commit": "db4f00139588e70adc82ae7e2dad6e5e2f131a6d",
+  "content_hash": "66e386194ebc6a2411957bfbb0609183e91fe3744cec08826c7ab3f771e24f3b",
   "history": [
+    {
+      "version": "2026.11.09-db4f001",
+      "date": "2026-11-09",
+      "changes": "Advanced chat: open it to every organization (the enabled list takes *)"
+    },
     {
       "version": "2026.11.09-a8f8acf",
       "date": "2026-11-09",
