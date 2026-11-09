@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.11.08-b89445c",
+  "skills_version": "2026.11.09-3ba55bf",
   "cli_version": "0.5.0",
-  "source_commit": "b89445c2a4f0d143b42a3cb5e83024c60b69768c",
-  "content_hash": "51f1b753f041b9b37d9f4a4a37ec81f31f7de152bba455a7c11d8e073af962ba",
+  "source_commit": "3ba55bfa6cac69ee5fd7658726c15558a63a1974",
+  "content_hash": "d1f5577b42b0892d93f4b87ee510672d5694d2cfeb755540dfa83d8e1bb0e010",
   "history": [
+    {
+      "version": "2026.11.09-3ba55bf",
+      "date": "2026-11-09",
+      "changes": "GitHub API calls for Dozals made in the gateway, replacing the raw token tool on the new engine"
+    },
     {
       "version": "2026.11.08-b89445c",
       "date": "2026-11-08",

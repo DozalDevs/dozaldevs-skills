@@ -22,6 +22,8 @@ Each line says when a job needs the ability.
 - List actions: When the job needs to discover which actions a connected Composio app offers and read the inputs one action takes.
 - Search shopping: When the job needs to look up which merchants sell a product and compare their prices, conditions and delivery terms, cheapest first.
 - Call: When the job needs to call a customer-defined web endpoint by name, filling in its placeholders and optionally sending a body.
+- Api call: When the job needs to change a connected GitHub repository: write a file, open or update an issue or pull request, comment, label or create a branch.
+- Api get: When the job needs to read files, issues, pull requests, commits or branches from a connected GitHub repository.
 - Get token: When the job needs a short-lived GitHub access token so it can read or change code in a connected GitHub repository.
 - Generate: When the job needs to create a new picture from a written description, including any exact words the picture must carry.
 - List cities: When the job needs to look up which United States cities have public Inside Airbnb listing data.
