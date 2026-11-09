@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.11.09-3ba55bf",
+  "skills_version": "2026.11.09-a8f8acf",
   "cli_version": "0.5.0",
-  "source_commit": "3ba55bfa6cac69ee5fd7658726c15558a63a1974",
-  "content_hash": "d1f5577b42b0892d93f4b87ee510672d5694d2cfeb755540dfa83d8e1bb0e010",
+  "source_commit": "a8f8acf6856839b6938243dabd2bcc62fa939112",
+  "content_hash": "6131047f2e985009a492a28e46d7be9641e17eae15c3b13cde328af4c5e4b7d2",
   "history": [
+    {
+      "version": "2026.11.09-a8f8acf",
+      "date": "2026-11-09",
+      "changes": "Advanced chat: record the rollout and the gates before any customer org"
+    },
     {
       "version": "2026.11.09-3ba55bf",
       "date": "2026-11-09",

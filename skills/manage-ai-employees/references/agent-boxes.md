@@ -36,7 +36,8 @@ The way in is a one-time link. Poll `get-agent-box` until `ready` is `true` (usu
 
 Rules a start follows:
 
-- Only organizations listed in the platform setting `agent_box_enabled_tenant_ids` may start one. Anyone else gets `403 AGENT_BOX_NOT_ENABLED`; the platform team has to add the organization.
+- Only organizations listed in the platform setting `agent_box_enabled_tenant_ids` may start one. Anyone else gets `403 AGENT_BOX_NOT_ENABLED`; the platform team has to add the organization. It is not open to customer organizations yet; don't promise it to one.
+- A box's own key, an in-app assistant key or a snapshot-apply key cannot start one (`403 FORBIDDEN`). A person, their operator key, or a run they started with Run now can.
 - One live box per person per organization: starting again reopens it (above). A start that loses a race with another start of the same person is `409 AGENT_BOX_LIMIT`; open the box you have instead. A box that is `failed`, `stopping`, expired, stuck `starting` or never became ready is stopped by the next start, which then makes a new one (`502 AGENT_BOX_STOP_INCOMPLETE` if that stop fails; nothing is created, retry later).
 - A reopen never goes above this request's level: with a live `ADMIN` box, an Owner using a member-level key or an Admin asking for `MEMBER` gets `409 AGENT_BOX_LEVEL_MISMATCH`. Stop the box, then start again at the level you need. A lower-level live box is reopened as is, never raised.
 - The person is the signed-in user, or for an API key the member who made it. A service token, a platform owner who isn't a member, a key with no creator and a removed member get `403 AGENT_BOX_MEMBER_REQUIRED`: use a person's session or a key a current member made.
