@@ -87,6 +87,8 @@ curl -s "https://app.dozaldevs.com/admin/tenants/$TENANT/tasks?limit=20&include_
   -H "Authorization: Bearer $KEY"
 ```
 
+To count runs per Dozal and status over a period, don't page the list: `GET /admin/tenants/:tenantId/task-counts` answers in one call with `{ total, dozals: [{ archetype_id, role_name, total, by_status }] }`, busiest Dozal first. It takes the list's filters (`since`, `archetype_id`, `role_name`, `status`, `needs_decision`, `approval_required`, `include_test_runs`) and counts exactly the runs `tasks` would list for them. How well the runs went is `GET /admin/tenants/:tenantId/track-record`.
+
 ## Errors
 
 A failed request returns JSON with the same fields every time:

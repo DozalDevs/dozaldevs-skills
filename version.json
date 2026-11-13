@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.11.09-db4f001",
+  "skills_version": "2026.11.13-0a45c34",
   "cli_version": "0.5.0",
-  "source_commit": "db4f00139588e70adc82ae7e2dad6e5e2f131a6d",
-  "content_hash": "66e386194ebc6a2411957bfbb0609183e91fe3744cec08826c7ab3f771e24f3b",
+  "source_commit": "0a45c34991c92f550eca42e0414b7ac3e5bd330f",
+  "content_hash": "76ad0b21d01eb5752bb4005ed7f9cba4f0956107ae415fcccc80dc6d80e9059e",
   "history": [
+    {
+      "version": "2026.11.13-0a45c34",
+      "date": "2026-11-13",
+      "changes": "Count runs per Dozal in one call, and answer a chat from its report"
+    },
     {
       "version": "2026.11.09-db4f001",
       "date": "2026-11-09",

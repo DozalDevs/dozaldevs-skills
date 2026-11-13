@@ -2,7 +2,7 @@
 name: monitor-and-review-ai-employee-work
 description: "Use when a human asks whether an AI employee task is done, wants to see its output, or wants to approve or reject its work: is the recap ready, show me what it wrote, approve it, reject and shorten it, why did that run go wrong, show its logs, watch it live. Reads task status via phase_category, drives the approve/reject decision, and reads run logs, activity and live status. Load operate-ai-employees first for auth setup."
 metadata:
-  version: "2026.11.09-db4f001"
+  version: "2026.11.13-0a45c34"
 ---
 
 # Monitor & Review AI Employee Work
@@ -90,9 +90,10 @@ Say what the logs show, in plain words. They don't always explain a failure. If 
 
 ## Activity and live status
 
-- **Recent work:** `list-tasks` (add `--limit 10`), `list-deliverables --task_id "$TASK"` for one task's output, `list-recent-decisions` (who decided what lately), and `list-silent-dozals` (employees that should have acted and didn't, each with one reason):
+- **Recent work:** a question of how many runs there were, which Dozals ran or how they did over a period is answered in one call with `count-tasks` (runs per Dozal and status) and `get-track-record` (how well they went: finished, went fine, approved, time saved). `list-tasks` is only for the specific rows you will show, in the short form; never page a whole period with `--detailed`. For one run's work: `list-tasks` (add `--limit 10`), `list-deliverables --task_id "$TASK"` for one task's output, `list-recent-decisions` (who decided what lately), and `list-silent-dozals` (employees that should have acted and didn't, each with one reason):
 
   ```sh
+  dozaldevs count-tasks --since 2026-11-06T00:00:00Z
   dozaldevs list-tasks --limit 10
   dozaldevs list-deliverables --task_id "$TASK"
   dozaldevs list-recent-decisions
