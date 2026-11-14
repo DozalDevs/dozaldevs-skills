@@ -69,6 +69,7 @@ Each line says when a job needs the ability.
 - DoorLoop: When the job needs to read or change something in DoorLoop.
 - GoHighLevel: When the job needs to read or change something in GoHighLevel.
 - Hostfully: When the job needs to read or change something in Hostfully.
+- Jira: When the job needs to read or change something in Jira.
 - MongoDB: When the job needs to read or change something in MongoDB.
 - MySQL: When the job needs to read or change something in MySQL.
 - Ninety: When the job needs to read or change something in Ninety.

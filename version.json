@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.11.13-0a45c34",
+  "skills_version": "2026.11.14-7aaa78a",
   "cli_version": "0.5.0",
-  "source_commit": "0a45c34991c92f550eca42e0414b7ac3e5bd330f",
-  "content_hash": "76ad0b21d01eb5752bb4005ed7f9cba4f0956107ae415fcccc80dc6d80e9059e",
+  "source_commit": "7aaa78a1d0cd3f989e64012a40f3042bb13d3734",
+  "content_hash": "939145a552325c23d1ce2ab60cc49ec11101d9cea46099f6ae8627440991f499",
   "history": [
+    {
+      "version": "2026.11.14-7aaa78a",
+      "date": "2026-11-14",
+      "changes": "Connect Jira by signing in with Atlassian, through one shared sign-in method"
+    },
     {
       "version": "2026.11.13-0a45c34",
       "date": "2026-11-13",
