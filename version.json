@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.11.14-7aaa78a",
+  "skills_version": "2026.11.14-945786b",
   "cli_version": "0.5.0",
-  "source_commit": "7aaa78a1d0cd3f989e64012a40f3042bb13d3734",
-  "content_hash": "939145a552325c23d1ce2ab60cc49ec11101d9cea46099f6ae8627440991f499",
+  "source_commit": "945786bd82d428f12be7661e6781a928cb3ff6c7",
+  "content_hash": "83276476cd6e09a98ea1c4ba927b39ce9e61f8aac4cd906d61f6d084b878e80f",
   "history": [
+    {
+      "version": "2026.11.14-945786b",
+      "date": "2026-11-14",
+      "changes": "Teach the assistant to send only the lines it changes"
+    },
     {
       "version": "2026.11.14-7aaa78a",
       "date": "2026-11-14",

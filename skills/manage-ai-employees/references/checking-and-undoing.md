@@ -12,6 +12,14 @@ Shortly after a save that changes the steps, the platform rewrites `job_descript
 
 Add `--validate_only true` to `update-dozal`. It runs every check and platform rewrite and answers with the Dozal as it would be saved, its `changes` and `validated_only: true`, but saves nothing. Show the human those `changes`, then send the same body without the flag.
 
+## Change only some lines
+
+In the assistant's change chat, where an update is held for the person to review, change some lines of the steps, what it sends out, or its notes by sending only those lines in `edits`, never the whole text: a JSON list of `{"part","find","replace"}`, where `part` is `job`, `sends_out` or `notes`, `find` is copied exactly from the current text and matches once, and an empty `replace` removes it. A `find` that doesn't match is refused with the reason. A direct save outside that chat refuses `edits` (`400`): send the field's whole text there.
+
+```sh
+dozaldevs update-dozal "$DOZAL" --data edits:='[{"part":"job","find":"2. Post it in #general.","replace":"2. Post it in #sales."}]' --data base_version:="$VERSION"
+```
+
 ## What only a direct update changes
 
 The edit chat changes the steps, sends, notes, name, schedule, where results go, apps, per-run inputs, approval and the output format (`output_schema`). It can't change `department`, `concurrency_limit`, `worker_env`, `work_item_key`, `overview`, `pre_check_enabled`, `pre_check_adapter`, `pre_check_config`, `vm_size`, `appearance`, `estimated_manual_minutes_override`, `temperature`, `platform_rules_override`, `template_auto_update`, `on_hours` or `app_connections` (which account it uses for each app), and says so when asked: use `update-dozal` for those. Sending `null` clears a field that can be empty, e.g. `{"output_schema": null, "base_version": 7}` removes a required output format.

@@ -2,7 +2,7 @@
 name: manage-ai-employees
 description: "Use when a human wants to see, list, pause, reactivate, rename or inspect their existing AI employees (config, status active/paused/draft), or manage connected apps, schedules, handoffs, members and invitations, usage and bills, e.g. what employees do I have, pause the recap bot, how did last Friday go. Not for running one now (run-ai-employee), a task's output, approval or logs (monitor-and-review-ai-employee-work), or creating one (hire-ai-employee). Load operate-ai-employees first."
 metadata:
-  version: "2026.11.14-7aaa78a"
+  version: "2026.11.14-945786b"
 ---
 
 # Manage AI Employees
@@ -47,7 +47,7 @@ dozaldevs update-dozal "$DOZAL" --data role_name="$NEW_NAME" --data base_version
 
 If someone changed it since, `409 VERSION_CONFLICT`: read again and redo your change. Reverts and template updates need `base_version` too; a status-only update needs none. Approving or denying a suggested cleanup needs no version; `409 SUGGESTION_OUT_OF_DATE` means it was withdrawn: re-read, don't retry.
 
-Each save answers `changes`, what really changed; trust it. Test an update first: `--validate_only true`. Fields only `update-dozal` changes, seeing what it's told, undoing: `references/checking-and-undoing.md`.
+Each save answers `changes`, what really changed; trust it. Test first: `--validate_only true`. `edits`, fields only `update-dozal` changes, what it's told, undoing: `references/checking-and-undoing.md`.
 
 To change what the employee actually does ("make the summary shorter", "also post to Slack"), use the Hiring Dozal's edit chat described in `hire-ai-employee`:
 
