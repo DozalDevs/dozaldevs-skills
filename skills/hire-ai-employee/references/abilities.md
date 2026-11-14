@@ -67,7 +67,13 @@ Each line says when a job needs the ability.
 - Send message inline: When the job needs to send a WhatsApp text message whose body is given directly.
 - Airbnb: When the job needs to read or change something in Airbnb.
 - DoorLoop: When the job needs to read or change something in DoorLoop.
+- Gmail: When the job needs to read or change something in Gmail.
 - GoHighLevel: When the job needs to read or change something in GoHighLevel.
+- Googlecalendar: When the job needs to read or change something in Googlecalendar.
+- Googledocs: When the job needs to read or change something in Googledocs.
+- Googledrive: When the job needs to read or change something in Googledrive.
+- Googlesheets: When the job needs to read or change something in Googlesheets.
+- Googleslides: When the job needs to read or change something in Googleslides.
 - Hostfully: When the job needs to read or change something in Hostfully.
 - Jira: When the job needs to read or change something in Jira.
 - MongoDB: When the job needs to read or change something in MongoDB.

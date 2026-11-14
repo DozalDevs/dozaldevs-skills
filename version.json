@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.11.14-945786b",
+  "skills_version": "2026.11.14-b5d0b32",
   "cli_version": "0.5.0",
-  "source_commit": "945786bd82d428f12be7661e6781a928cb3ff6c7",
-  "content_hash": "83276476cd6e09a98ea1c4ba927b39ce9e61f8aac4cd906d61f6d084b878e80f",
+  "source_commit": "b5d0b32b590f44fb910916a964a597aa755409d6",
+  "content_hash": "7859b9bdd1271439bb16884f2fb87b07b0782cd234d6b5c9fa95c2600d1d9cce",
   "history": [
+    {
+      "version": "2026.11.14-b5d0b32",
+      "date": "2026-11-14",
+      "changes": "Our own Google apps (Gmail, Calendar, Drive, Docs, Sheets, Slides), hidden until switch-over"
+    },
     {
       "version": "2026.11.14-945786b",
       "date": "2026-11-14",
