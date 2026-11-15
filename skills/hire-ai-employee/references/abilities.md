@@ -73,6 +73,7 @@ Each line says when a job needs the ability.
 - Googledrive: When the job needs to read or change something in Googledrive.
 - Googlesheets: When the job needs to read or change something in Googlesheets.
 - Googleslides: When the job needs to read or change something in Googleslides.
+- Googletasks: When the job needs to read or change something in Googletasks.
 - Hostfully: When the job needs to read or change something in Hostfully.
 - Jira: When the job needs to read or change something in Jira.
 - MongoDB: When the job needs to read or change something in MongoDB.

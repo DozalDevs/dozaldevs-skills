@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.11.15-3dbe1c1",
+  "skills_version": "2026.11.15-08fda00",
   "cli_version": "0.5.0",
-  "source_commit": "3dbe1c13c5185de598aafeabb4264e572bf49fae",
-  "content_hash": "b9cf4c5cd9d5720642acdd4ab779ad5dec01390a72012bd83f22dcb298dd5045",
+  "source_commit": "08fda00560dd79b374d7cb88940389c0bc473b78",
+  "content_hash": "c146a7c865275ea881a7a74f523003e69613110d0779f53cbe9b07897f023dbb",
   "history": [
+    {
+      "version": "2026.11.15-08fda00",
+      "date": "2026-11-15",
+      "changes": "Google Tasks app, hidden until Google approves the scope"
+    },
     {
       "version": "2026.11.15-3dbe1c1",
       "date": "2026-11-15",
