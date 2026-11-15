@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.11.15-08fda00",
+  "skills_version": "2026.11.15-e71184d",
   "cli_version": "0.5.0",
-  "source_commit": "08fda00560dd79b374d7cb88940389c0bc473b78",
-  "content_hash": "c146a7c865275ea881a7a74f523003e69613110d0779f53cbe9b07897f023dbb",
+  "source_commit": "e71184dbfc97268c6e3e2c1691c185e316c8625e",
+  "content_hash": "ce79355cf02e878e99b447114ac7703bddba4c5ef607d85f9fad9a5de982854c",
   "history": [
+    {
+      "version": "2026.11.15-e71184d",
+      "date": "2026-11-15",
+      "changes": "Let owners decide who can ask their Dozal in Slack"
+    },
     {
       "version": "2026.11.15-08fda00",
       "date": "2026-11-15",
