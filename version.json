@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.11.14-b5d0b32",
+  "skills_version": "2026.11.15-3dbe1c1",
   "cli_version": "0.5.0",
-  "source_commit": "b5d0b32b590f44fb910916a964a597aa755409d6",
-  "content_hash": "7859b9bdd1271439bb16884f2fb87b07b0782cd234d6b5c9fa95c2600d1d9cce",
+  "source_commit": "3dbe1c13c5185de598aafeabb4264e572bf49fae",
+  "content_hash": "b9cf4c5cd9d5720642acdd4ab779ad5dec01390a72012bd83f22dcb298dd5045",
   "history": [
+    {
+      "version": "2026.11.15-3dbe1c1",
+      "date": "2026-11-15",
+      "changes": "Dozals search the web with their own search, not Composio's"
+    },
     {
       "version": "2026.11.14-b5d0b32",
       "date": "2026-11-14",
