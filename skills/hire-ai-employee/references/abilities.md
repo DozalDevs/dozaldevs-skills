@@ -43,13 +43,16 @@ Each line says when a job needs the ability.
 - Diagnose: When the job needs to fetch the investigation record of its own task so it can look into what went wrong.
 - Evaluate: When the job needs to compute a result from structured data with a written expression and save the result for a later step.
 - Fit message: When the job needs to fit a long list of items into one text message within a size limit, saying how many were left out.
+- Forget lookup: When a remembered link is shown wrong by reading the thing it points at, and the job must look the right one up again.
 - Get dozal instructions: When the job needs to know whether a Dozal's instructions have changed since a script was built against them: its live version and the md5 of its steps.
 - Join records: When the job needs to attach the earliest matching time from one set of records onto another set of records.
 - Match names to runs: When the job needs to count how many records have a name that appears in the earlier finished runs of a named job.
 - Page evidence: When the job needs to prove that given text really appears on a web page and cite that proof beside the claim it backs.
 - Past results: When the job repeats and should not send something it already sent, or should build on what it found last time.
 - Previous record: When the job needs to look up its own stored record for the latest period before a given date.
+- Recall lookup: When the job needs something an earlier run may already have worked out (the folder of a phone number, the record of a name) before looking for it again.
 - Record recipient: When the job needs to record who its finished work is for, so the delivery step sends it to the right place.
+- Remember lookup: When the job works out that one thing belongs to another (a phone number to a folder, a name to a record) and a later run will need the same answer.
 - Report issue: When something a job relies on fails in a way worth reporting, and the failure must be recorded for the people who maintain the platform.
 - Resolve time window: When the job needs to turn a start date, a length and a time zone into exact window start and end times saved for later steps.
 - Submit output: When the job is finished and needs to declare its outcome and hand in its result, once.

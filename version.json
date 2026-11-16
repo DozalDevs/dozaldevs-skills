@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.11.15-e71184d",
+  "skills_version": "2026.11.16-7fcab67",
   "cli_version": "0.5.0",
-  "source_commit": "e71184dbfc97268c6e3e2c1691c185e316c8625e",
-  "content_hash": "ce79355cf02e878e99b447114ac7703bddba4c5ef607d85f9fad9a5de982854c",
+  "source_commit": "7fcab672ae0bc3f95dde22759402dfe77362328e",
+  "content_hash": "cfa06d735978674e1b789fcc595bbfc131b92ee3a7ad7ba2f8a09ef123efda10",
   "history": [
+    {
+      "version": "2026.11.16-7fcab67",
+      "date": "2026-11-16",
+      "changes": "A Dozal's own memory of links (remember, recall, forget) and the owner view of what it remembers"
+    },
     {
       "version": "2026.11.15-e71184d",
       "date": "2026-11-15",
