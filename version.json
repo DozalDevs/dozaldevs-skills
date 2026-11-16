@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.11.16-7fcab67",
+  "skills_version": "2026.11.16-e80e506",
   "cli_version": "0.5.0",
-  "source_commit": "7fcab672ae0bc3f95dde22759402dfe77362328e",
-  "content_hash": "cfa06d735978674e1b789fcc595bbfc131b92ee3a7ad7ba2f8a09ef123efda10",
+  "source_commit": "e80e50612c548f2406bed23182338dd20f4c3145",
+  "content_hash": "ac3602ef94001d7eec1e285e01372b96e741e6fda3b1e620cac8ded9c5b49a82",
   "history": [
+    {
+      "version": "2026.11.16-e80e506",
+      "date": "2026-11-16",
+      "changes": "Skill system 1/10: the capability list and the gate that holds it to the public API"
+    },
     {
       "version": "2026.11.16-7fcab67",
       "date": "2026-11-16",
