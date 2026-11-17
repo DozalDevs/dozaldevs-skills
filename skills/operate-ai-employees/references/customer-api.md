@@ -375,6 +375,10 @@ Each call is charged as normal usage and shows on the Billing page as "Direct ap
 - An organization can make a limited number of direct calls a minute. Past it you get `429` with `RATE_LIMITED` and a `Retry-After` header.
 - When the platform's monthly app-call allowance runs short, direct calls pause for everyone with `503` and `DIRECT_APP_BUDGET_REACHED`, so Dozals keep working. Try again later.
 
+## Saving a chat document as a Word file
+
+When the assistant answers in a chat with a document card (a fenced `document` block), `download-assistant-chat-document` returns it as a Word file built from the reply as it was kept. Name the chat, the turn (`turn_seq`) and the card's position among that turn's cards, counting from 1. A card that isn't a document, or a chat the key's person can't see, answers `404`. Like every chat route it needs a key that stands for a person.
+
 ## What still needs a person
 
 An agent can do almost everything, but a few steps are a human's by design:

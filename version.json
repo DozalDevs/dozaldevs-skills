@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.11.16-e80e506",
+  "skills_version": "2026.11.17-36986c4",
   "cli_version": "0.5.0",
-  "source_commit": "e80e50612c548f2406bed23182338dd20f4c3145",
-  "content_hash": "ac3602ef94001d7eec1e285e01372b96e741e6fda3b1e620cac8ded9c5b49a82",
+  "source_commit": "36986c4abe55d0cf9db37994a239b5398c9bb26b",
+  "content_hash": "ae2968f797120038aa4272a330524b8551d02245e80333a5a22e5dbd94c28d55",
   "history": [
+    {
+      "version": "2026.11.17-36986c4",
+      "date": "2026-11-17",
+      "changes": "Word download for document cards in the chat"
+    },
     {
       "version": "2026.11.16-e80e506",
       "date": "2026-11-16",
