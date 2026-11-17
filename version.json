@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.11.17-406c9c1",
+  "skills_version": "2026.11.17-b34d692",
   "cli_version": "0.5.0",
-  "source_commit": "406c9c1639e7a6926ac1a186bc269792d9d8ca27",
-  "content_hash": "08b458e7077858153190c0bfef805a03c8d8154ecacc638e0e37daf92b445bdf",
+  "source_commit": "b34d692d7af6bad76944b6010953901ebab32fd4",
+  "content_hash": "eee7a47265efe0abd58ff606185525d3f91bcbd1072e4aa845aa0bf322b56c57",
   "history": [
+    {
+      "version": "2026.11.17-b34d692",
+      "date": "2026-11-17",
+      "changes": "Tell a Dozal's owner when its steps need an app it can't use, with one button that fixes it"
+    },
     {
       "version": "2026.11.17-406c9c1",
       "date": "2026-11-17",

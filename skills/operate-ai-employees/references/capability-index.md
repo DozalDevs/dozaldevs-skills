@@ -27,6 +27,7 @@ A command a job does not list yet is still callable: `dozaldevs help` lists them
 | Remove a Dozal | `manage-ai-employees` | SKILL.md, "Removing an employee" | `delete-dozal` |
 | Read what runs cost and the bill | `manage-ai-employees` | SKILL.md, "Usage and bills" | `get-billing` `get-cost` `get-run-cost` `list-run-costs` |
 | Read, resume and run a Dozal's schedule | `manage-ai-employees` | SKILL.md, "Schedules" | `get-dozal-schedule` `list-schedules` `resume-dozal-schedule` `run-schedule-now` |
+| Give a Dozal the tools of an app its steps need | `manage-ai-employees` | references/app-access.md, "Giving an employee an app it needs" | `give-dozal-app-access` |
 | Connect Slack, GitHub and other apps | `manage-ai-employees` | SKILL.md, "Connections" | `list-integrations` `list-integrations-needing-attention` `start-app-connection` `start-github-install` `start-slack-install` |
 | List members and invitations, and revoke an invitation | `manage-ai-employees` | SKILL.md, "Members and invitations" | `list-invitations` `list-members` `revoke-invitation` |
 | List recent runs | `manage-ai-employees` | SKILL.md, "Review recent runs" | `list-tasks` |
