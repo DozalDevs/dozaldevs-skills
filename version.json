@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.11.17-36986c4",
+  "skills_version": "2026.11.17-406c9c1",
   "cli_version": "0.5.0",
-  "source_commit": "36986c4abe55d0cf9db37994a239b5398c9bb26b",
-  "content_hash": "ae2968f797120038aa4272a330524b8551d02245e80333a5a22e5dbd94c28d55",
+  "source_commit": "406c9c1639e7a6926ac1a186bc269792d9d8ca27",
+  "content_hash": "08b458e7077858153190c0bfef805a03c8d8154ecacc638e0e37daf92b445bdf",
   "history": [
+    {
+      "version": "2026.11.17-406c9c1",
+      "date": "2026-11-17",
+      "changes": "Tell the chat when a card would not draw in the browser"
+    },
     {
       "version": "2026.11.17-36986c4",
       "date": "2026-11-17",
