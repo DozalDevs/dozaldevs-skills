@@ -37,6 +37,7 @@ Each line says when a job needs the ability.
 - Build report: When the job needs to build a report from counted figures and keep a record of it for later runs.
 - Calculate: When the job needs an exact arithmetic result instead of working a calculation out in its head.
 - Categorize: When the job needs to sort many items into a fixed set of options and flag the ones it is not sure about.
+- Check cards: When a reply holds a chart, a diagram, a web page or a document and it should be checked before it is sent.
 - Claim work item: When the job finds work while running and must make sure the same item is never acted on twice.
 - Count run output items: When the job needs to count the items with a given field in what a named job delivered on its finished runs.
 - Count runs: When the job needs to count how many runs of named jobs started in a time window, by status and outcome, with their cost.

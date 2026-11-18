@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.11.18-0bf70a6",
+  "skills_version": "2026.11.18-24e6ac4",
   "cli_version": "0.6.0",
-  "source_commit": "0bf70a68a476c4ea126aae888f1e669371a45925",
-  "content_hash": "aeceb1760b72eed50c0e441e6a503b1377acbb39eb3fcf141af6ffaf35eaf7f2",
+  "source_commit": "24e6ac4d4dc68b28e277934cca3d5e414191ff7f",
+  "content_hash": "f9e79ca54e88ac6284b88450e7f64414c22d6ace6ad452757888592a372deac7",
   "history": [
+    {
+      "version": "2026.11.18-24e6ac4",
+      "date": "2026-11-18",
+      "changes": "Let the background assistant check its cards before it replies"
+    },
     {
       "version": "2026.11.18-0bf70a6",
       "date": "2026-11-18",
