@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.11.17-b34d692",
-  "cli_version": "0.5.0",
-  "source_commit": "b34d692d7af6bad76944b6010953901ebab32fd4",
-  "content_hash": "eee7a47265efe0abd58ff606185525d3f91bcbd1072e4aa845aa0bf322b56c57",
+  "skills_version": "2026.11.18-0bf70a6",
+  "cli_version": "0.6.0",
+  "source_commit": "0bf70a68a476c4ea126aae888f1e669371a45925",
+  "content_hash": "aeceb1760b72eed50c0e441e6a503b1377acbb39eb3fcf141af6ffaf35eaf7f2",
   "history": [
+    {
+      "version": "2026.11.18-0bf70a6",
+      "date": "2026-11-18",
+      "changes": "Let an owner's own AI copy a Dozal's code over Git and push suggestions"
+    },
     {
       "version": "2026.11.17-b34d692",
       "date": "2026-11-17",

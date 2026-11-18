@@ -2,7 +2,7 @@
 name: manage-ai-employees
 description: "Use when a human wants to see, list, pause, reactivate, rename or inspect their existing AI employees (config, status active/paused/draft), or manage connected apps, schedules, handoffs, members and invitations, usage and bills, e.g. what employees do I have, pause the recap bot, how did last Friday go. Not for running one now (run-ai-employee), a task's output, approval or logs (monitor-and-review-ai-employee-work), or creating one (hire-ai-employee). Load operate-ai-employees first."
 metadata:
-  version: "2026.11.17-b34d692"
+  version: "2026.11.18-0bf70a6"
 ---
 
 # Manage AI Employees
@@ -157,3 +157,4 @@ dozaldevs get-org-snapshot-apply "$APPLY"
 ```
 
 Also `get-org-snapshot`, `delete-org-snapshot`, `apply-org-snapshot` (by id). Applying cancels every open run and deletes employees not in the saved setup: preview first (read-only), then confirm the deletes with the human. It answers `202` with an `apply_id`; poll `get-org-snapshot-apply` until `status` isn't `running`. Outcomes, errors, warm-up, preserved employees, pending rules: `references/org-snapshots.md`. Org access and agent boxes: `references/agent-boxes.md`.
+
