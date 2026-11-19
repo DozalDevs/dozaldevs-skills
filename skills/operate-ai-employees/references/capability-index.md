@@ -32,6 +32,7 @@ A command a job does not list yet is still callable: `dozaldevs help` lists them
 | Connect Slack, GitHub and other apps | `manage-ai-employees` | SKILL.md, "Connections" | `list-integrations` `list-integrations-needing-attention` `start-app-connection` `start-github-install` `start-slack-install` |
 | List members and invitations, and revoke an invitation | `manage-ai-employees` | SKILL.md, "Members and invitations" | `list-invitations` `list-members` `revoke-invitation` |
 | List recent runs | `manage-ai-employees` | SKILL.md, "Review recent runs" | `list-tasks` |
+| Open, read and close a website's live draft | `manage-ai-employees` | references/site-drafts.md, "Live drafts of a website" | `close-site-draft` `get-site-draft` `open-site-draft` |
 | Start, open and stop an agent box | `manage-ai-employees` | references/agent-boxes.md, "Agent boxes" | `create-agent-box-link` `get-agent-box` `get-agent-box-availability` `list-agent-boxes` `start-agent-box` `stop-agent-box` `stop-agent-boxes` |
 | Turn a Dozal's access to the organization's API on or off | `manage-ai-employees` | references/agent-boxes.md, "Organization access for a Dozal" | `set-dozal-org-access` |
 | Save an edit chat and read what the save changed | `manage-ai-employees` | references/checking-and-undoing.md, "What a save changed" | `apply-hiring-chat` |

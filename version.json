@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.11.19-df50a58",
+  "skills_version": "2026.11.19-a474ffd",
   "cli_version": "0.6.2",
-  "source_commit": "df50a58c75dd8e7a294503e461c7b388195016a1",
-  "content_hash": "65cd4b001879e68b9b488b8db20e58525b860ce1256b0815b8aac3ee3dcab78c",
+  "source_commit": "a474ffd3bf2eb4bfd3a4ec58919e989254f879ed",
+  "content_hash": "64b0444cd7204577d6df85031a8e5c6e0138e1bf634cf0e14c512a20a00f0a75",
   "history": [
+    {
+      "version": "2026.11.19-a474ffd",
+      "date": "2026-11-19",
+      "changes": "Start a website's live draft on its own machine, reachable only at a private address"
+    },
     {
       "version": "2026.11.19-df50a58",
       "date": "2026-11-19",
