@@ -40,3 +40,4 @@ A command a job does not list yet is still callable: `dozaldevs help` lists them
 | See activity, deliverables, track record and what waits for approval | `monitor-and-review-ai-employee-work` | SKILL.md, "Activity and live status" | `count-tasks` `get-track-record` `list-deliverables` `list-recent-decisions` `list-silent-dozals` `list-task-pending-approvals` |
 | Approve or reject a run that waits for a person | `monitor-and-review-ai-employee-work` | SKILL.md, "Approve or reject (when awaiting_human)" | `decide-task` |
 | Read a run's conversation, events and status log | `monitor-and-review-ai-employee-work` | SKILL.md, "Why a run went wrong: read the run's logs" | `get-task-conversation` `get-task-events` `get-task-status-log` |
+| Read pages of a website with its saved sign-in | `operate-ai-employees` | references/customer-api.md, "Reading a website with its saved sign-in" | `read-browser-site-pages` `run-browser-keep-alive-visit` |

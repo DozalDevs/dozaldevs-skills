@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.11.18-24e6ac4",
+  "skills_version": "2026.11.19-df50a58",
   "cli_version": "0.6.2",
-  "source_commit": "24e6ac4d4dc68b28e277934cca3d5e414191ff7f",
-  "content_hash": "f9e79ca54e88ac6284b88450e7f64414c22d6ace6ad452757888592a372deac7",
+  "source_commit": "df50a58c75dd8e7a294503e461c7b388195016a1",
+  "content_hash": "65cd4b001879e68b9b488b8db20e58525b860ce1256b0815b8aac3ee3dcab78c",
   "history": [
+    {
+      "version": "2026.11.19-df50a58",
+      "date": "2026-11-19",
+      "changes": "Let a customer's own agent read pages of a website with its saved sign-in"
+    },
     {
       "version": "2026.11.18-24e6ac4",
       "date": "2026-11-18",

@@ -375,6 +375,10 @@ Each call is charged as normal usage and shows on the Billing page as "Direct ap
 - An organization can make a limited number of direct calls a minute. Past it you get `429` with `RATE_LIMITED` and a `Retry-After` header.
 - When the platform's monthly app-call allowance runs short, direct calls pause for everyone with `503` and `DIRECT_APP_BUDGET_REACHED`, so Dozals keep working. Try again later.
 
+## Reading a website with its saved sign-in
+
+When the organization saved a sign-in for a website (`GET /admin/tenants/:tenantId/browser-sessions` lists them), `read-browser-site-pages` (`POST /admin/tenants/:tenantId/browser-sessions/sites/:siteKey/read`) with `{"urls": ["https://..."]}` (1 to 4 addresses on that website, or a partner portal the sign-in reaches) opens a browser with that sign-in and returns each page's `address`, `title` and visible `text`. It is read-only: nothing is clicked, typed or submitted. It takes about a minute and costs a fraction of a cent. 409 means a browser is busy (try again in a few minutes) or the sign-in lapsed (the person signs in again); 400 names an address that is not on the website. `run-browser-keep-alive-visit` only checks that the sign-in still works.
+
 ## Chat cards: Word files and cards that would not draw
 
 When the assistant answers in a chat with a document card (a fenced `document` block), `download-assistant-chat-document` returns it as a Word file built from the reply as it was kept. Name the chat, the turn (`turn_seq`) and the card's position among that turn's cards, counting from 1. A card that isn't a document, or a chat the key's person can't see, answers `404`. Like every chat route it needs a key that stands for a person.
