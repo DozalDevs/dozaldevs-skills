@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.11.20-03205d3",
+  "skills_version": "2026.11.20-0f74b1d",
   "cli_version": "0.6.2",
-  "source_commit": "03205d3f17e2e0ebc9fead2572c9257870c5c227",
-  "content_hash": "c4d235979ccfd9d0c8d9c9fdeb3211b86c6c808c20e891cce07ebb6cde894709",
+  "source_commit": "0f74b1d19ca85f5f3ffdc30748df53eadb39c4a1",
+  "content_hash": "02730b4155c068b93d35ccebbda66faba61c99cec7e7e6ff5c63081c0b9f6042",
   "history": [
+    {
+      "version": "2026.11.20-0f74b1d",
+      "date": "2026-11-20",
+      "changes": "Show a chat's approval in the chat, and walk it like a grandma after each deploy"
+    },
     {
       "version": "2026.11.20-03205d3",
       "date": "2026-11-20",

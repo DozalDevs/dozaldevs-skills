@@ -14,7 +14,7 @@ A command a job does not list yet is still callable: `dozaldevs help` lists them
 | Check which apps are connected after a person approves a connect | `operate-ai-employees` | SKILL.md, "6. What only a person can do" | `list-app-connections` |
 | Read or change something in a connected app without a Dozal | `operate-ai-employees` | SKILL.md, "7. Routing: pick the right job skill" | `run-app-action` |
 | Send DozalDevs feedback about a failed call, with the person's yes | `operate-ai-employees` | references/2026-10-31-2230-feedback.md, "When something goes wrong: send feedback" | `confirm-feedback-item` `get-feedback-item` `preview-feedback-item` |
-| Decide a run that is waiting for an action | `operate-ai-employees` | references/customer-api.md, "Runs take time" | `decide-wait-action` |
+| Decide a run that is waiting for an action | `operate-ai-employees` | references/customer-api.md, "Runs take time" | `decide-wait-action` `get-wait` |
 | Find and call a connected app's actions directly | `operate-ai-employees` | references/customer-api.md, "Using your connected apps directly" | `get-app-action` `list-app-actions` `list-app-calls` |
 | List the executions of a run | `operate-ai-employees` | references/customer-api.md, "The run's logs" | `list-executions` |
 | Save a chat document as a Word file | `operate-ai-employees` | references/customer-api.md, "Chat cards: Word files and cards that would not draw" | `download-assistant-chat-document` `report-assistant-chat-card-render-failure` |
