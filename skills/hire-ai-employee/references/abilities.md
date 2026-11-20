@@ -58,6 +58,11 @@ Each line says when a job needs the ability.
 - Resolve time window: When the job needs to turn a start date, a length and a time zone into exact window start and end times saved for later steps.
 - Submit output: When the job is finished and needs to declare its outcome and hand in its result, once.
 - Summarize records: When the job needs to count, group or compute statistics over saved records under conditions.
+- Change draft files: When the job needs to change a website page and show the change live.
+- Draft history: When the job needs the list of changes made to a website draft.
+- Read draft files: When the job needs to see a website page's current code before changing it.
+- Redo draft: When the person asks to bring back a change they took back.
+- Undo draft: When the person asks to take back the last change to their website draft.
 - Prepare site: When the job needs to get the website working directory ready, including pulling in already published pages to build on top of them.
 - Publish site: When the job needs to check a composed customer website and publish it, getting back the live address.
 - Post guest approval: When the job needs to post a guest message approval card to Slack so a person can review it.

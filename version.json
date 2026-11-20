@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.11.19-a474ffd",
+  "skills_version": "2026.11.20-03205d3",
   "cli_version": "0.6.2",
-  "source_commit": "a474ffd3bf2eb4bfd3a4ec58919e989254f879ed",
-  "content_hash": "64b0444cd7204577d6df85031a8e5c6e0138e1bf634cf0e14c512a20a00f0a75",
+  "source_commit": "03205d3f17e2e0ebc9fead2572c9257870c5c227",
+  "content_hash": "c4d235979ccfd9d0c8d9c9fdeb3211b86c6c808c20e891cce07ebb6cde894709",
   "history": [
+    {
+      "version": "2026.11.20-03205d3",
+      "date": "2026-11-20",
+      "changes": "Website edit chat: change a site's live draft, with undo and redo"
+    },
     {
       "version": "2026.11.19-a474ffd",
       "date": "2026-11-19",

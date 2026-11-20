@@ -9,6 +9,7 @@ A command a job does not list yet is still callable: `dozaldevs help` lists them
 | Hire a Dozal by chatting with the Hiring Dozal | `hire-ai-employee` | SKILL.md, "How the chat works" | `get-hiring-chat` `send-hiring-message` `start-hiring-chat` |
 | Change what a Dozal does by chatting in an edit chat | `manage-ai-employees` | SKILL.md, "Pause, reactivate, rename, edit" | `start-hiring-chat` |
 | Ask the assistant a question | `operate-ai-employees` | SKILL.md, "7. Routing: pick the right job skill" | none yet |
+| Change a website by chatting with the assistant | `manage-ai-employees` | references/site-drafts.md, "Live drafts of a website" | none yet |
 | Call a command and read one run or the list of Dozals | `operate-ai-employees` | SKILL.md, "3. How to call" | `get-task` `list-dozals` |
 | Check which apps are connected after a person approves a connect | `operate-ai-employees` | SKILL.md, "6. What only a person can do" | `list-app-connections` |
 | Read or change something in a connected app without a Dozal | `operate-ai-employees` | SKILL.md, "7. Routing: pick the right job skill" | `run-app-action` |
