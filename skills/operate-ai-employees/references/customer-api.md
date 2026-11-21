@@ -383,6 +383,10 @@ When the organization saved a sign-in for a website (`GET /admin/tenants/:tenant
 
 To look, click or type on a website the organization saved a sign-in for, `open-browser-site-session` (`POST /admin/tenants/:tenantId/browser-sessions/sites/:siteKey/browse`, `{"start_url": "https://..."}` on that website) opens a browser signed in and returns a `session_id` and the first `page` (address, title, visible text and its `controls`, each with a `ref`). `take-browse-session-step` (`POST .../browse-sessions/:sessionId/steps`) takes one step: `{"step": {"op": "observe"}}` or `{"op": "goto", "url": ...}` on the same website run at once; `click` (`ref`), `type` (`ref`, `text`) and `select` (`ref`, `value`) answer `needs_confirmation` with `would` (what it would do, in plain words, to show the person) and a `confirm_token`; send `{"confirm_token": ...}` to run it, once, within 10 minutes. A step that reaches a checkout or a payment is refused (403). `end-browse-session` closes the browser; the session also ends by itself after 10 minutes. The saved sign-in is left as it was. The browser's time is billed like a read.
 
+## Signing in with a login saved in 1Password
+
+When the organization connected 1Password, `get-saved-login` (`--data website=shop.example.com`) hands back one website's username, password and current one-time code. It needs a person's own admin or owner key, matches the website's address exactly (never lists the vault), and tells every owner who read which website. Use it to sign in for the person; never store or print the password.
+
 ## Chat cards: Word files and cards that would not draw
 
 When the assistant answers in a chat with a document card (a fenced `document` block), `download-assistant-chat-document` returns it as a Word file built from the reply as it was kept. Name the chat, the turn (`turn_seq`) and the card's position among that turn's cards, counting from 1. A card that isn't a document, or a chat the key's person can't see, answers `404`. Like every chat route it needs a key that stands for a person.

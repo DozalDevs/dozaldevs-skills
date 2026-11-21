@@ -2,7 +2,7 @@
 name: manage-ai-employees
 description: "Use when a human wants to see, list, pause, reactivate, rename or inspect their existing AI employees (config, status active/paused/draft), or manage connected apps, schedules, handoffs, members and invitations, usage and bills, e.g. what employees do I have, pause the recap bot, how did last Friday go. Not for running one now (run-ai-employee), a task's output, approval or logs (monitor-and-review-ai-employee-work), or creating one (hire-ai-employee). Load operate-ai-employees first."
 metadata:
-  version: "2026.11.21-baef57d"
+  version: "2026.11.21-c603098"
 ---
 
 # Manage AI Employees
@@ -47,13 +47,15 @@ dozaldevs update-dozal "$DOZAL" --data role_name="$NEW_NAME" --data base_version
 
 If someone changed it since, `409 VERSION_CONFLICT`: read again and redo your change. Reverts and template updates need `base_version` too; a status-only update needs none. Approving or denying a suggested cleanup needs no version; `409 SUGGESTION_OUT_OF_DATE` means it was withdrawn: re-read, don't retry.
 
-Each save answers `changes`, what really changed; trust it. Test first: `--validate_only true`. `edits`, fields only `update-dozal` changes, what it's told, undoing: `references/checking-and-undoing.md`.
+Each save answers `changes` (trust it). Test first: `--validate_only true`. Fields, undoing: `references/checking-and-undoing.md`.
 
 To change what the employee actually does ("make the summary shorter", "also post to Slack"), use the Hiring Dozal's edit chat described in `hire-ai-employee`:
 
 ```sh
 dozaldevs start-hiring-chat --data kind=edit --data archetype_id="$DOZAL"
 ```
+
+Open one? `dozaldevs get-open-hiring-change-chat "$DOZAL"` (null if none).
 
 The assistant holds each change for a check (the chat's `held_change`): read it, show the human each part's before and after, and decide it as `hire-ai-employee` describes under "Hiring the Dozal". Nothing changes on the live employee until then; if it changed elsewhere, the save fails `409 VERSION_CONFLICT` and the assistant proposes it again.
 

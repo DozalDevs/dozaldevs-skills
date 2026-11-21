@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.11.21-baef57d",
+  "skills_version": "2026.11.21-c603098",
   "cli_version": "0.6.2",
-  "source_commit": "baef57dae192c5d9de9c0120cfc9e8cfbdc859c4",
-  "content_hash": "d5fce989466988cc87cde637f2ead526d0a204c05cbe8fad99ac8535791005c1",
+  "source_commit": "c60309802ed2d1ac4ec182f3cca3a2177d1f9f07",
+  "content_hash": "d92d5615dbc5816f7fc24a1f52850df6f6c6e67200b7a3abcb03f4ac2a845a1e",
   "history": [
+    {
+      "version": "2026.11.21-c603098",
+      "date": "2026-11-21",
+      "changes": "Dozal page: ask about it or change it in the shared chat; the page's own box and tab go; feat: hand a person or their own agent a saved login from the org's connected 1Password"
+    },
     {
       "version": "2026.11.21-baef57d",
       "date": "2026-11-21",

@@ -7,12 +7,13 @@ A command a job does not list yet is still callable: `dozaldevs help` lists them
 | Job | Skill | Section | Commands |
 | --- | --- | --- | --- |
 | Hire a Dozal by chatting with the Hiring Dozal | `hire-ai-employee` | SKILL.md, "How the chat works" | `get-hiring-chat` `send-hiring-message` `start-hiring-chat` |
-| Change what a Dozal does by chatting in an edit chat | `manage-ai-employees` | SKILL.md, "Pause, reactivate, rename, edit" | `start-hiring-chat` |
+| Change what a Dozal does by chatting in an edit chat | `manage-ai-employees` | SKILL.md, "Pause, reactivate, rename, edit" | `get-open-hiring-change-chat` `start-hiring-chat` |
 | Ask the assistant a question | `operate-ai-employees` | SKILL.md, "7. Routing: pick the right job skill" | none yet |
 | Change a website by chatting with the assistant | `manage-ai-employees` | references/site-drafts.md, "Live drafts of a website" | none yet |
 | Call a command and read one run or the list of Dozals | `operate-ai-employees` | SKILL.md, "3. How to call" | `get-task` `list-dozals` |
 | Check which apps are connected after a person approves a connect | `operate-ai-employees` | SKILL.md, "6. What only a person can do" | `list-app-connections` |
 | Read or change something in a connected app without a Dozal | `operate-ai-employees` | SKILL.md, "7. Routing: pick the right job skill" | `run-app-action` |
+| Get a website's saved login from the organization's connected 1Password | `operate-ai-employees` | references/customer-api.md, "Signing in with a login saved in 1Password" | `get-saved-login` |
 | Send DozalDevs feedback about a failed call, with the person's yes | `operate-ai-employees` | references/2026-10-31-2230-feedback.md, "When something goes wrong: send feedback" | `confirm-feedback-item` `get-feedback-item` `preview-feedback-item` |
 | Decide a run that is waiting for an action | `operate-ai-employees` | references/customer-api.md, "Runs take time" | `decide-wait-action` `get-wait` |
 | Find and call a connected app's actions directly | `operate-ai-employees` | references/customer-api.md, "Using your connected apps directly" | `get-app-action` `list-app-actions` `list-app-calls` |
