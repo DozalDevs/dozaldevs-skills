@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.11.20-0f74b1d",
+  "skills_version": "2026.11.21-e3d1a27",
   "cli_version": "0.6.2",
-  "source_commit": "0f74b1d19ca85f5f3ffdc30748df53eadb39c4a1",
-  "content_hash": "02730b4155c068b93d35ccebbda66faba61c99cec7e7e6ff5c63081c0b9f6042",
+  "source_commit": "e3d1a27b29814967f1e646654d8afdc9cabdb3cd",
+  "content_hash": "e51e336763b6e087c5bdc01cc8ff3571a594878aa38e17b7e97a29d3b6cb9c07",
   "history": [
+    {
+      "version": "2026.11.21-e3d1a27",
+      "date": "2026-11-21",
+      "changes": "Turn proposal-branch pushes into checked, previewed proposals with a bell message"
+    },
     {
       "version": "2026.11.20-0f74b1d",
       "date": "2026-11-20",

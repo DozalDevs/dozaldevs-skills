@@ -26,6 +26,7 @@ A command a job does not list yet is still callable: `dozaldevs help` lists them
 | Save, preview and apply an organization's setup | `manage-ai-employees` | SKILL.md, "Saved setups" | `apply-latest-org-snapshot` `apply-org-snapshot` `delete-org-snapshot` `get-org-snapshot` `get-org-snapshot-apply` `list-org-snapshots` `preview-org-snapshot-apply` `save-org-snapshot` |
 | Hand one Dozal's work to another | `manage-ai-employees` | SKILL.md, "Handoffs" | `create-handoff` `delete-handoff` `get-handoff-graph` `list-dozal-handoffs` `update-handoff` |
 | Copy a Dozal's code to this computer with git | `manage-ai-employees` | references/copying-code.md, "Copying a Dozal's code" | `create-code-access` |
+| Name and follow a change your own AI proposed | `manage-ai-employees` | references/copying-code.md, "Following your suggestion" | `get-code-proposal` `list-code-proposals` `update-code-proposal` |
 | Remove a Dozal | `manage-ai-employees` | SKILL.md, "Removing an employee" | `delete-dozal` |
 | Read what runs cost and the bill | `manage-ai-employees` | SKILL.md, "Usage and bills" | `get-billing` `get-cost` `get-run-cost` `list-run-costs` |
 | Read, resume and run a Dozal's schedule | `manage-ai-employees` | SKILL.md, "Schedules" | `get-dozal-schedule` `list-schedules` `resume-dozal-schedule` `run-schedule-now` |
