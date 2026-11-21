@@ -2,7 +2,7 @@
 name: manage-ai-employees
 description: "Use when a human wants to see, list, pause, reactivate, rename or inspect their existing AI employees (config, status active/paused/draft), or manage connected apps, schedules, handoffs, members and invitations, usage and bills, e.g. what employees do I have, pause the recap bot, how did last Friday go. Not for running one now (run-ai-employee), a task's output, approval or logs (monitor-and-review-ai-employee-work), or creating one (hire-ai-employee). Load operate-ai-employees first."
 metadata:
-  version: "2026.11.21-e3d1a27"
+  version: "2026.11.21-2353fa7"
 ---
 
 # Manage AI Employees
