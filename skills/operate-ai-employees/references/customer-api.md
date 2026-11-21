@@ -165,7 +165,7 @@ The status stream sends an `event: status` line each time something changes, wit
 
 ### One run per line
 
-Some Dozals take a list as an input and start one run for each line. The trigger response for those has more in it: `task_ids` for every run that started, `runs` with each line's own `task_id` and `status_url`, and `failures` for any line that didn't start. `task_id` and `status_url` at the top are just the first run's. A list over the Dozal's limit is refused up front with `422` and `TOO_MANY_ITEMS`, and `?dry_run=true` returns a `run_count` so you can check first.
+Some Dozals take a list as an input and start one run for each line. The trigger response for those has more in it: `task_ids` for every run that started, `runs` with each line's own `task_id` and `status_url`, and `failures` for any line that didn't start. `task_id` and `status_url` at the top are just the first run's. A list of any length starts a run for every line, and `?dry_run=true` returns a `run_count` so you can check first.
 
 A Dozal only does this when its input list is set up for it. The input has to be an `every_run` input of type `long_text` with `one_run_per_line` set to `true`, and only one input on a Dozal can carry it. A second one is refused with `400` and `INVALID_REQUEST`. Blank lines and repeated lines are dropped, and each remaining line becomes the value of that input for its own run.
 

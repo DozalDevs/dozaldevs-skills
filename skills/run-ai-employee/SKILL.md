@@ -2,7 +2,7 @@
 name: run-ai-employee
 description: "Use when a human wants to run, trigger, start, or test-run an existing AI employee, e.g. run the recap bot now, kick off the guest responder, or run it once per topic from a list of inputs. Triggers the employee, can dry-run to list required inputs, and hands back task handles without blocking. Load operate-ai-employees first for auth; use monitor-and-review-ai-employee-work to check the result."
 metadata:
-  version: "2026.11.21-2353fa7"
+  version: "2026.11.21-08b56ff"
 ---
 
 # Run an AI Employee
@@ -42,7 +42,7 @@ dozaldevs run-dozal "$SLUG" --dry_run true
 
 ## One run per line
 
-Some employees take a list as one input and start a run for each line. The `202` for those has a `runs` list (one `task_id` per line) and a `failures` list for any line that didn't start. Report each run and each failure to the human. A list over the limit is refused up front with `422 TOO_MANY_ITEMS`, and a dry run returns a `run_count` so you can check first. How an employee gets set up this way is in the "One run per line" section of `../operate-ai-employees/references/customer-api.md`.
+Some employees take a list as one input and start a run for each line. The `202` for those has a `runs` list (one `task_id` per line) and a `failures` list for any line that didn't start. Report each run and each failure to the human. A list of any length starts a run for every line, and a dry run returns a `run_count` so you can check first. How an employee gets set up this way is in the "One run per line" section of `../operate-ai-employees/references/customer-api.md`.
 
 ```sh
 dozaldevs run-dozal "$SLUG" --data inputs.addresses="$ADDRESSES"

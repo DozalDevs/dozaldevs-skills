@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.11.21-2353fa7",
+  "skills_version": "2026.11.21-08b56ff",
   "cli_version": "0.6.2",
-  "source_commit": "2353fa738143661811fc09462686fa2a740c379f",
-  "content_hash": "426cc009c934d3427c805716e8aebdc32b4162bb0b6bc507fb3b5471e43d82c2",
+  "source_commit": "08b56ffc1888e46e12432e2ee04aaee6229c3528",
+  "content_hash": "e8cda86fe50e96b715ce70774efb38d670ac5bdbe6c708a68f831a15018e3607",
   "history": [
+    {
+      "version": "2026.11.21-08b56ff",
+      "date": "2026-11-21",
+      "changes": "Stop dropping customer messages, restaurant orders and long input lists"
+    },
     {
       "version": "2026.11.21-2353fa7",
       "date": "2026-11-21",
