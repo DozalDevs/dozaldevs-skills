@@ -389,6 +389,10 @@ When the assistant answers in a chat with a document card (a fenced `document` b
 
 If your own screen could not draw a card (a diagram that won't parse, say), `report-assistant-chat-card-render-failure` tells the chat with the turn, the card's position and the error text; the chat's next turn sees the error, so asking it to fix the card works. One report per card is kept.
 
+## Sharing a page at a public link
+
+`publish-page` puts one whole HTML page (starting with `<!doctype html>`, styles and scripts inline) online at its own link anyone can open with no sign-in, and answers the link as `url`. Sharing the exact same page again answers the same link (`reused: true`) instead of making a second one. `update-page` puts new HTML at an existing page's link; name the page by the `page_id` the first share answered. A page that is not a whole page, or that carries something shaped like a password or key, is refused with `422 PAGE_CHECK_FAILED` and a `message` saying what to fix. Shared pages are listed with the organization's websites as `kind: page`, and taking one down works like taking down a website. A page goes on the open internet, so check with the person before you share it.
+
 ## What still needs a person
 
 An agent can do almost everything, but a few steps are a human's by design:

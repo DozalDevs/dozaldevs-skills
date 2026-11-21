@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.11.21-08b56ff",
+  "skills_version": "2026.11.21-baef57d",
   "cli_version": "0.6.2",
-  "source_commit": "08b56ffc1888e46e12432e2ee04aaee6229c3528",
-  "content_hash": "e8cda86fe50e96b715ce70774efb38d670ac5bdbe6c708a68f831a15018e3607",
+  "source_commit": "baef57dae192c5d9de9c0120cfc9e8cfbdc859c4",
+  "content_hash": "d5fce989466988cc87cde637f2ead526d0a204c05cbe8fad99ac8535791005c1",
   "history": [
+    {
+      "version": "2026.11.21-baef57d",
+      "date": "2026-11-21",
+      "changes": "Share a chat page at a public link anyone can open"
+    },
     {
       "version": "2026.11.21-08b56ff",
       "date": "2026-11-21",
