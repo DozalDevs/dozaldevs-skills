@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.11.21-c603098",
+  "skills_version": "2026.11.21-fb8cbb7",
   "cli_version": "0.6.2",
-  "source_commit": "c60309802ed2d1ac4ec182f3cca3a2177d1f9f07",
-  "content_hash": "d92d5615dbc5816f7fc24a1f52850df6f6c6e67200b7a3abcb03f4ac2a845a1e",
+  "source_commit": "fb8cbb778c427562bf0fd4c1429b50401c691375",
+  "content_hash": "8634f62fcca8fde140df03c0f0f60513549b9b46a421b17c2ade50cbc1b8efb0",
   "history": [
+    {
+      "version": "2026.11.21-fb8cbb7",
+      "date": "2026-11-21",
+      "changes": "Let the chat and customers' own AIs make pictures"
+    },
     {
       "version": "2026.11.21-c603098",
       "date": "2026-11-21",
