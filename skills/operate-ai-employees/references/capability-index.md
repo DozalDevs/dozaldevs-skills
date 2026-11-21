@@ -48,3 +48,4 @@ A command a job does not list yet is still callable: `dozaldevs help` lists them
 | Read a run's conversation, events and status log | `monitor-and-review-ai-employee-work` | SKILL.md, "Why a run went wrong: read the run's logs" | `get-task-conversation` `get-task-events` `get-task-status-log` |
 | Read pages of a website with its saved sign-in | `operate-ai-employees` | references/customer-api.md, "Reading a website with its saved sign-in" | `read-browser-site-pages` `run-browser-keep-alive-visit` |
 | Look, click and type on a website with its saved sign-in | `operate-ai-employees` | references/customer-api.md, "Browsing a website with its saved sign-in" | `open-browser-site-session` `take-browse-session-step` `end-browse-session` |
+| Turn a short recording of speech into text | `operate-ai-employees` | references/customer-api.md, "Turning speech into text" | `transcribe-dictation` |

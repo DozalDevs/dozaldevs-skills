@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.11.21-fb8cbb7",
+  "skills_version": "2026.11.21-da72d97",
   "cli_version": "0.6.2",
-  "source_commit": "fb8cbb778c427562bf0fd4c1429b50401c691375",
-  "content_hash": "8634f62fcca8fde140df03c0f0f60513549b9b46a421b17c2ade50cbc1b8efb0",
+  "source_commit": "da72d97efae83f3215f0f9743bea63d3b079619f",
+  "content_hash": "e5209651e1fc01e3982520dc440556ac1e47956223b842d08a165c8f7d57729f",
   "history": [
+    {
+      "version": "2026.11.21-da72d97",
+      "date": "2026-11-21",
+      "changes": "Speak instead of type in every dashboard text box"
+    },
     {
       "version": "2026.11.21-fb8cbb7",
       "date": "2026-11-21",

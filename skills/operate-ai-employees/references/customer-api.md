@@ -397,6 +397,10 @@ If your own screen could not draw a card (a diagram that won't parse, say), `rep
 
 `publish-page` puts one whole HTML page (starting with `<!doctype html>`, styles and scripts inline) online at its own link anyone can open with no sign-in, and answers the link as `url`. Sharing the exact same page again answers the same link (`reused: true`) instead of making a second one. `update-page` puts new HTML at an existing page's link; name the page by the `page_id` the first share answered. A page that is not a whole page, or that carries something shaped like a password or key, is refused with `422 PAGE_CHECK_FAILED` and a `message` saying what to fix. Shared pages are listed with the organization's websites as `kind: page`, and taking one down works like taking down a website. A page goes on the open internet, so check with the person before you share it.
 
+## Turning speech into text
+
+`transcribe-dictation` (`POST /admin/tenants/:tenantId/voice-transcriptions`, any level) turns a short recording of someone speaking into text, the same way the dashboard's microphone does when a browser can't listen itself. Send `audio_base64` (the file, base64, up to 3 MiB) and `mime_type` (for example `audio/webm`, `audio/ogg`, `audio/mp4`, `audio/mpeg` or `audio/wav`); it answers `{ "text": "..." }`. Nothing is kept: the audio is not stored or logged. A 422 `DICTATION_NOT_HEARD` means no speech was heard, a 503 `DICTATION_UNAVAILABLE` means try again in a minute. Each call is a small cost recorded for the organization, so send a long recording in pieces of a minute or so rather than one huge file.
+
 ## What still needs a person
 
 An agent can do almost everything, but a few steps are a human's by design:
