@@ -428,7 +428,7 @@ An agent can do almost everything, but a few steps are a human's by design:
 - Creating the organization. `POST /me/organizations` is person-only, so the first sign-up and the organization it makes happen in a browser.
 - The first key. A key can't create another key, so a signed-in owner makes the first one under Setup, API Keys in the dashboard's left menu, picks its level, and copies it. The secret is shown once.
 - Consent clicks. Every OAuth connect ends with a person pressing Allow at the other service.
-- Remote-browser sign-in. For apps that need a password typed into a real page, `POST /admin/tenants/:tenantId/browser-sessions/start` opens a live browser, and a person signs in there. The same goes for the Airbnb sign-in routes under `/airbnb/login`. An Owner-level key can open these sessions, but it can't type the password.
+- Remote-browser sign-in. For apps that need a password typed into a real page, `POST /admin/tenants/:tenantId/browser-sessions/start` opens a live browser, and a person signs in there. Airbnb signs in the same way, through the airbnb.com website (the old `/airbnb/login` routes answer 410). An Owner-level key can open these sessions, but it can't type the password.
 - GitHub's link-an-existing-installation picker, as above.
 
 Everything else, from hiring and running to approving and watching, goes through the routes in the spec. When you aren't sure whether a route is open to your key, read its `x-auth` first.
