@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.11.22-e954218",
+  "skills_version": "2026.11.22-a0616e7",
   "cli_version": "0.6.2",
-  "source_commit": "e95421868b7457e94db248cdc2787c6f7ab3dd17",
-  "content_hash": "24dc7b71267a1907489bbb9bc623a2c039e42e45f4f67a341bf51e4f052123f7",
+  "source_commit": "a0616e7966a6fddf1700ee467bf2ef63e122f2c7",
+  "content_hash": "a5dd1a3a7680424cd6e1162ff19a15c2ecf32790ef3f5720e9d82652ffc37d32",
   "history": [
+    {
+      "version": "2026.11.22-a0616e7",
+      "date": "2026-11-22",
+      "changes": "Read any number of pages with a saved sign-in"
+    },
     {
       "version": "2026.11.22-e954218",
       "date": "2026-11-22",
