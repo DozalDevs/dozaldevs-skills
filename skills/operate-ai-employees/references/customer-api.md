@@ -375,6 +375,16 @@ Each call is charged as normal usage and shows on the Billing page as "Direct ap
 - An organization can make a limited number of direct calls a minute. Past it you get `429` with `RATE_LIMITED` and a `Retry-After` header.
 - When the platform's monthly app-call allowance runs short, direct calls pause for everyone with `503` and `DIRECT_APP_BUDGET_REACHED`, so Dozals keep working. Try again later.
 
+## Reading a photo or a file
+
+To learn what a photo, scan, PDF, Excel sheet (.xlsx), CSV or text file says, hand it over; no Dozal is needed:
+
+```sh
+dozaldevs hand-over-file --data file_name=receipt.jpg --data content_base64="$(base64 < receipt.jpg | tr -d '\n')"
+```
+
+`reading.text` is what the file says: every word and number of a photo, a PDF page by page, a sheet as tables. iPhone HEIC photos work. A number two readings of the picture disagree on is marked `[not sure, could be …]`, and something nobody can read is `[unreadable]`; pass those on as they are, never as a guess. When `reading.next` is not null the file is long: read on with `dozaldevs read-file "$FILE_ID" --data from="$NEXT"`. A file up to 20 MB is kept privately for the organization. A 503 `FILE_READER_UNAVAILABLE` kept the file: read it again in a minute with `read-file` and the `file_id` it names.
+
 ## Reading a website with its saved sign-in
 
 When the organization saved a sign-in for a website (`GET /admin/tenants/:tenantId/browser-sessions` lists them), `read-browser-site-pages` (`POST /admin/tenants/:tenantId/browser-sessions/sites/:siteKey/read`) with `{"urls": ["https://..."]}` (1 to 4 addresses on that website, or a partner portal the sign-in reaches) opens a browser with that sign-in and returns each page's `address`, `title` and visible `text`. It is read-only: nothing is clicked, typed or submitted. It takes about a minute and costs a fraction of a cent. 409 means a browser is busy (try again in a few minutes) or the sign-in lapsed (the person signs in again); 400 names an address that is not on the website. `run-browser-keep-alive-visit` only checks that the sign-in still works.

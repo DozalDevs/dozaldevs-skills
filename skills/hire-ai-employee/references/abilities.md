@@ -21,6 +21,7 @@ Each line says when a job needs the ability.
 - Jira search: When the job needs to search the issues of the connected Jira account and read their full details.
 - List actions: When the job needs to discover which actions a connected Composio app offers and read the inputs one action takes.
 - Call: When the job needs to call a customer-defined web endpoint by name, filling in its placeholders and optionally sending a body.
+- Read: When the job needs what a photo, scan, PDF, spreadsheet or text file says, such as the figures on a receipt, bill or statement.
 - Api call: When the job needs to change a connected GitHub repository: write a file, open or update an issue or pull request, comment, label or create a branch.
 - Api get: When the job needs to read files, issues, pull requests, commits or branches from a connected GitHub repository.
 - Get token: When the job needs a short-lived GitHub access token so it can read or change code in a connected GitHub repository.

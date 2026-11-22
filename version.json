@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.11.21-da72d97",
+  "skills_version": "2026.11.22-19975cc",
   "cli_version": "0.6.2",
-  "source_commit": "da72d97efae83f3215f0f9743bea63d3b079619f",
-  "content_hash": "e5209651e1fc01e3982520dc440556ac1e47956223b842d08a165c8f7d57729f",
+  "source_commit": "19975cc99e8826fa329688eb9c5737fc7741291e",
+  "content_hash": "dd8219e0e336d119559ef31fa9056f7f827b38d5114a85bf51512250d73945a2",
   "history": [
+    {
+      "version": "2026.11.22-19975cc",
+      "date": "2026-11-22",
+      "changes": "One shared file reader for photos, PDFs and spreadsheets"
+    },
     {
       "version": "2026.11.21-da72d97",
       "date": "2026-11-21",

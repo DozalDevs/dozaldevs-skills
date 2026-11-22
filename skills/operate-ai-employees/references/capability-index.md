@@ -13,6 +13,7 @@ A command a job does not list yet is still callable: `dozaldevs help` lists them
 | Call a command and read one run or the list of Dozals | `operate-ai-employees` | SKILL.md, "3. How to call" | `get-task` `list-dozals` |
 | Check which apps are connected after a person approves a connect | `operate-ai-employees` | SKILL.md, "6. What only a person can do" | `list-app-connections` |
 | Read or change something in a connected app without a Dozal | `operate-ai-employees` | SKILL.md, "7. Routing: pick the right job skill" | `run-app-action` |
+| Read what a photo, PDF, spreadsheet or text file says | `operate-ai-employees` | references/customer-api.md, "Reading a photo or a file" | `hand-over-file` `read-file` |
 | Get a website's saved login from the organization's connected 1Password | `operate-ai-employees` | references/customer-api.md, "Signing in with a login saved in 1Password" | `get-saved-login` |
 | Make a picture (a flyer, a post, an illustration) without a Dozal | `operate-ai-employees` | SKILL.md, "3. How to call" | `make-picture` |
 | Send DozalDevs feedback about a failed call, with the person's yes | `operate-ai-employees` | references/2026-10-31-2230-feedback.md, "When something goes wrong: send feedback" | `confirm-feedback-item` `get-feedback-item` `preview-feedback-item` |

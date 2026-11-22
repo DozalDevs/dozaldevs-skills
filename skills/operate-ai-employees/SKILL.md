@@ -2,7 +2,7 @@
 name: operate-ai-employees
 description: "Use when a human asks you to operate their AI Employee platform account: hiring an employee, running one, checking on a task, approving or rejecting work, listing or pausing employees, or managing connections, schedules, handoffs, members, usage, bills, activity and run logs. Load this first to route between the four job skills. The umbrella skill: dze_ API key auth and its level, the production base URL, tenant resolution, the async model, and person-only steps."
 metadata:
-  version: "2026.11.21-da72d97"
+  version: "2026.11.22-19975cc"
 ---
 
 # Operate AI Employees
@@ -14,7 +14,7 @@ You are the **operator** of a customer's AI Employee platform account. The human
 Check the CLI and tell it which skills version you have:
 
 ```sh
-dozaldevs version --skills 2026.11.21-da72d97
+dozaldevs version --skills 2026.11.22-19975cc
 ```
 
 If `dozaldevs` isn't found, run `npm install -g dozaldevs` first. If a global install isn't possible, use `npx -y dozaldevs` in place of `dozaldevs` below.
@@ -43,7 +43,7 @@ dozaldevs get-task "$TASK"
 - A body is `--data key=value` for a text field, `--data key:=<json>` for a number, true/false or JSON (`--data turn_seq:=3`), and dots nest (`--data inputs.topic="$TOPIC"`). A command that takes a body and gets none sends `{}`. For a whole JSON body, use `--body '<json>'`, `--body @file.json` or `--body -`.
 - Query parameters are `--name value`, as the spec names them (`--limit 10`).
 - `--field <path>` prints one value, without a `body.` prefix: `--field conversation.id`. `items[].slug` prints one per line.
-- Answers are short; `--detailed` gives every field. `--detailed` needs dozaldevs 0.5.0 or newer (an older CLI reads the flag as needing a value). What the short form drops: `references/customer-api.md`.
+- Answers are short; `--detailed` gives every field. `--detailed` needs dozaldevs 0.5.0 or newer. What the short form drops: `references/customer-api.md`.
 - A list answers one page at a time. `--all` follows every page and prints all items. Only lists whose `--help` shows a `cursor` option page.
 - `--while <path>=<value> --every <seconds> --timeout <seconds>` repeats a read while the value stays, then prints the last answer. See the job skills.
 - `dozaldevs help` lists every command, `dozaldevs help <words>` searches them, and `dozaldevs <command> --help` shows one command's ids, options and body.
@@ -92,7 +92,7 @@ Never press an approval or "just send it" choice on the human's behalf.
 
 ## Concepts
 
-`references/customer-api.md` covers pagination, errors, run logs, live status, handoffs, connects and direct app calls. `references/capability-index.md` maps each job to its skill section and commands.
+`references/customer-api.md` covers pagination, errors, run logs, live status, handoffs, connects, direct app calls and reading a photo or file. `references/capability-index.md` maps each job to its skill section and commands.
 
 A call failed with a `request_id`, or the person calls it broken? Offer to send DozalDevs feedback, never unasked or without their yes: read `references/2026-10-31-2230-feedback.md`.
 
