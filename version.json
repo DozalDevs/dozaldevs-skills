@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.11.22-d77328d",
+  "skills_version": "2026.11.22-e954218",
   "cli_version": "0.6.2",
-  "source_commit": "d77328dd6cfae69363bd7bbf9acabba1e13a6e38",
-  "content_hash": "f0e07ef838b8ae95638a740bf418ed1b0ed9694d945286a8f0293a608a052d74",
+  "source_commit": "e95421868b7457e94db248cdc2787c6f7ab3dd17",
+  "content_hash": "24dc7b71267a1907489bbb9bc623a2c039e42e45f4f67a341bf51e4f052123f7",
   "history": [
+    {
+      "version": "2026.11.22-e954218",
+      "date": "2026-11-22",
+      "changes": "feat: let a Dozal's saved tools run before it starts, as input it reviews"
+    },
     {
       "version": "2026.11.22-d77328d",
       "date": "2026-11-22",

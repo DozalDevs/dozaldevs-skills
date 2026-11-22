@@ -52,3 +52,4 @@ A command a job does not list yet is still callable: `dozaldevs help` lists them
 | Look, click and type on a website with its saved sign-in | `operate-ai-employees` | references/customer-api.md, "Browsing a website with its saved sign-in" | `open-browser-site-session` `take-browse-session-step` `end-browse-session` |
 | Turn a short recording of speech into text | `operate-ai-employees` | references/customer-api.md, "Turning speech into text" | `transcribe-dictation` |
 | Talk out loud with the chat: hear a spoken turn, speak a reply | `operate-ai-employees` | references/customer-api.md, "Talking out loud with the chat" | `get-live-voice` `hear-live-voice` `speak-live-voice` |
+| Make a Dozal's saved tool run before it starts, or optional again | `manage-ai-employees` | references/fixed-steps.md, "Tools that run before a Dozal starts" | `set-dozal-workspace-tool-fixed-step` |
