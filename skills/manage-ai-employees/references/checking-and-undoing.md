@@ -40,3 +40,13 @@ List the employee's edits (newest first) and revert the one you want gone. A rev
 dozaldevs list-dozal-edits "$DOZAL"
 dozaldevs revert-dozal-edit "$DOZAL" "$EDIT" --data base_version:="$VERSION"
 ```
+
+## Review what teammates suggested
+
+A teammate who does not look after a Dozal can say a rule or a fix about it in the chat; it waits for the person who looks after the Dozal as a suggestion with their own words and what would change (`now`, `after`). List the waiting ones, then approve or turn down each (`action` is `approve` or `deny`). Approving applies the change through the same path as any edit, so it shows in `list-dozal-edits` and can be reverted; turning one down changes nothing. Either way the teammate is told in their own chat. A suggestion written for text that has since changed is set aside, and approving it answers `409 SUGGESTION_OUT_OF_DATE`.
+
+```sh
+dozaldevs get-dozal-looked-after-by "$DOZAL"
+dozaldevs list-dozal-team-suggestions "$DOZAL"
+dozaldevs decide-dozal-proposal "$DOZAL" "$SUGGESTION" --data action=approve   # or action=deny
+```

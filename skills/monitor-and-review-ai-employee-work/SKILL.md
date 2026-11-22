@@ -2,7 +2,7 @@
 name: monitor-and-review-ai-employee-work
 description: "Use when a human asks whether an AI employee task is done, wants to see its output, or wants to approve or reject its work: is the recap ready, show me what it wrote, approve it, reject and shorten it, why did that run go wrong, show its logs, watch it live. Reads task status via phase_category, drives the approve/reject decision, and reads run logs, activity and live status. Load operate-ai-employees first for auth setup."
 metadata:
-  version: "2026.11.22-19975cc"
+  version: "2026.11.22-d77328d"
 ---
 
 # Monitor & Review AI Employee Work
@@ -107,5 +107,7 @@ Say what the logs show, in plain words. They don't always explain a failure. If 
   ```sh
   dozaldevs list-task-pending-approvals "$TASK"
   ```
+
+- **Watching the browser:** while a Dozal has a website open, a person can watch it live, view-only, with the "Watch the browser" button on the run's page or in their Ask chat. `get-run-browser-status "$TASK"` says whether a run has a browser open (`get-assistant-chat-browser-status` for the person's own Ask chat). `create-run-browser-live-view-ticket` and `create-assistant-chat-browser-live-view-ticket` hand the dashboard's viewer a one-minute pass; they show you nothing to read, so when the human wants to see the browser, tell them to press the button instead.
 
 - **Live progress:** there's no stream to follow. Use the `--while` wait above, and between rounds tell the human what `phase_category` said. For what the run is doing right now, read the events.

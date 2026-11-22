@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.11.22-19975cc",
+  "skills_version": "2026.11.22-d77328d",
   "cli_version": "0.6.2",
-  "source_commit": "19975cc99e8826fa329688eb9c5737fc7741291e",
-  "content_hash": "dd8219e0e336d119559ef31fa9056f7f827b38d5114a85bf51512250d73945a2",
+  "source_commit": "d77328dd6cfae69363bd7bbf9acabba1e13a6e38",
+  "content_hash": "f0e07ef838b8ae95638a740bf418ed1b0ed9694d945286a8f0293a608a052d74",
   "history": [
+    {
+      "version": "2026.11.22-d77328d",
+      "date": "2026-11-22",
+      "changes": "A teammate's note about a Dozal becomes a suggestion its owner approves; Talk out loud with the Ask chat; Watch a Dozal's browser live, view-only, from the Ask chat and the run page; The app's feedback button offers to send a note about a Dozal to that Dozal"
+    },
     {
       "version": "2026.11.22-19975cc",
       "date": "2026-11-22",

@@ -16,7 +16,7 @@ A command a job does not list yet is still callable: `dozaldevs help` lists them
 | Read what a photo, PDF, spreadsheet or text file says | `operate-ai-employees` | references/customer-api.md, "Reading a photo or a file" | `hand-over-file` `read-file` |
 | Get a website's saved login from the organization's connected 1Password | `operate-ai-employees` | references/customer-api.md, "Signing in with a login saved in 1Password" | `get-saved-login` |
 | Make a picture (a flyer, a post, an illustration) without a Dozal | `operate-ai-employees` | SKILL.md, "3. How to call" | `make-picture` |
-| Send DozalDevs feedback about a failed call, with the person's yes | `operate-ai-employees` | references/2026-10-31-2230-feedback.md, "When something goes wrong: send feedback" | `confirm-feedback-item` `get-feedback-item` `preview-feedback-item` |
+| Send DozalDevs feedback about a failed call, with the person's yes | `operate-ai-employees` | references/2026-10-31-2230-feedback.md, "When something goes wrong: send feedback" | `check-feedback-for-dozal` `confirm-feedback-item` `get-feedback-item` `preview-feedback-item` |
 | Decide a run that is waiting for an action | `operate-ai-employees` | references/customer-api.md, "Runs take time" | `decide-wait-action` `get-wait` |
 | Find and call a connected app's actions directly | `operate-ai-employees` | references/customer-api.md, "Using your connected apps directly" | `get-app-action` `list-app-actions` `list-app-calls` |
 | List the executions of a run | `operate-ai-employees` | references/customer-api.md, "The run's logs" | `list-executions` |
@@ -43,10 +43,12 @@ A command a job does not list yet is still callable: `dozaldevs help` lists them
 | Turn a Dozal's access to the organization's API on or off | `manage-ai-employees` | references/agent-boxes.md, "Organization access for a Dozal" | `set-dozal-org-access` |
 | Save an edit chat and read what the save changed | `manage-ai-employees` | references/checking-and-undoing.md, "What a save changed" | `apply-hiring-chat` |
 | List a Dozal's edits and revert one | `manage-ai-employees` | references/checking-and-undoing.md, "Undo a change" | `list-dozal-edits` `revert-dozal-edit` |
+| See what teammates suggested for a Dozal, and approve or decline it | `manage-ai-employees` | references/checking-and-undoing.md, "Review what teammates suggested" | `get-dozal-looked-after-by` `list-dozal-team-suggestions` `decide-dozal-proposal` |
 | See exactly what a Dozal is told | `manage-ai-employees` | references/checking-and-undoing.md, "See exactly what it's told" | `preview-dozal-brain` |
-| See activity, deliverables, track record and what waits for approval | `monitor-and-review-ai-employee-work` | SKILL.md, "Activity and live status" | `count-tasks` `get-track-record` `list-deliverables` `list-recent-decisions` `list-silent-dozals` `list-task-pending-approvals` |
+| See activity, deliverables, track record and what waits for approval | `monitor-and-review-ai-employee-work` | SKILL.md, "Activity and live status" | `count-tasks` `create-assistant-chat-browser-live-view-ticket` `create-run-browser-live-view-ticket` `get-assistant-chat-browser-status` `get-run-browser-status` `get-track-record` `list-deliverables` `list-recent-decisions` `list-silent-dozals` `list-task-pending-approvals` |
 | Approve or reject a run that waits for a person | `monitor-and-review-ai-employee-work` | SKILL.md, "Approve or reject (when awaiting_human)" | `decide-task` |
 | Read a run's conversation, events and status log | `monitor-and-review-ai-employee-work` | SKILL.md, "Why a run went wrong: read the run's logs" | `get-task-conversation` `get-task-events` `get-task-status-log` |
 | Read pages of a website with its saved sign-in | `operate-ai-employees` | references/customer-api.md, "Reading a website with its saved sign-in" | `read-browser-site-pages` `run-browser-keep-alive-visit` |
 | Look, click and type on a website with its saved sign-in | `operate-ai-employees` | references/customer-api.md, "Browsing a website with its saved sign-in" | `open-browser-site-session` `take-browse-session-step` `end-browse-session` |
 | Turn a short recording of speech into text | `operate-ai-employees` | references/customer-api.md, "Turning speech into text" | `transcribe-dictation` |
+| Talk out loud with the chat: hear a spoken turn, speak a reply | `operate-ai-employees` | references/customer-api.md, "Talking out loud with the chat" | `get-live-voice` `hear-live-voice` `speak-live-voice` |

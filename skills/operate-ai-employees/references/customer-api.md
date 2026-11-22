@@ -411,6 +411,16 @@ If your own screen could not draw a card (a diagram that won't parse, say), `rep
 
 `transcribe-dictation` (`POST /admin/tenants/:tenantId/voice-transcriptions`, any level) turns a short recording of someone speaking into text, the same way the dashboard's microphone does when a browser can't listen itself. Send `audio_base64` (the file, base64, up to 3 MiB) and `mime_type` (for example `audio/webm`, `audio/ogg`, `audio/mp4`, `audio/mpeg` or `audio/wav`); it answers `{ "text": "..." }`. Nothing is kept: the audio is not stored or logged. A 422 `DICTATION_NOT_HEARD` means no speech was heard, a 503 `DICTATION_UNAVAILABLE` means try again in a minute. Each call is a small cost recorded for the organization, so send a long recording in pieces of a minute or so rather than one huge file.
 
+
+## Talking out loud with the chat
+
+The dashboard's talk mode (a spoken conversation with the Ask chat) is three calls, usable with a key for your own voice client:
+
+- `get-live-voice` (`GET /admin/tenants/:tenantId/live-voice`, any level) says whether talk mode is on (`enabled`) and `turn_sound_threshold`, the chance from a sound-based end-of-turn model at or above which a client may treat a turn as finished.
+- `hear-live-voice` (`POST /admin/tenants/:tenantId/live-voice/transcriptions`, member and up) takes one piece of speech cut at a pause, as a 16-bit WAV in `audio_base64` (up to 3 MiB), plus `before`, what the person already said in this turn. It answers `{ "text": "...", "finished": true | false | null }`: whether the whole turn sounds finished from its words, or null when it can't tell (then wait a second of quiet). A 422 `LIVE_VOICE_NOT_HEARD` means no speech was heard.
+- `speak-live-voice` (`POST /admin/tenants/:tenantId/live-voice/speech`, member and up) takes `text` (one or a few sentences, up to 1,000 characters) and answers the spoken audio as `audio/mpeg`. A 503 `LIVE_VOICE_UNAVAILABLE` means talk mode is off or the voice couldn't be made; try again in a minute.
+
+Send the person's words to the chat as an ordinary message with `spoken: true` so the reply is written to be heard. Nothing is kept: neither the audio nor the text is stored or logged. Each call is a small cost recorded for the organization.
 ## What still needs a person
 
 An agent can do almost everything, but a few steps are a human's by design:
