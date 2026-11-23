@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.11.23-b3db5d1",
+  "skills_version": "2026.11.23-ff18224",
   "cli_version": "0.6.2",
-  "source_commit": "b3db5d1c4ce8276f1df6c293bfec1ae9db2a67a9",
-  "content_hash": "506a247a7f5e5d901a22dfda174cfc7b25b07719f0700c1ae6c8eb7bb2554c6a",
+  "source_commit": "ff1822460bd79610a72b05346bf6e8b3e29f8c37",
+  "content_hash": "13ed40fa7c9799bfdcd1cf1498cfc78d3307b1e394dbdc53821fba89e3f4bc4a",
   "history": [
+    {
+      "version": "2026.11.23-ff18224",
+      "date": "2026-11-23",
+      "changes": "feat: show how long a live run has taken and how long the current step has"
+    },
     {
       "version": "2026.11.23-b3db5d1",
       "date": "2026-11-23",
