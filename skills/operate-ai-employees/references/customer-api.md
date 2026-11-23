@@ -397,9 +397,17 @@ To look, click or type on a website the organization saved a sign-in for, `open-
 
 When the organization connected 1Password, `get-saved-login` (`--data website=shop.example.com`) hands back one website's username, password and current one-time code. It needs a person's own admin or owner key, matches the website's address exactly (never lists the vault), and tells every owner who read which website. Use it to sign in for the person; never store or print the password.
 
-## Chat cards: Word files and cards that would not draw
+## Charts, diagrams and documents as pictures and files
 
-When the assistant answers in a chat with a document card (a fenced `document` block), `download-assistant-chat-document` returns it as a Word file built from the reply as it was kept. Name the chat, the turn (`turn_seq`) and the card's position among that turn's cards, counting from 1. A card that isn't a document, or a chat the key's person can't see, answers `404`. Like every chat route it needs a key that stands for a person.
+To turn a chart, a diagram or a document into something you can send anywhere, call `make-card-file` (`make_card_file` over MCP) with the card's `type` (`chart`, `mermaid` for a diagram, or `document`) and its `source`, the same text that goes inside a chat card's fence: chart JSON, Mermaid text, or Markdown that starts with a `# ` title. A chart or diagram becomes a picture (`png`); a document becomes a PDF (`pdf`, the default) or a Word file (`docx`). A document may hold its own charts and diagrams: fence the document with four backticks and each chart with three. The answer is `{ url, file_name, content_type, format, expires_at? }`: a picture's link does not expire, a document's link works for a week. `language` (such as `es`) sets the language of a document's date line.
+
+```bash
+dozaldevs make-card-file --data type=chart --data 'source={"type":"bar","title":"Sales","series":[{"name":"2026","data":[{"x":"Jan","y":3}]}]}'
+```
+
+The card is checked first, the same way the chat and Dozals check theirs. One that would not draw answers `422` with `CARD_NOT_DRAWABLE` and the reason, so fix it and send it again. The picture is drawn exactly as the chat draws it.
+
+When the assistant answers in a chat with a card, `download-assistant-chat-card` returns that card as a file made from the reply as it was kept: a chart or diagram as `png`, a document as `pdf` or `docx`. Name the chat, the turn (`turn_seq`), the card's position among that turn's cards counting from 1, and the format. A card that can't become that format, or a chat the key's person can't see, answers `404`. Like every chat route it needs a key that stands for a person.
 
 If your own screen could not draw a card (a diagram that won't parse, say), `report-assistant-chat-card-render-failure` tells the chat with the turn, the card's position and the error text; the chat's next turn sees the error, so asking it to fix the card works. One report per card is kept.
 

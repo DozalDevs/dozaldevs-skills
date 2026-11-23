@@ -55,6 +55,7 @@ Each line says when a job needs the ability.
 - Recall lookup: When the job needs something an earlier run may already have worked out (the folder of a phone number, the record of a name) before looking for it again.
 - Record recipient: When the job needs to record who its finished work is for, so the delivery step sends it to the right place.
 - Remember lookup: When the job works out that one thing belongs to another (a phone number to a folder, a name to a record) and a later run will need the same answer.
+- Render card: When a chart, a diagram or a document has to reach a person outside the app (Slack, email, a file to attach) as a picture or a file instead of as text.
 - Report issue: When something a job relies on fails in a way worth reporting, and the failure must be recorded for the people who maintain the platform.
 - Resolve time window: When the job needs to turn a start date, a length and a time zone into exact window start and end times saved for later steps.
 - Submit output: When the job is finished and needs to declare its outcome and hand in its result, once.

@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.11.22-455594c",
+  "skills_version": "2026.11.23-b3db5d1",
   "cli_version": "0.6.2",
-  "source_commit": "455594c77671116721fe4e0f5afab96bf074231b",
-  "content_hash": "eb0250ddcc04770561044161e5975aae423886d5e62fbe7f0300d5807d475cf8",
+  "source_commit": "b3db5d1c4ce8276f1df6c293bfec1ae9db2a67a9",
+  "content_hash": "506a247a7f5e5d901a22dfda174cfc7b25b07719f0700c1ae6c8eb7bb2554c6a",
   "history": [
+    {
+      "version": "2026.11.23-b3db5d1",
+      "date": "2026-11-23",
+      "changes": "Make charts, diagrams and documents into pictures and files from one maker"
+    },
     {
       "version": "2026.11.22-455594c",
       "date": "2026-11-22",
