@@ -37,6 +37,7 @@ A command a job does not list yet is still callable: `dozaldevs help` lists them
 | Give a Dozal the tools of an app its steps need | `manage-ai-employees` | references/app-access.md, "Giving an employee an app it needs" | `give-dozal-app-access` |
 | Connect Slack, GitHub and other apps | `manage-ai-employees` | SKILL.md, "Connections" | `list-integrations` `list-integrations-needing-attention` `start-app-connection` `start-github-install` `start-slack-install` |
 | List members and invitations, and revoke an invitation | `manage-ai-employees` | SKILL.md, "Members and invitations" | `list-invitations` `list-members` `revoke-invitation` |
+| List the organization's custom roles and the record of role changes | `manage-ai-employees` | references/roles.md, "Custom roles and role changes" | `list-custom-roles` `list-role-changes` |
 | List recent runs | `manage-ai-employees` | SKILL.md, "Review recent runs" | `list-tasks` |
 | Open, read and close a website's live draft | `manage-ai-employees` | references/site-drafts.md, "Live drafts of a website" | `close-site-draft` `get-site-draft` `list-site-draft-changes` `open-site-draft` `redo-site-draft-change` `undo-site-draft-change` |
 | Start, open and stop an agent box | `manage-ai-employees` | references/agent-boxes.md, "Agent boxes" | `create-agent-box-link` `get-agent-box` `get-agent-box-availability` `list-agent-boxes` `start-agent-box` `stop-agent-box` `stop-agent-boxes` |
@@ -52,5 +53,5 @@ A command a job does not list yet is still callable: `dozaldevs help` lists them
 | Read pages of a website with its saved sign-in | `operate-ai-employees` | references/customer-api.md, "Reading a website with its saved sign-in" | `read-browser-site-pages` `get-browser-site-read` `run-browser-keep-alive-visit` |
 | Look, click and type on a website with its saved sign-in | `operate-ai-employees` | references/customer-api.md, "Browsing a website with its saved sign-in" | `open-browser-site-session` `take-browse-session-step` `end-browse-session` |
 | Turn a short recording of speech into text | `operate-ai-employees` | references/customer-api.md, "Turning speech into text" | `transcribe-dictation` |
-| Talk out loud with the chat: hear a spoken turn, speak a reply | `operate-ai-employees` | references/customer-api.md, "Talking out loud with the chat" | `get-live-voice` `hear-live-voice` `speak-live-voice` |
+| Talk out loud with the chat: hear a spoken turn, speak a reply | `operate-ai-employees` | references/customer-api.md, "Talking out loud with the chat" | `get-live-voice` `hear-live-voice` `judge-live-voice-language` `speak-live-voice` |
 | Make a Dozal's saved tool run before it starts, or optional again | `manage-ai-employees` | references/fixed-steps.md, "Tools that run before a Dozal starts" | `set-dozal-workspace-tool-fixed-step` |
