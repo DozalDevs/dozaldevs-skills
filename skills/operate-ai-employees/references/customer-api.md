@@ -351,7 +351,10 @@ GitHub has one extra case. If the installation already exists and the person who
 
 You don't need a Dozal to use an app the organization already connected. To read or change something in a connected app, run the action directly with `run-app-action` (`run_app_action` over MCP); never create a Dozal just to run one action. Your key can run an action on it, and DozalDevs makes the call with the organization's connection, so you never see the app's password or token.
 
+Not sure which app or action? Ask in plain words first: `search-actions` (`search_actions` over MCP) returns the best matches across every app the organization can use and the platform's own operations.
+
 ```bash
+dozaldevs search-actions --q "which cleaning jobs are this week"   # best matches, apps and platform alike
 dozaldevs list-app-connections                        # what's connected
 dozaldevs list-app-actions googlesheets               # its actions (slug, name, kind), and whether your key may run each
 dozaldevs get-app-action googlesheets GOOGLESHEETS_BATCH_GET   # one action's description and inputs

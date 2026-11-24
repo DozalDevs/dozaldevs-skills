@@ -18,7 +18,7 @@ A command a job does not list yet is still callable: `dozaldevs help` lists them
 | Make a picture (a flyer, a post, an illustration) without a Dozal | `operate-ai-employees` | SKILL.md, "3. How to call" | `make-picture` |
 | Send DozalDevs feedback about a failed call, with the person's yes | `operate-ai-employees` | references/2026-10-31-2230-feedback.md, "When something goes wrong: send feedback" | `check-feedback-for-dozal` `confirm-feedback-item` `get-feedback-item` `preview-feedback-item` |
 | Decide a run that is waiting for an action | `operate-ai-employees` | references/customer-api.md, "Runs take time" | `decide-wait-action` `get-wait` |
-| Find and call a connected app's actions directly | `operate-ai-employees` | references/customer-api.md, "Using your connected apps directly" | `get-app-action` `list-app-actions` `list-app-calls` |
+| Find and call a connected app's actions directly | `operate-ai-employees` | references/customer-api.md, "Using your connected apps directly" | `get-app-action` `list-app-actions` `list-app-calls` `search-actions` |
 | List the executions of a run | `operate-ai-employees` | references/customer-api.md, "The run's logs" | `list-executions` |
 | Make a chart, diagram or document into a picture, PDF or Word file | `operate-ai-employees` | references/customer-api.md, "Charts, diagrams and documents as pictures and files" | `download-assistant-chat-card` `make-card-file` `report-assistant-chat-card-render-failure` |
 | Share a page at a link anyone can open | `operate-ai-employees` | references/customer-api.md, "Sharing a page at a public link" | `publish-page` `update-page` |

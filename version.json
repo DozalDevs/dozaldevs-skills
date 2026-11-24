@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.11.23-ff18224",
+  "skills_version": "2026.11.24-1246e58",
   "cli_version": "0.6.3",
-  "source_commit": "ff1822460bd79610a72b05346bf6e8b3e29f8c37",
-  "content_hash": "13ed40fa7c9799bfdcd1cf1498cfc78d3307b1e394dbdc53821fba89e3f4bc4a",
+  "source_commit": "1246e58b289d1c05ad77d2dc13657cb8b041adb5",
+  "content_hash": "e6873ecf3721dca0139618268f55841f5db1135d6bde1594dfc9af8476508fcd",
   "history": [
+    {
+      "version": "2026.11.24-1246e58",
+      "date": "2026-11-24",
+      "changes": "One search over everything a customer's AI can do: platform operations and every app action"
+    },
     {
       "version": "2026.11.23-ff18224",
       "date": "2026-11-23",
