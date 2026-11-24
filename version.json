@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.11.24-d33c4b2",
+  "skills_version": "2026.11.24-1833594",
   "cli_version": "0.6.3",
-  "source_commit": "d33c4b23b08c8a4ba8eee809e03602e6618a287f",
-  "content_hash": "a3fff5c4d40fa731d332ba22537b7f7095613ee24bb6b79c8d8a9f919eba6078",
+  "source_commit": "18335947d72b5b2bef5ac75d8fe61ca1ca87e7e7",
+  "content_hash": "e1d8078b87e46fe40582b5f6ee9187a6e822b08868a57f9c2f0bd872dca5040b",
   "history": [
+    {
+      "version": "2026.11.24-1833594",
+      "date": "2026-11-24",
+      "changes": "Undo, redo and the change list of a website's draft, for the person editing it"
+    },
     {
       "version": "2026.11.24-d33c4b2",
       "date": "2026-11-24",
