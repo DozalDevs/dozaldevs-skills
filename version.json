@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.11.24-f34d093",
+  "skills_version": "2026.11.24-cd6cb06",
   "cli_version": "0.6.3",
-  "source_commit": "f34d0931a32a412ce6218547a725a7b751956d2c",
-  "content_hash": "2f4d9cf178c1a86c03a82ac987f9254340e41413252df6f6c79d6e510dc1b983",
+  "source_commit": "cd6cb0660d5726613f3b2e3ca796c99f74d7b42c",
+  "content_hash": "90c9a1e588f879a47e130b09ad9d7ba5b4a2e0357255c4ff2081e474e2e1721d",
   "history": [
+    {
+      "version": "2026.11.24-cd6cb06",
+      "date": "2026-11-24",
+      "changes": "The Ask chat reads a shared page before changing it, and changes only what was asked"
+    },
     {
       "version": "2026.11.24-f34d093",
       "date": "2026-11-24",

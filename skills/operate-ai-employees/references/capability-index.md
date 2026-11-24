@@ -21,7 +21,7 @@ A command a job does not list yet is still callable: `dozaldevs help` lists them
 | Find and call a connected app's actions directly | `operate-ai-employees` | references/customer-api.md, "Using your connected apps directly" | `get-app-action` `list-app-actions` `list-app-calls` `search-actions` |
 | List the executions of a run | `operate-ai-employees` | references/customer-api.md, "The run's logs" | `list-executions` |
 | Make a chart, diagram or document into a picture, PDF or Word file | `operate-ai-employees` | references/customer-api.md, "Charts, diagrams and documents as pictures and files" | `download-assistant-chat-card` `make-card-file` `report-assistant-chat-card-render-failure` |
-| Share a page at a link anyone can open | `operate-ai-employees` | references/customer-api.md, "Sharing a page at a public link" | `publish-page` `update-page` |
+| Share a page at a link anyone can open | `operate-ai-employees` | references/customer-api.md, "Sharing a page at a public link" | `get-page` `publish-page` `update-page` |
 | Change a Dozal's settings (such as the Slack tag that starts it) | `operate-ai-employees` | references/customer-api.md, "Starting a run from a Slack tag" | `update-dozal` |
 | Check the held change, then hire from the chat or throw it away | `hire-ai-employee` | SKILL.md, "Hiring the Dozal" | `discard-hiring-chat` `get-wait-dozal-change` `hire-from-hiring-chat` `submit-wait-decisions` |
 | List the abilities a Dozal can have | `hire-ai-employee` | SKILL.md, "What a Dozal can do" | `list-dozal-abilities` |
