@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.11.24-1246e58",
+  "skills_version": "2026.11.24-d33c4b2",
   "cli_version": "0.6.3",
-  "source_commit": "1246e58b289d1c05ad77d2dc13657cb8b041adb5",
-  "content_hash": "e6873ecf3721dca0139618268f55841f5db1135d6bde1594dfc9af8476508fcd",
+  "source_commit": "d33c4b23b08c8a4ba8eee809e03602e6618a287f",
+  "content_hash": "a3fff5c4d40fa731d332ba22537b7f7095613ee24bb6b79c8d8a9f919eba6078",
   "history": [
+    {
+      "version": "2026.11.24-d33c4b2",
+      "date": "2026-11-24",
+      "changes": "Show what a Dozal is doing in its browser, and what it did after"
+    },
     {
       "version": "2026.11.24-1246e58",
       "date": "2026-11-24",

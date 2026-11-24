@@ -2,7 +2,7 @@
 name: run-ai-employee
 description: "Use when a human wants to run, trigger, start, or test-run an existing AI employee, e.g. run the recap bot now, kick off the guest responder, or run it once per topic from a list of inputs. Triggers the employee, can dry-run to list required inputs, and hands back task handles without blocking. Load operate-ai-employees first for auth; use monitor-and-review-ai-employee-work to check the result."
 metadata:
-  version: "2026.11.24-1246e58"
+  version: "2026.11.24-d33c4b2"
 ---
 
 # Run an AI Employee
