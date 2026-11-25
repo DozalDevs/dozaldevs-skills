@@ -2,7 +2,7 @@
 name: operate-ai-employees
 description: "Use when a human asks you to operate their AI Employee platform account: hiring an employee, running one, checking on a task, approving or rejecting work, listing or pausing employees, or managing connections, schedules, handoffs, members, usage, bills, activity and run logs. Load this first to route between the four job skills. The umbrella skill: dze_ API key auth and its level, the production base URL, tenant resolution, the async model, and person-only steps."
 metadata:
-  version: "2026.11.25-26f7eca"
+  version: "2026.11.25-1cf28d9"
 ---
 
 # Operate AI Employees
@@ -14,7 +14,7 @@ You are the **operator** of a customer's AI Employee platform account. The human
 Check the CLI and tell it which skills version you have:
 
 ```sh
-dozaldevs version --skills 2026.11.25-26f7eca
+dozaldevs version --skills 2026.11.25-1cf28d9
 ```
 
 If `dozaldevs` isn't found, run `npm install -g dozaldevs` first. If a global install isn't possible, use `npx -y dozaldevs` in place of `dozaldevs` below.
@@ -68,7 +68,7 @@ AI employees take **minutes**. Never block in a tight loop:
 
 ## 6. What only a person can do
 
-A key never does these. Say so, name the dashboard step, and don't retry or look for a workaround:
+A key never does these. Say so, name the dashboard step (names: `references/dashboard-map.md`), and don't retry or look for a workaround:
 
 - Create the organization, mint or revoke keys, invite people, change or remove members, suspend or delete the organization (`403 API_KEY_NOT_ALLOWED`).
 - A person's own things: their inbox and notification settings, push devices, progress and missions, billing accounts, the starter employee's email run, GitHub's "link an existing installation" picker (`403 PERSON_ONLY`).
@@ -103,7 +103,7 @@ No shell, or the human runs an MCP client? Read `references/2026-10-28-1703-mcp.
 Without a `dze_` key, a person does a one-time browser setup. You can't create the organization or mint the first key. Tell them to:
 
 1. Sign up or log in at `https://app.dozaldevs.com` and create the organization.
-2. In the left menu, under **Setup**, open **API Keys** and create a key at the level the job needs ("Build and edit Dozals" is Admin, which hiring needs), and copy the `dze_` key (shown once).
+2. In the menu, open **Settings > API Keys** and create a key at the level the job needs ("Build and edit Dozals" is Admin, which hiring needs), and copy the `dze_` key (shown once).
 3. Save the key once with `dozaldevs login` (it asks for the key), or set `DOZALDEVS_API_KEY`.
 
 ---

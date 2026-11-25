@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.11.25-26f7eca",
+  "skills_version": "2026.11.25-1cf28d9",
   "cli_version": "0.6.3",
-  "source_commit": "26f7ecabbceea58e84b4bf0297b8ac180693e4d8",
-  "content_hash": "0607383a07947e59b7186b74c0c77b779bc9e920c25e9b1029b1306b7f35dfe4",
+  "source_commit": "1cf28d9d2c3b26004895b7c5a47b3d37df71ff5c",
+  "content_hash": "226fd75099975646c017cd8086de01055713ba00a34545b433d11af70055f50b",
   "history": [
+    {
+      "version": "2026.11.25-1cf28d9",
+      "date": "2026-11-25",
+      "changes": "Check dashboard steps as links against a map built from the dashboard code"
+    },
     {
       "version": "2026.11.25-26f7eca",
       "date": "2026-11-25",
