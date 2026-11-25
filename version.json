@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.11.25-a437226",
+  "skills_version": "2026.11.25-262a77a",
   "cli_version": "0.6.3",
-  "source_commit": "a4372265c705ffe2098a6fa84615dc83a5812061",
-  "content_hash": "c7d244a256b93f54663c7efd376f3f5865295d13d4909ab41e9dbd422d9d24d6",
+  "source_commit": "262a77a2cf775756763a22176ae4401e2dbbfd15",
+  "content_hash": "a7ee68c10ce06e26843c68d1c0e49438d4c4fd4204311c032bd6fd9c5854cdfc",
   "history": [
+    {
+      "version": "2026.11.25-262a77a",
+      "date": "2026-11-25",
+      "changes": "Voice messages in the Ask chat, with the answer read aloud; Read aloud: Listen reads the whole reply of its turn, never an earlier answer"
+    },
     {
       "version": "2026.11.25-a437226",
       "date": "2026-11-25",

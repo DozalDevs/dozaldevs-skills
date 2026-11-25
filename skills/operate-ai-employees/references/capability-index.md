@@ -13,7 +13,7 @@ A command a job does not list yet is still callable: `dozaldevs help` lists them
 | Call a command and read one run or the list of Dozals | `operate-ai-employees` | SKILL.md, "3. How to call" | `get-task` `list-dozals` |
 | Check which apps are connected after a person approves a connect | `operate-ai-employees` | SKILL.md, "6. What only a person can do" | `list-app-connections` |
 | Read or change something in a connected app without a Dozal | `operate-ai-employees` | SKILL.md, "7. Routing: pick the right job skill" | `run-app-action` |
-| Read what a photo, PDF, spreadsheet or text file says | `operate-ai-employees` | references/customer-api.md, "Reading a photo or a file" | `hand-over-file` `read-file` |
+| Read what a photo, PDF, spreadsheet or text file says | `operate-ai-employees` | references/customer-api.md, "Reading a photo or a file" | `get-voice-message` `hand-over-file` `read-file` |
 | Get a website's saved login from the organization's connected 1Password | `operate-ai-employees` | references/customer-api.md, "Signing in with a login saved in 1Password" | `get-saved-login` |
 | Make a picture (a flyer, a post, an illustration) without a Dozal | `operate-ai-employees` | SKILL.md, "3. How to call" | `make-picture` |
 | Send DozalDevs feedback about a failed call, with the person's yes | `operate-ai-employees` | references/2026-10-31-2230-feedback.md, "When something goes wrong: send feedback" | `check-feedback-for-dozal` `confirm-feedback-item` `get-feedback-item` `preview-feedback-item` |
@@ -53,5 +53,5 @@ A command a job does not list yet is still callable: `dozaldevs help` lists them
 | Read pages of a website with its saved sign-in | `operate-ai-employees` | references/customer-api.md, "Reading a website with its saved sign-in" | `read-browser-site-pages` `get-browser-site-read` `run-browser-keep-alive-visit` |
 | Look, click and type on a website with its saved sign-in | `operate-ai-employees` | references/customer-api.md, "Browsing a website with its saved sign-in" | `open-browser-site-session` `take-browse-session-step` `end-browse-session` |
 | Turn a short recording of speech into text | `operate-ai-employees` | references/customer-api.md, "Turning speech into text" | `transcribe-dictation` |
-| Talk out loud with the chat: hear a spoken turn, speak a reply, read an answer aloud | `operate-ai-employees` | references/customer-api.md, "Talking out loud with the chat" | `get-live-voice` `hear-live-voice` `judge-live-voice-language` `read-assistant-chat-line-aloud` `speak-live-voice` |
+| Talk out loud with the chat: hear a spoken turn, speak a reply, read an answer aloud | `operate-ai-employees` | references/customer-api.md, "Talking out loud with the chat" | `get-live-voice` `hear-live-voice` `judge-live-voice-language` `read-assistant-chat-line-aloud` `read-assistant-chat-turn-aloud` `speak-live-voice` |
 | Make a Dozal's saved tool run before it starts, or optional again | `manage-ai-employees` | references/fixed-steps.md, "Tools that run before a Dozal starts" | `set-dozal-workspace-tool-fixed-step` |
