@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.11.25-1cf28d9",
+  "skills_version": "2026.11.25-4d225bb",
   "cli_version": "0.6.3",
-  "source_commit": "1cf28d9d2c3b26004895b7c5a47b3d37df71ff5c",
-  "content_hash": "226fd75099975646c017cd8086de01055713ba00a34545b433d11af70055f50b",
+  "source_commit": "4d225bb145c3db72d02f651120836c0d3d392ab4",
+  "content_hash": "b8fba3ed146ab311e0e7bc6dec9c0367a1385abfcb33e3aef1fb50be1be382af",
   "history": [
+    {
+      "version": "2026.11.25-4d225bb",
+      "date": "2026-11-25",
+      "changes": "Read aloud: when each word of an answer is said, so the player can light it"
+    },
     {
       "version": "2026.11.25-1cf28d9",
       "date": "2026-11-25",
