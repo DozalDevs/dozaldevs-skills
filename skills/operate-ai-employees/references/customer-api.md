@@ -425,7 +425,7 @@ If your own screen could not draw a card (a diagram that won't parse, say), `rep
 
 ## Talking out loud with the chat
 
-The dashboard's talk mode (a spoken conversation with the Ask chat) is three calls, usable with a key for your own voice client:
+The dashboard's talk mode (a spoken conversation with the Ask chat) is four calls, usable with a key for your own voice client:
 
 - `get-live-voice` (`GET /admin/tenants/:tenantId/live-voice`, any level) says whether talk mode is on (`enabled`), `turn_sound_threshold`, the chance from a sound-based end-of-turn model at or above which a client may treat a turn as finished, and `languages`, the languages with a voice of their own.
 - `hear-live-voice` (`POST /admin/tenants/:tenantId/live-voice/transcriptions`, member and up) takes one piece of speech cut at a pause, as a 16-bit WAV in `audio_base64` (up to 3 MiB), plus `before`, what the person already said in this turn. It answers `{ "text": "...", "finished": true | false | null }`: whether the whole turn sounds finished from its words, or null when it can't tell (then wait a second of quiet). A 422 `LIVE_VOICE_NOT_HEARD` means no speech was heard.
@@ -433,6 +433,9 @@ The dashboard's talk mode (a spoken conversation with the Ask chat) is three cal
 - `judge-live-voice-language` (`POST /admin/tenants/:tenantId/live-voice/language`, member and up) takes `text`, what the person said, and answers `{ "language": "es" }` when they spoke one of the languages with a voice of their own (listed in `languages` on `get-live-voice`), or `null`. Ask it while the reply is being written, then pass the answer to `speak-live-voice`.
 
 Send the person's words to the chat as an ordinary message with `spoken: true` so the reply is written to be heard. Nothing is kept: neither the audio nor the text is stored or logged. Each call is a small cost recorded for the organization.
+
+To read one answer of a chat aloud afterwards (the dashboard's Listen button), use `read-assistant-chat-line-aloud` (`POST /admin/tenants/:tenantId/assistant/chats/:conversationId/lines/:seq/read-aloud`, member and up; for a hiring or change-a-Dozal chat, admin and up). `seq` is the answer's line number in the chat (`seq` on each message of `get-assistant-chat`); a line that is not an answer, or a chat that isn't yours, is a 404. It answers `{ "audioUrl": "...", "words": [], "lang": "en" | "es" }` (plus the chat's `title` when it has one): `audioUrl` is a fresh signed link, good for an hour, to one MP3 of the whole answer and answers range requests; `lang` is the language it is read in; `words` is empty for now. The sound is made the first time and kept privately, so asking again only returns a fresh link and costs nothing more; the sound is deleted when the chat is. Making it is a cost recorded for the organization, once per answer. A 502 `READ_ALOUD_FAILED` means it could not be made and nothing was kept; try again in a minute. A 503 `LIVE_VOICE_UNAVAILABLE` means talk mode's voice is off.
+
 ## What still needs a person
 
 An agent can do almost everything, but a few steps are a human's by design:

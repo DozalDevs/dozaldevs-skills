@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.11.25-5b9d515",
+  "skills_version": "2026.11.25-a437226",
   "cli_version": "0.6.3",
-  "source_commit": "5b9d5157ffd6c87fe87aa3e55afda5a48fa3a4df",
-  "content_hash": "0cb50167bf9aa4027a87749e3bacd9c6930ee63b18bb830b1bae343d51775375",
+  "source_commit": "a4372265c705ffe2098a6fa84615dc83a5812061",
+  "content_hash": "c7d244a256b93f54663c7efd376f3f5865295d13d4909ab41e9dbd422d9d24d6",
   "history": [
+    {
+      "version": "2026.11.25-a437226",
+      "date": "2026-11-25",
+      "changes": "Chat: listen to any answer read aloud"
+    },
     {
       "version": "2026.11.25-5b9d515",
       "date": "2026-11-25",
