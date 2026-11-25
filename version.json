@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.11.24-cd6cb06",
+  "skills_version": "2026.11.25-5b9d515",
   "cli_version": "0.6.3",
-  "source_commit": "cd6cb0660d5726613f3b2e3ca796c99f74d7b42c",
-  "content_hash": "90c9a1e588f879a47e130b09ad9d7ba5b4a2e0357255c4ff2081e474e2e1721d",
+  "source_commit": "5b9d5157ffd6c87fe87aa3e55afda5a48fa3a4df",
+  "content_hash": "0cb50167bf9aa4027a87749e3bacd9c6930ee63b18bb830b1bae343d51775375",
   "history": [
+    {
+      "version": "2026.11.25-5b9d515",
+      "date": "2026-11-25",
+      "changes": "Start a browser sign-in at once and make its browser in the background"
+    },
     {
       "version": "2026.11.24-cd6cb06",
       "date": "2026-11-24",
