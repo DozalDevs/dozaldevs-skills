@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.11.25-262a77a",
+  "skills_version": "2026.11.25-26f7eca",
   "cli_version": "0.6.3",
-  "source_commit": "262a77a2cf775756763a22176ae4401e2dbbfd15",
-  "content_hash": "a7ee68c10ce06e26843c68d1c0e49438d4c4fd4204311c032bd6fd9c5854cdfc",
+  "source_commit": "26f7ecabbceea58e84b4bf0297b8ac180693e4d8",
+  "content_hash": "0607383a07947e59b7186b74c0c77b779bc9e920c25e9b1029b1306b7f35dfe4",
   "history": [
+    {
+      "version": "2026.11.25-26f7eca",
+      "date": "2026-11-25",
+      "changes": "Publish a guide per app to customers' own AI, from the same tools and notes a Dozal reads"
+    },
     {
       "version": "2026.11.25-262a77a",
       "date": "2026-11-25",

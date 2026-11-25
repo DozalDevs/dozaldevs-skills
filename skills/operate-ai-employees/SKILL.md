@@ -2,7 +2,7 @@
 name: operate-ai-employees
 description: "Use when a human asks you to operate their AI Employee platform account: hiring an employee, running one, checking on a task, approving or rejecting work, listing or pausing employees, or managing connections, schedules, handoffs, members, usage, bills, activity and run logs. Load this first to route between the four job skills. The umbrella skill: dze_ API key auth and its level, the production base URL, tenant resolution, the async model, and person-only steps."
 metadata:
-  version: "2026.11.25-262a77a"
+  version: "2026.11.25-26f7eca"
 ---
 
 # Operate AI Employees
@@ -14,7 +14,7 @@ You are the **operator** of a customer's AI Employee platform account. The human
 Check the CLI and tell it which skills version you have:
 
 ```sh
-dozaldevs version --skills 2026.11.25-262a77a
+dozaldevs version --skills 2026.11.25-26f7eca
 ```
 
 If `dozaldevs` isn't found, run `npm install -g dozaldevs` first. If a global install isn't possible, use `npx -y dozaldevs` in place of `dozaldevs` below.
@@ -46,10 +46,10 @@ dozaldevs get-task "$TASK"
 - Answers are short; `--detailed` gives every field. `--detailed` needs dozaldevs 0.5.0 or newer. What the short form drops: `references/customer-api.md`.
 - A list answers one page at a time. `--all` follows every page and prints all items. Only lists whose `--help` shows a `cursor` option page.
 - `--while <path>=<value> --every <seconds> --timeout <seconds>` repeats a read while the value stays, then prints the last answer. See the job skills.
-- `dozaldevs help` lists every command, `dozaldevs help <words>` searches them, and `dozaldevs <command> --help` shows one command's ids, options and body.
-- Never use a `stream-*` command, it stays open until the server closes it. Use `--while` to wait.
+- `dozaldevs help` lists commands, `dozaldevs help <words>` searches them, `dozaldevs <command> --help` shows one's ids, options and body.
+- Never use a `stream-*` command; it stays open until the server closes it. Use `--while` to wait.
 - Never use `curl`.
-- Connected app: `run-app-action`. Picture: `make-picture`. No one-off Dozal.
+- Connected app: `run-app-action`. Picture: `make-picture`. No one-off Dozal. Guides: `references/app-guides.md`.
 
 ## 4. Errors
 
