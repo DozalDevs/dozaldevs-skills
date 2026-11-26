@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.11.26-3a8d824",
+  "skills_version": "2026.11.26-7b71f92",
   "cli_version": "0.6.3",
-  "source_commit": "3a8d824fee650d37980e898d75a5ea549423ba74",
-  "content_hash": "6dae781d3cff9804409c00fa6880c5d24a6b706d43abc59fac2772fbacc9e95d",
+  "source_commit": "7b71f921aea3c996bd5d604c11601f48a156750d",
+  "content_hash": "466890077e6f0bed07fa18aeb75d224f1340587cbf998ae333bdc9bf61a044c9",
   "history": [
+    {
+      "version": "2026.11.26-7b71f92",
+      "date": "2026-11-26",
+      "changes": "Voice each sentence once per chat, so Listen after a call costs nothing more"
+    },
     {
       "version": "2026.11.26-3a8d824",
       "date": "2026-11-26",
