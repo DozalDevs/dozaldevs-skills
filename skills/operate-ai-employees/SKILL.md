@@ -2,7 +2,7 @@
 name: operate-ai-employees
 description: "Use when a human asks you to operate their AI Employee platform account: hiring an employee, running one, checking on a task, approving or rejecting work, listing or pausing employees, or managing connections, schedules, handoffs, members, usage, bills, activity and run logs. Load this first to route between the four job skills. The umbrella skill: dze_ API key auth and its level, the production base URL, tenant resolution, the async model, and person-only steps."
 metadata:
-  version: "2026.11.25-4d225bb"
+  version: "2026.11.25-da596ca"
 ---
 
 # Operate AI Employees
@@ -14,7 +14,7 @@ You are the **operator** of a customer's AI Employee platform account. The human
 Check the CLI and tell it which skills version you have:
 
 ```sh
-dozaldevs version --skills 2026.11.25-4d225bb
+dozaldevs version --skills 2026.11.25-da596ca
 ```
 
 If `dozaldevs` isn't found, run `npm install -g dozaldevs` first. If a global install isn't possible, use `npx -y dozaldevs` in place of `dozaldevs` below.
@@ -47,7 +47,7 @@ dozaldevs get-task "$TASK"
 - A list answers one page at a time. `--all` follows every page and prints all items. Only lists whose `--help` shows a `cursor` option page.
 - `--while <path>=<value> --every <seconds> --timeout <seconds>` repeats a read while the value stays, then prints the last answer. See the job skills.
 - `dozaldevs help` lists commands, `dozaldevs help <words>` searches them, `dozaldevs <command> --help` shows one's ids, options and body.
-- Never use a `stream-*` command; it stays open until the server closes it. Use `--while` to wait.
+- Never use a `stream-*` command (it stays open); use `--while` to wait.
 - Never use `curl`.
 - Connected app: `run-app-action`. Picture: `make-picture`. No one-off Dozal. Guides: `references/app-guides.md`.
 

@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.11.25-4d225bb",
+  "skills_version": "2026.11.25-da596ca",
   "cli_version": "0.6.3",
-  "source_commit": "4d225bb145c3db72d02f651120836c0d3d392ab4",
-  "content_hash": "b8fba3ed146ab311e0e7bc6dec9c0367a1385abfcb33e3aef1fb50be1be382af",
+  "source_commit": "da596cae44a1f6791665bc121211ea1e93d49bb0",
+  "content_hash": "c97e712184925535568246cfd2dcaae46bd7f762936d8fa714738017ce9dc0c0",
   "history": [
+    {
+      "version": "2026.11.25-da596ca",
+      "date": "2026-11-25",
+      "changes": "Trim the operator skill back under its size cap"
+    },
     {
       "version": "2026.11.25-4d225bb",
       "date": "2026-11-25",
