@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.11.26-39d106b",
+  "skills_version": "2026.11.26-3a8d824",
   "cli_version": "0.6.3",
-  "source_commit": "39d106b1ff3e4dab654e1340229159a082317de1",
-  "content_hash": "7a5a7754a527edb2a9c365f15541a8698b5e42908dae0b92bf84c0f2fb22f9b3",
+  "source_commit": "3a8d824fee650d37980e898d75a5ea549423ba74",
+  "content_hash": "6dae781d3cff9804409c00fa6880c5d24a6b706d43abc59fac2772fbacc9e95d",
   "history": [
+    {
+      "version": "2026.11.26-3a8d824",
+      "date": "2026-11-26",
+      "changes": "Let the CLI run on a default Windows machine and say exactly where to get a key"
+    },
     {
       "version": "2026.11.26-39d106b",
       "date": "2026-11-26",

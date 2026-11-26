@@ -2,7 +2,7 @@
 name: operate-ai-employees
 description: "Use when a human asks you to operate their AI Employee platform account: hiring an employee, running one, checking on a task, approving or rejecting work, listing or pausing employees, or managing connections, schedules, handoffs, members, usage, bills, activity and run logs. Load this first to route between the four job skills. The umbrella skill: dze_ API key auth and its level, the production base URL, tenant resolution, the async model, and person-only steps."
 metadata:
-  version: "2026.11.26-39d106b"
+  version: "2026.11.26-3a8d824"
 ---
 
 # Operate AI Employees
@@ -14,10 +14,10 @@ You are the **operator** of a customer's AI Employee platform account. The human
 Check the CLI and tell it which skills version you have:
 
 ```sh
-dozaldevs version --skills 2026.11.26-39d106b
+dozaldevs version --skills 2026.11.26-3a8d824
 ```
 
-If `dozaldevs` isn't found, run `npm install -g dozaldevs` first. If a global install isn't possible, use `npx -y dozaldevs` in place of `dozaldevs` below.
+No `dozaldevs`? `npm install -g dozaldevs`, or use `npx -y dozaldevs`. Windows PowerShell: use `dozaldevs.cmd`/`npx.cmd`, never change the execution policy.
 
 **Update notices:** when a command prints a line starting `DozalDevs skills update available` or `DozalDevs CLI update available`, or this one prints only a version number (an old CLI), tell your human a newer version is out and offer to install it. If they say yes, run the command it names.
 
@@ -103,8 +103,8 @@ No shell, or the human runs an MCP client? Read `references/2026-10-28-1703-mcp.
 Without a `dze_` key, a person does a one-time browser setup. You can't create the organization or mint the first key. Tell them to:
 
 1. Sign up or log in at `https://app.dozaldevs.com` and create the organization.
-2. In the menu, open **Settings > API Keys** and create a key at the level the job needs ("Build and edit Dozals" is Admin, which hiring needs), and copy the `dze_` key (shown once).
-3. Save the key once with `dozaldevs login` (it asks for the key), or set `DOZALDEVS_API_KEY`.
+2. At `https://app.dozaldevs.com/dashboard/api-keys`, create a key at the level the job needs ("Build and edit Dozals" is Admin, which hiring needs), and copy the `dze_` key (shown once).
+3. Save the key once with `dozaldevs login`, or set `DOZALDEVS_API_KEY`.
 
 ---
 
