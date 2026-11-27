@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.11.27-ea31f76",
+  "skills_version": "2026.11.27-9755d4e",
   "cli_version": "0.6.4",
-  "source_commit": "ea31f76703174e5e8d4aace24c50965f8c16ff5f",
-  "content_hash": "cafc7d8a0cea6b8c3cb818acbee5136df2468eb7d2107c299bc686165f883a26",
+  "source_commit": "9755d4eae2911181788879b72353b6867187ea4c",
+  "content_hash": "ecc35111c03e1ddbf52e1deb31836696a52c23d165b199fbc10215c2c79b51c6",
   "history": [
+    {
+      "version": "2026.11.27-9755d4e",
+      "date": "2026-11-27",
+      "changes": "Read aloud: remove the one-message route now that Listen reads a turn; Serve the dashboard map and step check to any AI, by lookup"
+    },
     {
       "version": "2026.11.27-ea31f76",
       "date": "2026-11-27",
