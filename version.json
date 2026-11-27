@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.11.27-f43523b",
+  "skills_version": "2026.11.27-ea31f76",
   "cli_version": "0.6.3",
-  "source_commit": "f43523bb8431288e81a64a3ebcaea11ab3aaf884",
-  "content_hash": "cfa47fe4d0a258acfaddebfb734f6765a0ab0a3a599f875fe0186ecb4ae2482d",
+  "source_commit": "ea31f76703174e5e8d4aace24c50965f8c16ff5f",
+  "content_hash": "cafc7d8a0cea6b8c3cb818acbee5136df2468eb7d2107c299bc686165f883a26",
   "history": [
+    {
+      "version": "2026.11.27-ea31f76",
+      "date": "2026-11-27",
+      "changes": "Skills updated."
+    },
     {
       "version": "2026.11.27-f43523b",
       "date": "2026-11-27",
