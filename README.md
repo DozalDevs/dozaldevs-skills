@@ -11,15 +11,19 @@ npx skills add DozalDevs/dozaldevs-skills
 npm install -g dozaldevs
 ```
 
+On Windows, if PowerShell says running scripts is disabled, type `dozaldevs.cmd` in place of `dozaldevs`.
+
 ## 2. Add your key
 
-At https://app.dozaldevs.com, open **Setup**, then **API Keys**, and create a key. Pick "Build and edit Dozals" to try everything. Then run:
+At https://app.dozaldevs.com, open [API keys](https://app.dozaldevs.com/dashboard/api-keys) and create a key. Pick "Build and edit Dozals" to try everything. Then run:
 
 ```
 dozaldevs login
 ```
 
 Paste the key when it asks. It's saved on this computer.
+
+No key, or the CLI won't run? Skip this step and connect your assistant by signing in: [Use it from ChatGPT or Claude](https://app.dozaldevs.com/dashboard/connect-assistant).
 
 In more than one organization? Run `dozaldevs login` again with the other organization's key. Each key is saved as its own profile, named after its organization, and the newest login is the one in use.
 

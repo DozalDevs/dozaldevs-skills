@@ -2,7 +2,7 @@
 name: operate-ai-employees
 description: "Use when a human asks you to operate their AI Employee platform account: hiring an employee, running one, checking on a task, approving or rejecting work, listing or pausing employees, or managing connections, schedules, handoffs, members, usage, bills, activity and run logs. Load this first to route between the four job skills. The umbrella skill: dze_ API key auth and its level, the production base URL, tenant resolution, the async model, and person-only steps."
 metadata:
-  version: "2026.11.26-7b71f92"
+  version: "2026.11.27-c5a0fb4"
 ---
 
 # Operate AI Employees
@@ -14,14 +14,14 @@ You are the **operator** of a customer's AI Employee platform account. The human
 Check the CLI and tell it which skills version you have:
 
 ```sh
-dozaldevs version --skills 2026.11.26-7b71f92
+dozaldevs version --skills 2026.11.27-c5a0fb4
 ```
 
 No `dozaldevs`? `npm install -g dozaldevs`, or use `npx -y dozaldevs`. Windows PowerShell: use `dozaldevs.cmd`/`npx.cmd`, never change the execution policy.
 
 **Update notices:** when a command prints a line starting `DozalDevs skills update available` or `DozalDevs CLI update available`, or this one prints only a version number (an old CLI), tell your human a newer version is out and offer to install it. If they say yes, run the command it names.
 
-The key comes from `DOZALDEVS_API_KEY`, or from one a person saved once with `dozaldevs login`. You never run `login` yourself, a person does. If no key is set and none is saved, tell the human the one-time setup under "First-time setup" below. The CLI looks the organization up from the key, so `DOZALDEVS_TENANT_ID` is optional. `DOZALDEVS_BASE_URL` is only for another host. The older `AI_EMPLOYEE_*` names still work.
+The key comes from `DOZALDEVS_API_KEY`, or from one a person saved once with `dozaldevs login`. You never run `login` yourself, a person does. No key, or the CLI won't run? Read `references/2026-10-28-1703-mcp.md` before "First-time setup". The CLI looks the organization up from the key, so `DOZALDEVS_TENANT_ID` is optional. `DOZALDEVS_BASE_URL` is only for another host. The older `AI_EMPLOYEE_*` names still work.
 
 ## 2. Credential and level
 
@@ -96,7 +96,7 @@ Never press an approval or "just send it" choice on the human's behalf.
 
 A call failed with a `request_id`, or the person calls it broken? Offer to send DozalDevs feedback, never unasked or without their yes: read `references/2026-10-31-2230-feedback.md`.
 
-No shell, or the human runs an MCP client? Read `references/2026-10-28-1703-mcp.md`.
+No shell, a blocked CLI, or an MCP client? Read `references/2026-10-28-1703-mcp.md`.
 
 ## First-time setup (no key yet)
 
