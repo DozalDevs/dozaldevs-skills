@@ -77,6 +77,7 @@ Each line says when a job needs the ability.
 - Send message inline: When the job needs to send a WhatsApp text message whose body is given directly.
 - Airbnb: When the job needs to read or change something in Airbnb.
 - DoorLoop: When the job needs to read or change something in DoorLoop.
+- Doorloop_web: When the job needs to read or change something in Doorloop_web.
 - Gmail: When the job needs to read or change something in Gmail.
 - GoHighLevel: When the job needs to read or change something in GoHighLevel.
 - Googlecalendar: When the job needs to read or change something in Googlecalendar.

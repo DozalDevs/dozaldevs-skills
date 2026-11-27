@@ -6,6 +6,7 @@ One guide per app your AI can act in directly, with every action, what it does a
 
 - [Airbnb](apps/airbnb.md): 12 actions
 - [DoorLoop](apps/doorloop.md): 34 actions
+- [DoorLoop (website sign-in)](apps/doorloop_web.md): 4 actions
 - [Gmail](apps/gmail.md): 5 actions
 - [GoHighLevel](apps/gohighlevel.md): 27 actions
 - [Google Calendar](apps/googlecalendar.md): 12 actions
