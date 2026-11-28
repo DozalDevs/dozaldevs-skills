@@ -2,7 +2,7 @@
 name: hire-ai-employee
 description: "Use when a human wants to create, hire, activate, or set up a new AI employee from a plain-English description, e.g. wanting something that writes a weekly recap or replies to guest messages. Drives the Hiring Dozal's multi-turn setup wizard (the hiring chat), relays its button questions (show me first or just send it) to the human, and hires the finished Dozal. Use it for any new-employee request. Load operate-ai-employees first for auth and base-URL setup."
 metadata:
-  version: "2026.11.28-48696c1"
+  version: "2026.11.28-48ed2d4"
 ---
 
 # Hire an AI Employee
@@ -20,6 +20,8 @@ Say what the job needs in your own words; the chat picks the matching abilities.
 ## How the chat works
 
 The chat lives on the server. You open it once, then send one message at a time. Each send answers `202` straight away and the reply is written later (up to about a minute and a half when the first machine has to start). So every turn is: send, wait, read.
+
+**When it waits on your human.** If an answer has `waiting_on_person: true` (the CLI then prints `Nothing is hired yet. Ask your person to open this link to answer: <link>`), a question only they can answer is open, such as whether the Dozal may act on its own. Give them `open_url` and say plainly that nothing is hired yet. Never tell them it is configured, saved or hired until a later answer says so.
 
 1. **Open.** Keep the chat id.
 

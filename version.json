@@ -1,9 +1,14 @@
 {
-  "skills_version": "2026.11.28-48696c1",
-  "cli_version": "0.6.4",
-  "source_commit": "48696c13b036ceac43a6151c1ac35b870ea252c1",
-  "content_hash": "5736f339449ec071d2e1ae633143cc3de9e920d0748ebd88dcc020a04dadf728",
+  "skills_version": "2026.11.28-48ed2d4",
+  "cli_version": "0.6.5",
+  "source_commit": "48ed2d44f8690b0dfc96bc05130a3ba2412c52ac",
+  "content_hash": "1051b939638fd00789b3bb1277526722b529eb096f8556c49740d68d327cb6fe",
   "history": [
+    {
+      "version": "2026.11.28-48ed2d4",
+      "date": "2026-11-28",
+      "changes": "fix(cli): say nothing is hired yet when a hire waits on a person (0.6.5)"
+    },
     {
       "version": "2026.11.28-48696c1",
       "date": "2026-11-28",
